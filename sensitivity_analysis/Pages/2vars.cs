@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace sensitivity_analysis.Pages
 {
@@ -372,10 +371,10 @@ namespace sensitivity_analysis.Pages
 
             resAoBabh = ab11 * b + ab10 * (1 - b) + ab01 * b;
 
-            outputAuBunabh.Text = "P(C) = " + resAuBunabh.ToString();
-            outputAoBunabh.Text = "P(C) = " + resAoBunabh.ToString();
-            outputAuBabh.Text = "P(C) = " + resAuBabh.ToString();
-            outputAoBabh.Text = "P(C) = " + resAoBabh.ToString();
+            outputAuBunabh.Text = "P(R) = " + resAuBunabh.ToString();
+            outputAoBunabh.Text = "P(R) = " + resAoBunabh.ToString();
+            outputAuBabh.Text = "P(R) = " + resAuBabh.ToString();
+            outputAoBabh.Text = "P(R) = " + resAoBabh.ToString();
         }
 
         private void InputA_TextChanged(object sender, EventArgs e)
