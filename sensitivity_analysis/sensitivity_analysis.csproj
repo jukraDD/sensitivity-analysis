@@ -103,6 +103,9 @@
     <EmbeddedResource Include="Pages\2vars.resx">
       <DependentUpon>2vars.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pages\3vars.resx">
+      <DependentUpon>3vars.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -111,6 +114,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -140,6 +144,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="2vars_blue.ico" />
+    <None Include="Resources\3vars.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -44,7 +44,7 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(220, 561);
+            this.panelMenu.Size = new System.Drawing.Size(220, 600);
             this.panelMenu.TabIndex = 0;
             // 
             // btn3vars
@@ -54,13 +54,14 @@
             this.btn3vars.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn3vars.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn3vars.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btn3vars.Image = global::sensitivity_analysis.Properties.Resources._3vars;
             this.btn3vars.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn3vars.Location = new System.Drawing.Point(0, 60);
             this.btn3vars.Name = "btn3vars";
             this.btn3vars.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btn3vars.Size = new System.Drawing.Size(220, 60);
             this.btn3vars.TabIndex = 1;
-            this.btn3vars.Text = "                 3 Ausgangsvariablen";
+            this.btn3vars.Text = "    3 Ausgangsvariablen";
             this.btn3vars.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn3vars.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn3vars.UseVisualStyleBackColor = true;
@@ -91,14 +92,14 @@
             this.pageDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pageDisplay.Location = new System.Drawing.Point(220, 0);
             this.pageDisplay.Name = "pageDisplay";
-            this.pageDisplay.Size = new System.Drawing.Size(580, 561);
+            this.pageDisplay.Size = new System.Drawing.Size(450, 600);
             this.pageDisplay.TabIndex = 1;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 561);
+            this.ClientSize = new System.Drawing.Size(670, 600);
             this.Controls.Add(this.pageDisplay);
             this.Controls.Add(this.panelMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

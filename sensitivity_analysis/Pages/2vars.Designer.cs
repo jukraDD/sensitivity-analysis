@@ -500,9 +500,9 @@
             this.headline3.Location = new System.Drawing.Point(-1, 387);
             this.headline3.Name = "headline3";
             this.headline3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.headline3.Size = new System.Drawing.Size(282, 16);
+            this.headline3.Size = new System.Drawing.Size(283, 16);
             this.headline3.TabIndex = 10;
-            this.headline3.Text = "UND-Baum (C tritt ein, wen A und B eintreten):";
+            this.headline3.Text = "UND-Baum (R tritt ein, wen A und B eintreten):";
             // 
             // headline4
             // 
@@ -512,9 +512,9 @@
             this.headline4.Location = new System.Drawing.Point(-4, 469);
             this.headline4.Name = "headline4";
             this.headline4.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.headline4.Size = new System.Drawing.Size(297, 16);
+            this.headline4.Size = new System.Drawing.Size(298, 16);
             this.headline4.TabIndex = 11;
-            this.headline4.Text = "ODER-Baum (C tritt ein, wen A oder B eintreten):";
+            this.headline4.Text = "ODER-Baum (R tritt ein, wen A oder B eintreten):";
             // 
             // label9
             // 
@@ -654,7 +654,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 561);
+            this.ClientSize = new System.Drawing.Size(804, 561);
             this.Controls.Add(this.output_PnotB);
             this.Controls.Add(this.output_PnotA);
             this.Controls.Add(this.label_PnotB);

@@ -47,12 +47,14 @@ namespace sensitivity_analysis
         private void btn2vars_Click(object sender, EventArgs e)
         {
             ChangeActiveButton(sender);
+            this.Size = new Size(650+220, 600);
             OpenPage(new Pages._2vars(), sender);
         }
 
         private void btn3vars_Click(object sender, EventArgs e)
         {
             ChangeActiveButton(sender);
+            this.Size = new Size(650 + 220, 740);
             OpenPage(new Pages._3vars(), sender);
         }
     }
