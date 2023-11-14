@@ -35,6 +35,10 @@
             this.InputB = new System.Windows.Forms.TextBox();
             this.headline2 = new System.Windows.Forms.Label();
             this.tableProb = new System.Windows.Forms.TableLayoutPanel();
+            this.LabelAunabhB00 = new System.Windows.Forms.Label();
+            this.LabelAunabhB10 = new System.Windows.Forms.Label();
+            this.LabelAunabhB01 = new System.Windows.Forms.Label();
+            this.LabelAunabhB11 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -53,10 +57,6 @@
             this.InputAabhB01 = new System.Windows.Forms.TextBox();
             this.InputAabhB11 = new System.Windows.Forms.TextBox();
             this.labelInputError1 = new System.Windows.Forms.Label();
-            this.LabelAunabhB11 = new System.Windows.Forms.Label();
-            this.LabelAunabhB01 = new System.Windows.Forms.Label();
-            this.LabelAunabhB10 = new System.Windows.Forms.Label();
-            this.LabelAunabhB00 = new System.Windows.Forms.Label();
             this.labelInputError2 = new System.Windows.Forms.Label();
             this.btnCalculate = new System.Windows.Forms.Button();
             this.headline3 = new System.Windows.Forms.Label();
@@ -69,6 +69,10 @@
             this.outputAuBabh = new System.Windows.Forms.Label();
             this.outputAoBunabh = new System.Windows.Forms.Label();
             this.outputAoBabh = new System.Windows.Forms.Label();
+            this.label_PnotA = new System.Windows.Forms.Label();
+            this.label_PnotB = new System.Windows.Forms.Label();
+            this.output_PnotA = new System.Windows.Forms.Label();
+            this.output_PnotB = new System.Windows.Forms.Label();
             this.tableProb.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -130,7 +134,7 @@
             this.headline2.AutoSize = true;
             this.headline2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.headline2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(82)))), ((int)(((byte)(107)))));
-            this.headline2.Location = new System.Drawing.Point(0, 101);
+            this.headline2.Location = new System.Drawing.Point(0, 124);
             this.headline2.Name = "headline2";
             this.headline2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.headline2.Size = new System.Drawing.Size(204, 16);
@@ -165,7 +169,7 @@
             this.tableProb.Controls.Add(this.InputAabhB10, 3, 4);
             this.tableProb.Controls.Add(this.InputAabhB01, 3, 3);
             this.tableProb.Controls.Add(this.InputAabhB11, 3, 2);
-            this.tableProb.Location = new System.Drawing.Point(43, 122);
+            this.tableProb.Location = new System.Drawing.Point(43, 145);
             this.tableProb.Name = "tableProb";
             this.tableProb.RowCount = 6;
             this.tableProb.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
@@ -177,6 +181,58 @@
             this.tableProb.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableProb.Size = new System.Drawing.Size(341, 165);
             this.tableProb.TabIndex = 6;
+            // 
+            // LabelAunabhB00
+            // 
+            this.LabelAunabhB00.AutoSize = true;
+            this.LabelAunabhB00.BackColor = System.Drawing.Color.Transparent;
+            this.LabelAunabhB00.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LabelAunabhB00.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.LabelAunabhB00.ForeColor = System.Drawing.Color.Black;
+            this.LabelAunabhB00.Location = new System.Drawing.Point(83, 133);
+            this.LabelAunabhB00.Name = "LabelAunabhB00";
+            this.LabelAunabhB00.Size = new System.Drawing.Size(124, 32);
+            this.LabelAunabhB00.TabIndex = 38;
+            this.LabelAunabhB00.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LabelAunabhB10
+            // 
+            this.LabelAunabhB10.AutoSize = true;
+            this.LabelAunabhB10.BackColor = System.Drawing.Color.Transparent;
+            this.LabelAunabhB10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LabelAunabhB10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.LabelAunabhB10.ForeColor = System.Drawing.Color.Black;
+            this.LabelAunabhB10.Location = new System.Drawing.Point(83, 102);
+            this.LabelAunabhB10.Name = "LabelAunabhB10";
+            this.LabelAunabhB10.Size = new System.Drawing.Size(124, 31);
+            this.LabelAunabhB10.TabIndex = 37;
+            this.LabelAunabhB10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LabelAunabhB01
+            // 
+            this.LabelAunabhB01.AutoSize = true;
+            this.LabelAunabhB01.BackColor = System.Drawing.Color.Transparent;
+            this.LabelAunabhB01.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LabelAunabhB01.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.LabelAunabhB01.ForeColor = System.Drawing.Color.Black;
+            this.LabelAunabhB01.Location = new System.Drawing.Point(83, 71);
+            this.LabelAunabhB01.Name = "LabelAunabhB01";
+            this.LabelAunabhB01.Size = new System.Drawing.Size(124, 31);
+            this.LabelAunabhB01.TabIndex = 36;
+            this.LabelAunabhB01.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LabelAunabhB11
+            // 
+            this.LabelAunabhB11.AutoSize = true;
+            this.LabelAunabhB11.BackColor = System.Drawing.Color.Transparent;
+            this.LabelAunabhB11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LabelAunabhB11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.LabelAunabhB11.ForeColor = System.Drawing.Color.Black;
+            this.LabelAunabhB11.Location = new System.Drawing.Point(83, 40);
+            this.LabelAunabhB11.Name = "LabelAunabhB11";
+            this.LabelAunabhB11.Size = new System.Drawing.Size(124, 31);
+            this.LabelAunabhB11.TabIndex = 35;
+            this.LabelAunabhB11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
             // 
@@ -408,69 +464,17 @@
             this.labelInputError1.AutoSize = true;
             this.labelInputError1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.labelInputError1.ForeColor = System.Drawing.Color.Red;
-            this.labelInputError1.Location = new System.Drawing.Point(43, 80);
+            this.labelInputError1.Location = new System.Drawing.Point(43, 103);
             this.labelInputError1.Name = "labelInputError1";
             this.labelInputError1.Size = new System.Drawing.Size(0, 16);
             this.labelInputError1.TabIndex = 7;
-            // 
-            // LabelAunabhB11
-            // 
-            this.LabelAunabhB11.AutoSize = true;
-            this.LabelAunabhB11.BackColor = System.Drawing.Color.Transparent;
-            this.LabelAunabhB11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LabelAunabhB11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.LabelAunabhB11.ForeColor = System.Drawing.Color.Black;
-            this.LabelAunabhB11.Location = new System.Drawing.Point(83, 40);
-            this.LabelAunabhB11.Name = "LabelAunabhB11";
-            this.LabelAunabhB11.Size = new System.Drawing.Size(124, 31);
-            this.LabelAunabhB11.TabIndex = 35;
-            this.LabelAunabhB11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LabelAunabhB01
-            // 
-            this.LabelAunabhB01.AutoSize = true;
-            this.LabelAunabhB01.BackColor = System.Drawing.Color.Transparent;
-            this.LabelAunabhB01.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LabelAunabhB01.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.LabelAunabhB01.ForeColor = System.Drawing.Color.Black;
-            this.LabelAunabhB01.Location = new System.Drawing.Point(83, 71);
-            this.LabelAunabhB01.Name = "LabelAunabhB01";
-            this.LabelAunabhB01.Size = new System.Drawing.Size(124, 31);
-            this.LabelAunabhB01.TabIndex = 36;
-            this.LabelAunabhB01.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LabelAunabhB10
-            // 
-            this.LabelAunabhB10.AutoSize = true;
-            this.LabelAunabhB10.BackColor = System.Drawing.Color.Transparent;
-            this.LabelAunabhB10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LabelAunabhB10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.LabelAunabhB10.ForeColor = System.Drawing.Color.Black;
-            this.LabelAunabhB10.Location = new System.Drawing.Point(83, 102);
-            this.LabelAunabhB10.Name = "LabelAunabhB10";
-            this.LabelAunabhB10.Size = new System.Drawing.Size(124, 31);
-            this.LabelAunabhB10.TabIndex = 37;
-            this.LabelAunabhB10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LabelAunabhB00
-            // 
-            this.LabelAunabhB00.AutoSize = true;
-            this.LabelAunabhB00.BackColor = System.Drawing.Color.Transparent;
-            this.LabelAunabhB00.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LabelAunabhB00.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.LabelAunabhB00.ForeColor = System.Drawing.Color.Black;
-            this.LabelAunabhB00.Location = new System.Drawing.Point(83, 133);
-            this.LabelAunabhB00.Name = "LabelAunabhB00";
-            this.LabelAunabhB00.Size = new System.Drawing.Size(124, 32);
-            this.LabelAunabhB00.TabIndex = 38;
-            this.LabelAunabhB00.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelInputError2
             // 
             this.labelInputError2.AutoSize = true;
             this.labelInputError2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.labelInputError2.ForeColor = System.Drawing.Color.Red;
-            this.labelInputError2.Location = new System.Drawing.Point(43, 304);
+            this.labelInputError2.Location = new System.Drawing.Point(43, 327);
             this.labelInputError2.Name = "labelInputError2";
             this.labelInputError2.Size = new System.Drawing.Size(0, 16);
             this.labelInputError2.TabIndex = 8;
@@ -480,7 +484,7 @@
             this.btnCalculate.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(82)))), ((int)(((byte)(107)))));
             this.btnCalculate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCalculate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(82)))), ((int)(((byte)(107)))));
-            this.btnCalculate.Location = new System.Drawing.Point(13, 329);
+            this.btnCalculate.Location = new System.Drawing.Point(13, 352);
             this.btnCalculate.Name = "btnCalculate";
             this.btnCalculate.Size = new System.Drawing.Size(75, 23);
             this.btnCalculate.TabIndex = 9;
@@ -493,7 +497,7 @@
             this.headline3.AutoSize = true;
             this.headline3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.headline3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(82)))), ((int)(((byte)(107)))));
-            this.headline3.Location = new System.Drawing.Point(-1, 364);
+            this.headline3.Location = new System.Drawing.Point(-1, 387);
             this.headline3.Name = "headline3";
             this.headline3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.headline3.Size = new System.Drawing.Size(282, 16);
@@ -505,7 +509,7 @@
             this.headline4.AutoSize = true;
             this.headline4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.headline4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(82)))), ((int)(((byte)(107)))));
-            this.headline4.Location = new System.Drawing.Point(-4, 446);
+            this.headline4.Location = new System.Drawing.Point(-4, 469);
             this.headline4.Name = "headline4";
             this.headline4.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.headline4.Size = new System.Drawing.Size(297, 16);
@@ -518,7 +522,7 @@
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(40, 392);
+            this.label9.Location = new System.Drawing.Point(40, 415);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(130, 16);
             this.label9.TabIndex = 12;
@@ -530,7 +534,7 @@
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(40, 476);
+            this.label10.Location = new System.Drawing.Point(40, 499);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(130, 16);
             this.label10.TabIndex = 13;
@@ -542,7 +546,7 @@
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(40, 421);
+            this.label11.Location = new System.Drawing.Point(40, 444);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(116, 16);
             this.label11.TabIndex = 14;
@@ -554,7 +558,7 @@
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(40, 505);
+            this.label12.Location = new System.Drawing.Point(40, 528);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(116, 16);
             this.label12.TabIndex = 15;
@@ -566,7 +570,7 @@
             this.outputAuBunabh.BackColor = System.Drawing.Color.Transparent;
             this.outputAuBunabh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.outputAuBunabh.ForeColor = System.Drawing.Color.Black;
-            this.outputAuBunabh.Location = new System.Drawing.Point(192, 392);
+            this.outputAuBunabh.Location = new System.Drawing.Point(192, 415);
             this.outputAuBunabh.Name = "outputAuBunabh";
             this.outputAuBunabh.Size = new System.Drawing.Size(0, 16);
             this.outputAuBunabh.TabIndex = 16;
@@ -577,7 +581,7 @@
             this.outputAuBabh.BackColor = System.Drawing.Color.Transparent;
             this.outputAuBabh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.outputAuBabh.ForeColor = System.Drawing.Color.Black;
-            this.outputAuBabh.Location = new System.Drawing.Point(192, 421);
+            this.outputAuBabh.Location = new System.Drawing.Point(192, 444);
             this.outputAuBabh.Name = "outputAuBabh";
             this.outputAuBabh.Size = new System.Drawing.Size(0, 16);
             this.outputAuBabh.TabIndex = 17;
@@ -588,7 +592,7 @@
             this.outputAoBunabh.BackColor = System.Drawing.Color.Transparent;
             this.outputAoBunabh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.outputAoBunabh.ForeColor = System.Drawing.Color.Black;
-            this.outputAoBunabh.Location = new System.Drawing.Point(192, 476);
+            this.outputAoBunabh.Location = new System.Drawing.Point(192, 499);
             this.outputAoBunabh.Name = "outputAoBunabh";
             this.outputAoBunabh.Size = new System.Drawing.Size(0, 16);
             this.outputAoBunabh.TabIndex = 18;
@@ -599,16 +603,62 @@
             this.outputAoBabh.BackColor = System.Drawing.Color.Transparent;
             this.outputAoBabh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.outputAoBabh.ForeColor = System.Drawing.Color.Black;
-            this.outputAoBabh.Location = new System.Drawing.Point(192, 505);
+            this.outputAoBabh.Location = new System.Drawing.Point(192, 528);
             this.outputAoBabh.Name = "outputAoBabh";
             this.outputAoBabh.Size = new System.Drawing.Size(0, 16);
             this.outputAoBabh.TabIndex = 19;
+            // 
+            // label_PnotA
+            // 
+            this.label_PnotA.AutoSize = true;
+            this.label_PnotA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.label_PnotA.ForeColor = System.Drawing.Color.Black;
+            this.label_PnotA.Location = new System.Drawing.Point(33, 76);
+            this.label_PnotA.Name = "label_PnotA";
+            this.label_PnotA.Size = new System.Drawing.Size(43, 16);
+            this.label_PnotA.TabIndex = 20;
+            this.label_PnotA.Text = "P(¬A):";
+            // 
+            // label_PnotB
+            // 
+            this.label_PnotB.AutoSize = true;
+            this.label_PnotB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.label_PnotB.ForeColor = System.Drawing.Color.Black;
+            this.label_PnotB.Location = new System.Drawing.Point(235, 76);
+            this.label_PnotB.Name = "label_PnotB";
+            this.label_PnotB.Size = new System.Drawing.Size(43, 16);
+            this.label_PnotB.TabIndex = 21;
+            this.label_PnotB.Text = "P(¬B):";
+            // 
+            // output_PnotA
+            // 
+            this.output_PnotA.AutoSize = true;
+            this.output_PnotA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.output_PnotA.ForeColor = System.Drawing.Color.Black;
+            this.output_PnotA.Location = new System.Drawing.Point(81, 76);
+            this.output_PnotA.Name = "output_PnotA";
+            this.output_PnotA.Size = new System.Drawing.Size(0, 16);
+            this.output_PnotA.TabIndex = 22;
+            // 
+            // output_PnotB
+            // 
+            this.output_PnotB.AutoSize = true;
+            this.output_PnotB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.output_PnotB.ForeColor = System.Drawing.Color.Black;
+            this.output_PnotB.Location = new System.Drawing.Point(283, 76);
+            this.output_PnotB.Name = "output_PnotB";
+            this.output_PnotB.Size = new System.Drawing.Size(0, 16);
+            this.output_PnotB.TabIndex = 23;
             // 
             // _2vars
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 561);
+            this.Controls.Add(this.output_PnotB);
+            this.Controls.Add(this.output_PnotA);
+            this.Controls.Add(this.label_PnotB);
+            this.Controls.Add(this.label_PnotA);
             this.Controls.Add(this.outputAoBabh);
             this.Controls.Add(this.outputAoBunabh);
             this.Controls.Add(this.outputAuBabh);
@@ -681,5 +731,9 @@
         private System.Windows.Forms.Label outputAuBabh;
         private System.Windows.Forms.Label outputAoBunabh;
         private System.Windows.Forms.Label outputAoBabh;
+        private System.Windows.Forms.Label label_PnotA;
+        private System.Windows.Forms.Label label_PnotB;
+        private System.Windows.Forms.Label output_PnotA;
+        private System.Windows.Forms.Label output_PnotB;
     }
 }
