@@ -44,7 +44,7 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(220, 600);
+            this.panelMenu.Size = new System.Drawing.Size(220, 561);
             this.panelMenu.TabIndex = 0;
             // 
             // btn3vars
@@ -92,14 +92,14 @@
             this.pageDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pageDisplay.Location = new System.Drawing.Point(220, 0);
             this.pageDisplay.Name = "pageDisplay";
-            this.pageDisplay.Size = new System.Drawing.Size(450, 600);
+            this.pageDisplay.Size = new System.Drawing.Size(634, 561);
             this.pageDisplay.TabIndex = 1;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(670, 600);
+            this.ClientSize = new System.Drawing.Size(854, 561);
             this.Controls.Add(this.pageDisplay);
             this.Controls.Add(this.panelMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
