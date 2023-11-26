@@ -228,6 +228,11 @@ namespace sensitivity_analysis.Pages
                         labelInputError2.Text = "Der Wert für P(A|B) muss kleiner als der Quotient P(A)/P(B) (" + a / b + ") sein.";
                         ResetAbhInput("11");
                     }
+                    else if ((a-(1-b))/b > ab11)
+                    {
+                        labelInputError2.Text = "Der Wert für P(A|B) muss größer als der Quotient (P(A)-P(¬B))/P(B) (" + (a-(1-b))/b + ") sein.";
+                        ResetAbhInput("11");
+                    }
                     else
                     {
                         ab01 = 1 - ab11;
@@ -263,6 +268,11 @@ namespace sensitivity_analysis.Pages
                     if ((1-a) / b < ab01)
                     {
                         labelInputError2.Text = "Der Wert für P(¬A|B) muss kleiner als der Quotient P(¬A)/P(B) (" + (1-a)/b + ") sein.";
+                        ResetAbhInput("01");
+                    }
+                    else if (((1-a)-(1-b))/b > ab01)
+                    {
+                        labelInputError2.Text = "Der Wert für P(¬A|B) muss größer als der Quotient (P(¬A)-P(¬B))/P(B) (" + ((1-a)-(1-b))/b + ") sein.";
                         ResetAbhInput("01");
                     }
                     else
@@ -302,6 +312,11 @@ namespace sensitivity_analysis.Pages
                         labelInputError2.Text = "Der Wert für P(A|¬B) muss kleiner als der Quotient P(A)/P(¬B) (" + a/(1-b) + ") sein.";
                         ResetAbhInput("10");
                     }
+                    else if ((a-b)/(1-b) > ab10)
+                    {
+                        labelInputError2.Text = "Der Wert für P(A|¬B) muss größer als der Quotient (P(A)-P(B))/P(¬B) (" + (a-b)/(1-b) + ") sein.";
+                        ResetAbhInput("10");
+                    }
                     else
                     {
                         ab00 = 1 - ab10;
@@ -337,6 +352,11 @@ namespace sensitivity_analysis.Pages
                     if ((1-a)/(1-b) < ab00)
                     {
                         labelInputError2.Text = "Der Wert für P(¬A|¬B) muss kleiner als der Quotient P(¬A)/P(¬B) (" + (1-a)/(1-b) + ") sein.";
+                        ResetAbhInput("00");
+                    }
+                    else if (((1-a)-b)/(1-b) > ab00)
+                    {
+                        labelInputError2.Text = "Der Wert für P(¬A|¬B) muss größer als der Quotient (P(¬A)-P(B))/P(¬B) (" + ((1-a)-b)/(1-b) + ") sein.";
                         ResetAbhInput("00");
                     }
                     else
