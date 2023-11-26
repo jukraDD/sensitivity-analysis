@@ -54,7 +54,6 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label_PAuC = new System.Windows.Forms.Label();
             this.label_PAuB = new System.Windows.Forms.Label();
-            this.AabhBC = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -231,9 +230,8 @@
             this.tableProb.Controls.Add(this.label20, 0, 8);
             this.tableProb.Controls.Add(this.label19, 0, 7);
             this.tableProb.Controls.Add(this.label18, 0, 6);
-            this.tableProb.Controls.Add(this.label_PAuC, 5, 1);
-            this.tableProb.Controls.Add(this.label_PAuB, 4, 1);
-            this.tableProb.Controls.Add(this.AabhBC, 4, 0);
+            this.tableProb.Controls.Add(this.label_PAuC, 5, 0);
+            this.tableProb.Controls.Add(this.label_PAuB, 4, 0);
             this.tableProb.Controls.Add(this.label16, 2, 5);
             this.tableProb.Controls.Add(this.label15, 2, 4);
             this.tableProb.Controls.Add(this.label14, 2, 3);
@@ -513,9 +511,10 @@
             this.label_PAuC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label_PAuC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.label_PAuC.ForeColor = System.Drawing.Color.Black;
-            this.label_PAuC.Location = new System.Drawing.Point(339, 20);
+            this.label_PAuC.Location = new System.Drawing.Point(339, 0);
             this.label_PAuC.Name = "label_PAuC";
-            this.label_PAuC.Size = new System.Drawing.Size(102, 20);
+            this.tableProb.SetRowSpan(this.label_PAuC, 2);
+            this.label_PAuC.Size = new System.Drawing.Size(102, 40);
             this.label_PAuC.TabIndex = 46;
             this.label_PAuC.Text = "P(A|C)";
             this.label_PAuC.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -527,27 +526,13 @@
             this.label_PAuB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label_PAuB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.label_PAuB.ForeColor = System.Drawing.Color.Black;
-            this.label_PAuB.Location = new System.Drawing.Point(231, 20);
+            this.label_PAuB.Location = new System.Drawing.Point(231, 0);
             this.label_PAuB.Name = "label_PAuB";
-            this.label_PAuB.Size = new System.Drawing.Size(102, 20);
+            this.tableProb.SetRowSpan(this.label_PAuB, 2);
+            this.label_PAuB.Size = new System.Drawing.Size(102, 40);
             this.label_PAuB.TabIndex = 45;
             this.label_PAuB.Text = "P(A|B)";
             this.label_PAuB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // AabhBC
-            // 
-            this.AabhBC.AutoSize = true;
-            this.AabhBC.BackColor = System.Drawing.Color.Transparent;
-            this.tableProb.SetColumnSpan(this.AabhBC, 2);
-            this.AabhBC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AabhBC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.AabhBC.ForeColor = System.Drawing.Color.Black;
-            this.AabhBC.Location = new System.Drawing.Point(231, 0);
-            this.AabhBC.Name = "AabhBC";
-            this.AabhBC.Size = new System.Drawing.Size(210, 20);
-            this.AabhBC.TabIndex = 44;
-            this.AabhBC.Text = "A abh. von B und C";
-            this.AabhBC.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label16
             // 
@@ -679,7 +664,7 @@
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(43, 133);
+            this.label7.Location = new System.Drawing.Point(3, 133);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(34, 31);
             this.label7.TabIndex = 34;
@@ -693,7 +678,7 @@
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(3, 133);
+            this.label8.Location = new System.Drawing.Point(43, 133);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(34, 31);
             this.label8.TabIndex = 33;
@@ -981,9 +966,9 @@
             this.headline2.Location = new System.Drawing.Point(0, 124);
             this.headline2.Name = "headline2";
             this.headline2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.headline2.Size = new System.Drawing.Size(204, 16);
+            this.headline2.Size = new System.Drawing.Size(476, 16);
             this.headline2.TabIndex = 29;
-            this.headline2.Text = "Bedingte Wahrscheinlichkeiten:";
+            this.headline2.Text = "Bedingte Wahrscheinlichkeiten: (leer lassen, falls keine Abhängigkeit besteht)";
             // 
             // InputB
             // 
@@ -1348,7 +1333,6 @@
         private System.Windows.Forms.TextBox InputAabhB101;
         private System.Windows.Forms.TextBox InputAabhB011;
         private System.Windows.Forms.TextBox InputAabhB111;
-        private System.Windows.Forms.Label AabhBC;
         private System.Windows.Forms.Label label_PAuC;
         private System.Windows.Forms.Label label_PAuB;
         private System.Windows.Forms.Label label29;
