@@ -38,7 +38,7 @@ namespace sensitivity_analysis.Pages
 
             if (e.Row == 0)
             {
-                if (e.Column >= 4)
+                if (e.Column >= 4 && e.Column < 6)
                 {
                     using (Pen pen = new Pen(Color.Black, 1))
                     {
@@ -65,7 +65,7 @@ namespace sensitivity_analysis.Pages
                     e.Graphics.DrawLine(pen, e.CellBounds.Left, e.CellBounds.Top, e.CellBounds.Left, e.CellBounds.Bottom);
                 }
             }
-            if (e.Column == 5)
+            if (e.Column == 6)
             {
                 using (Pen pen = new Pen(Color.Black, 1))
                 {
