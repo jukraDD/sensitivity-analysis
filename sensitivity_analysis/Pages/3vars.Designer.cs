@@ -894,6 +894,7 @@
             this.InputAabhB001.Name = "InputAabhB001";
             this.InputAabhB001.Size = new System.Drawing.Size(102, 21);
             this.InputAabhB001.TabIndex = 7;
+            this.InputAabhB001.TextChanged += new System.EventHandler(this.InputAabhB001_TextChanged);
             // 
             // InputAabhB101
             // 
@@ -903,6 +904,7 @@
             this.InputAabhB101.Name = "InputAabhB101";
             this.InputAabhB101.Size = new System.Drawing.Size(102, 21);
             this.InputAabhB101.TabIndex = 6;
+            this.InputAabhB101.TextChanged += new System.EventHandler(this.InputAabhB101_TextChanged);
             // 
             // InputAabhB011
             // 
@@ -912,6 +914,7 @@
             this.InputAabhB011.Name = "InputAabhB011";
             this.InputAabhB011.Size = new System.Drawing.Size(102, 21);
             this.InputAabhB011.TabIndex = 5;
+            this.InputAabhB011.TextChanged += new System.EventHandler(this.InputAabhB011_TextChanged);
             // 
             // InputAabhB111
             // 
@@ -921,6 +924,7 @@
             this.InputAabhB111.Name = "InputAabhB111";
             this.InputAabhB111.Size = new System.Drawing.Size(102, 21);
             this.InputAabhB111.TabIndex = 4;
+            this.InputAabhB111.TextChanged += new System.EventHandler(this.InputAabhB111_TextChanged);
             // 
             // InputAabhB110
             // 
@@ -930,6 +934,7 @@
             this.InputAabhB110.Name = "InputAabhB110";
             this.InputAabhB110.Size = new System.Drawing.Size(102, 21);
             this.InputAabhB110.TabIndex = 8;
+            this.InputAabhB110.TextChanged += new System.EventHandler(this.InputAabhB110_TextChanged);
             // 
             // InputAabhB010
             // 
@@ -939,6 +944,7 @@
             this.InputAabhB010.Name = "InputAabhB010";
             this.InputAabhB010.Size = new System.Drawing.Size(102, 21);
             this.InputAabhB010.TabIndex = 9;
+            this.InputAabhB010.TextChanged += new System.EventHandler(this.InputAabhB010_TextChanged);
             // 
             // InputAabhB100
             // 
@@ -948,6 +954,7 @@
             this.InputAabhB100.Name = "InputAabhB100";
             this.InputAabhB100.Size = new System.Drawing.Size(102, 21);
             this.InputAabhB100.TabIndex = 10;
+            this.InputAabhB100.TextChanged += new System.EventHandler(this.InputAabhB100_TextChanged);
             // 
             // InputAabhB000
             // 
@@ -957,6 +964,7 @@
             this.InputAabhB000.Name = "InputAabhB000";
             this.InputAabhB000.Size = new System.Drawing.Size(102, 21);
             this.InputAabhB000.TabIndex = 11;
+            this.InputAabhB000.TextChanged += new System.EventHandler(this.InputAabhB000_TextChanged);
             // 
             // InputAabhC011
             // 
