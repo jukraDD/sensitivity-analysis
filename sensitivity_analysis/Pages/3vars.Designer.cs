@@ -974,6 +974,7 @@
             this.InputAabhC011.Name = "InputAabhC011";
             this.InputAabhC011.Size = new System.Drawing.Size(102, 21);
             this.InputAabhC011.TabIndex = 13;
+            this.InputAabhC011.TextChanged += new System.EventHandler(this.InputAabhC011_TextChanged);
             // 
             // InputAabhC101
             // 
@@ -983,6 +984,7 @@
             this.InputAabhC101.Name = "InputAabhC101";
             this.InputAabhC101.Size = new System.Drawing.Size(102, 21);
             this.InputAabhC101.TabIndex = 14;
+            this.InputAabhC101.TextChanged += new System.EventHandler(this.InputAabhC101_TextChanged);
             // 
             // InputAabhC001
             // 
@@ -992,6 +994,7 @@
             this.InputAabhC001.Name = "InputAabhC001";
             this.InputAabhC001.Size = new System.Drawing.Size(102, 21);
             this.InputAabhC001.TabIndex = 15;
+            this.InputAabhC001.TextChanged += new System.EventHandler(this.InputAabhC001_TextChanged);
             // 
             // InputAabhC110
             // 
@@ -1001,6 +1004,7 @@
             this.InputAabhC110.Name = "InputAabhC110";
             this.InputAabhC110.Size = new System.Drawing.Size(102, 21);
             this.InputAabhC110.TabIndex = 16;
+            this.InputAabhC110.TextChanged += new System.EventHandler(this.InputAabhC110_TextChanged);
             // 
             // InputAabhC010
             // 
@@ -1010,6 +1014,7 @@
             this.InputAabhC010.Name = "InputAabhC010";
             this.InputAabhC010.Size = new System.Drawing.Size(102, 21);
             this.InputAabhC010.TabIndex = 17;
+            this.InputAabhC010.TextChanged += new System.EventHandler(this.InputAabhC010_TextChanged);
             // 
             // InputAabhC100
             // 
@@ -1019,6 +1024,7 @@
             this.InputAabhC100.Name = "InputAabhC100";
             this.InputAabhC100.Size = new System.Drawing.Size(102, 21);
             this.InputAabhC100.TabIndex = 18;
+            this.InputAabhC100.TextChanged += new System.EventHandler(this.InputAabhC100_TextChanged);
             // 
             // InputAabhC000
             // 
@@ -1028,6 +1034,7 @@
             this.InputAabhC000.Name = "InputAabhC000";
             this.InputAabhC000.Size = new System.Drawing.Size(102, 21);
             this.InputAabhC000.TabIndex = 19;
+            this.InputAabhC000.TextChanged += new System.EventHandler(this.InputAabhC000_TextChanged);
             // 
             // label_A
             // 
@@ -1052,6 +1059,7 @@
             this.InputAabhC111.Name = "InputAabhC111";
             this.InputAabhC111.Size = new System.Drawing.Size(102, 21);
             this.InputAabhC111.TabIndex = 12;
+            this.InputAabhC111.TextChanged += new System.EventHandler(this.InputAabhC111_TextChanged);
             // 
             // headline2
             // 
