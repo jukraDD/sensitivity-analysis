@@ -12,7 +12,7 @@ namespace sensitivity_analysis.Pages
 {
     public partial class _2vars : Form
     {
-        double a, b, ab11, ab01, ab10, ab00 = -1;
+        double a, b, vara, varb, ab11, ab01, ab10, ab00 = -1;
         public _2vars()
         {
             InitializeComponent();
@@ -179,6 +179,31 @@ namespace sensitivity_analysis.Pages
             else
             {
                 LockInputAabhB();
+            }
+        }
+
+        private void GetValues_VarAandVarB(object sender)
+        {
+            ResetAbhInput();
+            if (sender == InputVarA)
+            {
+                if (!double.TryParse(InputVarA.Text.Replace(".", ","), out vara) || vara < 0)
+                {
+                    labelInputError1.Text = "Die Werte für Var(A) und Var(B) müssen mindenstens 0 sein.";
+                }
+                else {}
+            }
+            else if (sender == InputVarB)
+            {
+                if (!double.TryParse(InputVarB.Text.Replace(".", ","), out varb) || varb < 0)
+                {
+                    labelInputError1.Text = "Die Werte für Var(A) und Var(B) müssen mindenstens 0 sein.";
+                }
+                else {}
+            }
+            else
+            {
+                labelInputError1.Text = "Ungültige Eingabe";
             }
         }
 
@@ -397,6 +422,39 @@ namespace sensitivity_analysis.Pages
             outputAoBabh.Text = "P(R) = " + resAoBabh.ToString();
         }
 
+        private void CreateResultsVar()
+        {
+            double resVarAuBunabh, resVarAuBabh, resVarAoBunabh, resVarAoBabh;
+            double newB = 0.1;
+            for (int i = 0; i < 1000; i++) {
+                if (vara > 0) {
+                    Random rand = new Random();
+                    double u1 = 1.0 - rand.NextDouble();
+                    double u2 = 1.0 - rand.NextDouble();
+                    double randA = Math.Sqrt(vara) * Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Sin(2.0 * Math.PI * u2); ;
+                    double newA = 0.02 + randA;
+                }
+                if (varb > 0) {
+                    //PB
+                }
+                //Calc
+                //resVarAuBunabh = PA * PB;
+            }
+            //resVarAuBunabh = vara * varb;
+            //Ausgabe für Print
+            //outputvar1.Text = newA.ToString();
+        }
+
+        private void InputVarA_TextChanged(object sender, EventArgs e)
+        {
+            GetValues_VarAandVarB(sender);
+        }
+
+        private void InputVarB_TextChanged(object sender, EventArgs e)
+        {
+            GetValues_VarAandVarB(sender);
+        }
+
         private void InputA_TextChanged(object sender, EventArgs e)
         {
             GetValues_AandB(sender);
@@ -429,9 +487,13 @@ namespace sensitivity_analysis.Pages
 
         private void btnCalculate_Click(object sender, EventArgs e)
         {
+            if (vara > 0 || varb > 0) {
+                    CreateResultsVar();
+                }
             if (IsValidInputAB(a, b) && IsValidInput(ab11) && IsValidInput(ab01) && IsValidInput(ab10) && IsValidInput(ab00))
             {
                 CreateResults();
+                //check vara varb > 0  hier
             }
             else
             {
