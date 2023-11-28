@@ -237,7 +237,7 @@ namespace sensitivity_analysis.Pages
             }
         }
 
-        private void SetAabhBValues(int exclude, double[] values)
+        private void SetAabhBValues(int? exclude, double[] values)
         {
             for (int i = 0; i < 8; i++)
             {
@@ -248,7 +248,7 @@ namespace sensitivity_analysis.Pages
             }
         }
 
-        private void SetAabhCValues(int exclude, double[] values)
+        private void SetAabhCValues(int? exclude, double[] values)
         {
             for (int i = 0; i < 8; i++)
             {
@@ -259,7 +259,7 @@ namespace sensitivity_analysis.Pages
             }
         }
 
-        private void SetBabhCValues(int exclude, double[] values)
+        private void SetBabhCValues(int? exclude, double[] values)
         {
             for (int i = 0; i < 8; i++)
             {
@@ -268,6 +268,48 @@ namespace sensitivity_analysis.Pages
                 abhInputsBC[i].Text = values[i].ToString();
                 EnableEventhandler(2, i);
             }
+        }
+
+        private void SetAunabhB()
+        {
+            ab111 = a;
+            ab011 = 1 - a;
+            ab101 = a;
+            ab001 = 1 - a;
+            ab110 = a;
+            ab010 = 1 - a;
+            ab100 = a;
+            ab000 = 1 - a;
+            double[] val = new[] { ab111, ab011, ab101, ab001, ab110, ab010, ab100, ab000 };
+            SetAabhBValues(null, val);
+        }
+
+        private void SetAunabhC()
+        {
+            ac111 = a;
+            ac011 = 1 - a;
+            ac101 = a;
+            ac001 = 1 - a;
+            ac110 = a;
+            ac010 = 1 - a;
+            ac100 = a;
+            ac000 = 1 - a;
+            double[] val = new[] { ac111, ac011, ac101, ac001, ac110, ac010, ac100, ac000 };
+            SetAabhCValues(null, val);
+        }
+
+        private void SetBunabhC()
+        {
+            bc111 = b;
+            bc011 = b;
+            bc101 = 1 - b;
+            bc001 = 1 - b;
+            bc110 = b;
+            bc010 = b;
+            bc100 = 1 - b;
+            bc000 = 1 - b;
+            double[] val = new[] { bc111, bc011, bc101, bc001, bc110, bc010, bc100, bc000 };
+            SetBabhCValues(null, val);
         }
 
         private bool IsValidInputABC(double a, double b, double c)
@@ -1305,6 +1347,39 @@ namespace sensitivity_analysis.Pages
                 }
             }
         }
+        private void CreateResults()
+        {
+            double resABunabh, resABabh, resABCunabh, resABCabh = 0;
+
+            if (relAB.SelectedIndex == 0)
+            {
+                resABunabh = a * b;
+                if (relABC.SelectedIndex == 0)
+                {
+                    resABCunabh = resABunabh * c;
+                    outputUnabh.Text = "P(R) = " + resABCunabh.ToString();
+                }
+                else if (relABC.SelectedIndex == 1)
+                {
+                    resABCunabh = resABunabh + c - (resABunabh * c);
+                    outputUnabh.Text = "P(R) = " + resABCunabh.ToString();
+                }
+            }
+            else if (relAB.SelectedIndex == 1)
+            {
+                resABunabh = a + b - (a * b);
+                if (relABC.SelectedIndex == 0)
+                {
+                    resABCunabh = resABunabh * c;
+                    outputUnabh.Text = "P(R) = " + resABCunabh.ToString();
+                }
+                else if (relABC.SelectedIndex == 1)
+                {
+                    resABCunabh = resABunabh + c - (resABunabh * c);
+                    outputUnabh.Text = "P(R) = " + resABCunabh.ToString();
+                }
+            }
+        }
 
         private void InputA_TextChanged(object sender, EventArgs e)
         {
@@ -1437,6 +1512,21 @@ namespace sensitivity_analysis.Pages
         private void InputBabhC000_TextChanged(object sender, EventArgs e)
         {
             GetValues_BabhC(sender);
+        }
+
+        private void btnCalculate_Click(object sender, EventArgs e)
+        {
+            if (IsValidInputABC(a, b, c))
+            {
+                if (InputAabhB111.Text == "") SetAunabhB();
+                if (InputAabhC111.Text == "") SetAunabhC();
+                if (InputBabhC111.Text == "") SetBunabhC();
+                CreateResults();
+            }
+            else
+            {
+                labelInputError1.Text = "Bitte geben Sie zulässige Werte an. (Werte zwischen 0 und 1)";
+            }
         }
     }
 }

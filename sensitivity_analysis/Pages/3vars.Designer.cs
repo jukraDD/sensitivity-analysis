@@ -118,6 +118,8 @@
             this.panel_rel = new System.Windows.Forms.Panel();
             this.headline3 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
+            this.outputUnabh = new System.Windows.Forms.Label();
+            this.outputAbh = new System.Windows.Forms.Label();
             this.tableProb.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -174,6 +176,7 @@
             this.btnCalculate.TabIndex = 30;
             this.btnCalculate.Text = "Berechnen";
             this.btnCalculate.UseVisualStyleBackColor = true;
+            this.btnCalculate.Click += new System.EventHandler(this.btnCalculate_Click);
             // 
             // labelInputError2
             // 
@@ -1202,7 +1205,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(181, 524);
+            this.label11.Location = new System.Drawing.Point(179, 522);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(16, 16);
             this.label11.TabIndex = 54;
@@ -1275,11 +1278,33 @@
             this.label30.TabIndex = 60;
             this.label30.Text = "P(R) falls A, B und C voneinander abhängig:";
             // 
+            // outputUnabh
+            // 
+            this.outputUnabh.AutoSize = true;
+            this.outputUnabh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.outputUnabh.ForeColor = System.Drawing.Color.Black;
+            this.outputUnabh.Location = new System.Drawing.Point(274, 513);
+            this.outputUnabh.Name = "outputUnabh";
+            this.outputUnabh.Size = new System.Drawing.Size(0, 16);
+            this.outputUnabh.TabIndex = 61;
+            // 
+            // outputAbh
+            // 
+            this.outputAbh.AutoSize = true;
+            this.outputAbh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.outputAbh.ForeColor = System.Drawing.Color.Black;
+            this.outputAbh.Location = new System.Drawing.Point(274, 598);
+            this.outputAbh.Name = "outputAbh";
+            this.outputAbh.Size = new System.Drawing.Size(0, 16);
+            this.outputAbh.TabIndex = 62;
+            // 
             // _3vars
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(811, 701);
+            this.Controls.Add(this.outputAbh);
+            this.Controls.Add(this.outputUnabh);
             this.Controls.Add(this.label30);
             this.Controls.Add(this.headline3);
             this.Controls.Add(this.label12);
@@ -1408,5 +1433,7 @@
         private System.Windows.Forms.TextBox InputBabhC101;
         private System.Windows.Forms.TextBox InputBabhC011;
         private System.Windows.Forms.TextBox InputBabhC111;
+        private System.Windows.Forms.Label outputUnabh;
+        private System.Windows.Forms.Label outputAbh;
     }
 }
