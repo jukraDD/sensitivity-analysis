@@ -189,17 +189,29 @@ namespace sensitivity_analysis.Pages
             {
                 if (!double.TryParse(InputVarA.Text.Replace(".", ","), out vara) || vara < 0)
                 {
+                    vara = 0;
                     labelInputError1.Text = "Die Werte für Var(A) und Var(B) müssen mindenstens 0 sein.";
+                    label_PA.Text = "P(A):";
                 }
-                else {}
+                else {
+                    if (vara > 0) {
+                        label_PA.Text = "Mittelwert(A):";
+                    }
+                }
             }
             else if (sender == InputVarB)
             {
                 if (!double.TryParse(InputVarB.Text.Replace(".", ","), out varb) || varb < 0)
                 {
+                    varb = 0;
                     labelInputError1.Text = "Die Werte für Var(A) und Var(B) müssen mindenstens 0 sein.";
+                    label_PB.Text = "P(B):";
                 }
-                else {}
+                else {
+                    if (varb > 0) {
+                        label_PB.Text = "Mittelwert(B):";
+                    }
+                }
             }
             else
             {
@@ -453,6 +465,23 @@ namespace sensitivity_analysis.Pages
         private void InputVarB_TextChanged(object sender, EventArgs e)
         {
             GetValues_VarAandVarB(sender);
+        }
+
+        private void btn_simulate_Click(object sender, EventArgs e)
+        {
+            //chart1.Visible = !chart1.Visible; //Sichtbarkeit ändern
+            chart1.Visible = true;
+            int[] yvalues = { 50, 110, 105, 95, 91,
+                              87, 77, 70, 50, 48,
+                              35, 99, 300, 15, 10,
+                              2, 1, 0, 79, 0, 0};
+
+            for (int i = 0; i<21 ; i++)
+            {
+                chart1.Series["Simulation"].Points.AddXY(i * 0.05, yvalues[i]);
+            }
+            
+
         }
 
         private void InputA_TextChanged(object sender, EventArgs e)

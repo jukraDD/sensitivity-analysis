@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.InputA = new System.Windows.Forms.TextBox();
             this.headline1 = new System.Windows.Forms.Label();
             this.label_PA = new System.Windows.Forms.Label();
@@ -78,7 +82,10 @@
             this.InputVarB = new System.Windows.Forms.TextBox();
             this.outputvar1 = new System.Windows.Forms.Label();
             this.Label_VarB = new System.Windows.Forms.Label();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.btn_simulate = new System.Windows.Forms.Button();
             this.tableProb.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // InputA
@@ -743,11 +750,46 @@
             this.Label_VarB.TabIndex = 28;
             this.Label_VarB.Text = "Var(B):";
             // 
+            // chart1
+            // 
+            chartArea1.AxisX.Maximum = 1D;
+            chartArea1.AxisX.Minimum = 0D;
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(559, 333);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
+            series1.Legend = "Legend1";
+            series1.Name = "Simulation";
+            series1.YValuesPerPoint = 2;
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(414, 337);
+            this.chart1.TabIndex = 29;
+            this.chart1.Text = "chart1";
+            title1.Name = "Title1";
+            title1.Text = "Test";
+            this.chart1.Titles.Add(title1);
+            // 
+            // btn_simulate
+            // 
+            this.btn_simulate.Location = new System.Drawing.Point(542, 304);
+            this.btn_simulate.Name = "btn_simulate";
+            this.btn_simulate.Size = new System.Drawing.Size(75, 23);
+            this.btn_simulate.TabIndex = 30;
+            this.btn_simulate.Text = "Simulieren";
+            this.btn_simulate.UseVisualStyleBackColor = true;
+            this.btn_simulate.Click += new System.EventHandler(this.btn_simulate_Click);
+            // 
             // _2vars
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1139, 690);
+            this.Controls.Add(this.btn_simulate);
+            this.Controls.Add(this.chart1);
             this.Controls.Add(this.Label_VarB);
             this.Controls.Add(this.outputvar1);
             this.Controls.Add(this.InputVarB);
@@ -782,6 +824,7 @@
             this.Text = "_2vars";
             this.tableProb.ResumeLayout(false);
             this.tableProb.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -839,5 +882,7 @@
         private System.Windows.Forms.TextBox InputVarB;
         private System.Windows.Forms.Label outputvar1;
         private System.Windows.Forms.Label Label_VarB;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Button btn_simulate;
     }
 }
