@@ -16,6 +16,7 @@ namespace sensitivity_analysis.Pages
         double ab111, ab011, ab101, ab001, ab110, ab010, ab100, ab000, ac111, ac011, ac101, ac001, ac110, ac010, ac100, ac000, bc111, bc011, bc101, bc001, bc110, bc010, bc100, bc000 = -1;
         TextBox[] abhInputs, abhInputsAB, abhInputsAC, abhInputsBC;
         Label[] unabhLabels;
+
         public _3vars()
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace sensitivity_analysis.Pages
             relAB.SelectedIndex = 0;
             relABC.SelectedIndex = 0;
         }
+
         private void tableProb_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
         {
             if (e.Row == 1)
@@ -96,6 +98,7 @@ namespace sensitivity_analysis.Pages
                 e.Graphics.DrawLine(pen, 100, 126, 100, 154);
             }
         }
+
         private void LockAbhInput()
         {
             foreach (TextBox t in abhInputs)
@@ -111,6 +114,7 @@ namespace sensitivity_analysis.Pages
                 t.Enabled = true;
             }
         }
+
         private void ResetUnabhOutput()
         {
             foreach (Label l in unabhLabels)
@@ -137,7 +141,7 @@ namespace sensitivity_analysis.Pages
             int c = 0;
             foreach (TextBox t in abhInputsAC)
             {
-                if (c == exclude) { c++; continue; }
+                if (exclude != null && c == exclude) { c++; continue; }
                 DisableEventhandler(1, c);
                 t.Text = "";
                 EnableEventhandler(1, c);
@@ -150,13 +154,14 @@ namespace sensitivity_analysis.Pages
             int c = 0;
             foreach (TextBox t in abhInputsBC)
             {
-                if (c == exclude) { c++; continue; }
+                if (exclude != null && c == exclude) { c++; continue; }
                 DisableEventhandler(2, c);
                 t.Text = "";
                 EnableEventhandler(2, c);
                 c++;
             }
         }
+
         private void EnableEventhandler(int column, int row)
         {
             if (column == 0)
@@ -172,11 +177,26 @@ namespace sensitivity_analysis.Pages
             }
             else if (column == 1)
             {
+                if (row == 0)      abhInputsAC[0].TextChanged += InputAabhC111_TextChanged;
+                else if (row == 1) abhInputsAC[1].TextChanged += InputAabhC011_TextChanged;
+                else if (row == 2) abhInputsAC[2].TextChanged += InputAabhC101_TextChanged;
+                else if (row == 3) abhInputsAC[3].TextChanged += InputAabhC001_TextChanged;
+                else if (row == 4) abhInputsAC[4].TextChanged += InputAabhC110_TextChanged;
+                else if (row == 5) abhInputsAC[5].TextChanged += InputAabhC010_TextChanged;
+                else if (row == 6) abhInputsAC[6].TextChanged += InputAabhC100_TextChanged;
+                else if (row == 7) abhInputsAC[7].TextChanged += InputAabhC000_TextChanged;
 
             }
             else if (column == 2)
             {
-                
+                if (row == 0)      abhInputsBC[0].TextChanged += InputBabhC111_TextChanged;
+                else if (row == 1) abhInputsBC[1].TextChanged += InputBabhC011_TextChanged;
+                else if (row == 2) abhInputsBC[2].TextChanged += InputBabhC101_TextChanged;
+                else if (row == 3) abhInputsBC[3].TextChanged += InputBabhC001_TextChanged;
+                else if (row == 4) abhInputsBC[4].TextChanged += InputBabhC110_TextChanged;
+                else if (row == 5) abhInputsBC[5].TextChanged += InputBabhC010_TextChanged;
+                else if (row == 6) abhInputsBC[6].TextChanged += InputBabhC100_TextChanged;
+                else if (row == 7) abhInputsBC[7].TextChanged += InputBabhC000_TextChanged;
             }
         }
 
@@ -195,15 +215,29 @@ namespace sensitivity_analysis.Pages
             }
             else if (column == 1)
             {
-
+                if (row == 0)      abhInputsAC[0].TextChanged -= InputAabhC111_TextChanged;
+                else if (row == 1) abhInputsAC[1].TextChanged -= InputAabhC011_TextChanged;
+                else if (row == 2) abhInputsAC[2].TextChanged -= InputAabhC101_TextChanged;
+                else if (row == 3) abhInputsAC[3].TextChanged -= InputAabhC001_TextChanged;
+                else if (row == 4) abhInputsAC[4].TextChanged -= InputAabhC110_TextChanged;
+                else if (row == 5) abhInputsAC[5].TextChanged -= InputAabhC010_TextChanged;
+                else if (row == 6) abhInputsAC[6].TextChanged -= InputAabhC100_TextChanged;
+                else if (row == 7) abhInputsAC[7].TextChanged -= InputAabhC000_TextChanged;
             }
             else if (column == 2)
             {
-
+                if (row == 0)      abhInputsBC[0].TextChanged -= InputBabhC111_TextChanged;
+                else if (row == 1) abhInputsBC[1].TextChanged -= InputBabhC011_TextChanged;
+                else if (row == 2) abhInputsBC[2].TextChanged -= InputBabhC101_TextChanged;
+                else if (row == 3) abhInputsBC[3].TextChanged -= InputBabhC001_TextChanged;
+                else if (row == 4) abhInputsBC[4].TextChanged -= InputBabhC110_TextChanged;
+                else if (row == 5) abhInputsBC[5].TextChanged -= InputBabhC010_TextChanged;
+                else if (row == 6) abhInputsBC[6].TextChanged -= InputBabhC100_TextChanged;
+                else if (row == 7) abhInputsBC[7].TextChanged -= InputBabhC000_TextChanged;
             }
         }
 
-        private void SetAabhBValues(int exclude, double[] values)
+        private void SetAabhBValues(int? exclude, double[] values)
         {
             for (int i = 0; i < 8; i++)
             {
@@ -213,14 +247,81 @@ namespace sensitivity_analysis.Pages
                 EnableEventhandler(0, i);
             }
         }
+
+        private void SetAabhCValues(int? exclude, double[] values)
+        {
+            for (int i = 0; i < 8; i++)
+            {
+                if (i == exclude) continue;
+                DisableEventhandler(1, i);
+                abhInputsAC[i].Text = values[i].ToString();
+                EnableEventhandler(1, i);
+            }
+        }
+
+        private void SetBabhCValues(int? exclude, double[] values)
+        {
+            for (int i = 0; i < 8; i++)
+            {
+                if (i == exclude) continue;
+                DisableEventhandler(2, i);
+                abhInputsBC[i].Text = values[i].ToString();
+                EnableEventhandler(2, i);
+            }
+        }
+
+        private void SetAunabhB()
+        {
+            ab111 = a;
+            ab011 = 1 - a;
+            ab101 = a;
+            ab001 = 1 - a;
+            ab110 = a;
+            ab010 = 1 - a;
+            ab100 = a;
+            ab000 = 1 - a;
+            double[] val = new[] { ab111, ab011, ab101, ab001, ab110, ab010, ab100, ab000 };
+            SetAabhBValues(null, val);
+        }
+
+        private void SetAunabhC()
+        {
+            ac111 = a;
+            ac011 = 1 - a;
+            ac101 = a;
+            ac001 = 1 - a;
+            ac110 = a;
+            ac010 = 1 - a;
+            ac100 = a;
+            ac000 = 1 - a;
+            double[] val = new[] { ac111, ac011, ac101, ac001, ac110, ac010, ac100, ac000 };
+            SetAabhCValues(null, val);
+        }
+
+        private void SetBunabhC()
+        {
+            bc111 = b;
+            bc011 = b;
+            bc101 = 1 - b;
+            bc001 = 1 - b;
+            bc110 = b;
+            bc010 = b;
+            bc100 = 1 - b;
+            bc000 = 1 - b;
+            double[] val = new[] { bc111, bc011, bc101, bc001, bc110, bc010, bc100, bc000 };
+            SetBabhCValues(null, val);
+        }
+
         private bool IsValidInputABC(double a, double b, double c)
         {
             return !(a < 0 || a > 1 || b < 0 || b > 1 || c < 0 || c > 1);
         }
+
         private bool IsValidInput(double d)
         {
             return !(d < 0 || d > 1);
         }
+
         private void GetValues_ABC(object sender)
         {
             ResetAabhBInput(); ResetAabhCInput(); ResetBabhCInput();
@@ -298,6 +399,7 @@ namespace sensitivity_analysis.Pages
                 LockAbhInput();
             }
         }
+
         private void GetValues_AabhB(object sender)
         {
             if (sender == InputAabhB111)
@@ -614,6 +716,671 @@ namespace sensitivity_analysis.Pages
             }
         }
 
+        private void GetValues_AabhC(object sender)
+        {
+            if (sender == InputAabhC111)
+            {
+                ac111 = -1;
+                if (InputAabhC111.Text == "")
+                {
+                    labelInputError2.Text = String.Empty;
+                    ResetAabhCInput();
+                }
+                else if (!double.TryParse(InputAabhC111.Text.Replace(".", ","), out ac111) || !IsValidInput(ac111))
+                {
+                    labelInputError2.Text = "Die angegebenen Werte müssen mindestens 0 und maximal 1 sein.";
+                }
+                else
+                {
+                    if (a / c < ac111)
+                    {
+                        labelInputError2.Text = "Der Wert für P(A|C) muss kleiner als der Quotient P(A)/P(C) (" + a / c + ") sein.";
+                        ResetAabhCInput(0);
+                    }
+                    else if ((a - (1 - c)) / c > ac111)
+                    {
+                        labelInputError2.Text = "Der Wert für P(A|C) muss größer als der Quotient (P(A)-P(¬C))/P(C) (" + (a - (1 - c)) / c + ") sein.";
+                        ResetAabhCInput(0);
+                    }
+                    else
+                    {
+                        ac011 = 1 - ac111;
+                        ac110 = (a - ac111 * c) / (1 - c);
+                        ac010 = 1 - ac110;
+                        ac101 = ac111;
+                        ac001 = ac011;
+                        ac100 = ac110;
+                        ac000 = ac010;
+                        double[] val = new[] { ac111, ac011, ac101, ac001, ac110, ac010, ac100, ac000 };
+                        SetAabhCValues(0, val);
+                        labelInputError2.Text = String.Empty;
+                    }
+                }
+            }
+            else if (sender == InputAabhC011)
+            {
+                ac011 = -1;
+                if (InputAabhC011.Text == "")
+                {
+                    labelInputError2.Text = String.Empty;
+                    ResetAabhCInput();
+                }
+                else if (!double.TryParse(InputAabhC011.Text.Replace(".", ","), out ac011) || !IsValidInput(ac011))
+                {
+                    labelInputError2.Text = "Die angegebenen Werte müssen mindestens 0 und maximal 1 sein.";
+                }
+                else
+                {
+                    if ((1 - a) / c < ac011)
+                    {
+                        labelInputError2.Text = "Der Wert für P(¬A|C) muss kleiner als der Quotient P(¬A)/P(C) (" + (1 - a) / c + ") sein.";
+                        ResetAabhCInput(1);
+                    }
+                    else if (((1 - a) - (1 - c)) / c > ac011)
+                    {
+                        labelInputError2.Text = "Der Wert für P(¬A|C) muss größer als der Quotient (P(¬A)-P(¬C))/P(C) (" + ((1 - a) - (1 - c)) / c + ") sein.";
+                        ResetAabhCInput(1);
+                    }
+                    else
+                    {
+                        ac111 = 1 - ac011;
+                        ac110 = (a - ac111 * c) / (1 - c);
+                        ac010 = 1 - ac110;
+                        ac001 = ac011;
+                        ac101 = ac111;
+                        ac100 = ac110;
+                        ac000 = ac010;
+                        double[] val = new[] { ac111, ac011, ac101, ac001, ac110, ac010, ac100, ac000 };
+                        SetAabhCValues(1, val);
+                        labelInputError2.Text = String.Empty;
+                    }
+                }
+            }
+            else if (sender == InputAabhC101)
+            {
+                ac101 = -1;
+                if (InputAabhC101.Text == "")
+                {
+                    labelInputError2.Text = String.Empty;
+                    ResetAabhCInput();
+                }
+                else if (!double.TryParse(InputAabhC101.Text.Replace(".", ","), out ac101) || !IsValidInput(ac101))
+                {
+                    labelInputError2.Text = "Die angegebenen Werte müssen mindestens 0 und maximal 1 sein.";
+                }
+                else
+                {
+                    if (a / c < ac101)
+                    {
+                        labelInputError2.Text = "Der Wert für P(A|C) muss kleiner als der Quotient P(A)/P(C) (" + a / c + ") sein.";
+                        ResetAabhCInput(2);
+                    }
+                    else if ((a - (1 - c)) / c > ac101)
+                    {
+                        labelInputError2.Text = "Der Wert für P(A|C) muss größer als der Quotient (P(A)-P(¬C))/P(C) (" + (a - (1 - c)) / c + ") sein.";
+                        ResetAabhCInput(2);
+                    }
+                    else
+                    {
+                        ac001 = 1 - ac101;
+                        ac100 = (a - ac101 * c) / (1 - c);
+                        ac000 = 1 - ac100;
+                        ac111 = ac101;
+                        ac011 = ac001;
+                        ac110 = ac100;
+                        ac010 = ac000;
+                        double[] val = new[] { ac111, ac011, ac101, ac001, ac110, ac010, ac100, ac000 };
+                        SetAabhCValues(2, val);
+                        labelInputError2.Text = String.Empty;
+                    }
+                }
+            }
+            else if (sender == InputAabhC001)
+            {
+                ac001 = -1;
+                if (InputAabhC001.Text == "")
+                {
+                    labelInputError2.Text = String.Empty;
+                    ResetAabhCInput();
+                }
+                else if (!double.TryParse(InputAabhC001.Text.Replace(".", ","), out ac001) || !IsValidInput(ac001))
+                {
+                    labelInputError2.Text = "Die angegebenen Werte müssen mindestens 0 und maximal 1 sein.";
+                }
+                else
+                {
+                    if ((1 - a) / c < ac001)
+                    {
+                        labelInputError2.Text = "Der Wert für P(¬A|C) muss kleiner als der Quotient P(¬A)/P(C) (" + (1 - a) / c + ") sein.";
+                        ResetAabhCInput(3);
+                    }
+                    else if (((1 - a) - (1 - c)) / c > ac001)
+                    {
+                        labelInputError2.Text = "Der Wert für P(¬A|C) muss größer als der Quotient (P(¬A)-P(¬C))/P(C) (" + ((1 - a) - (1 - c)) / c + ") sein.";
+                        ResetAabhCInput(3);
+                    }
+                    else
+                    {
+                        ac101 = 1 - ac001;
+                        ac100 = (a - ac101 * c) / (1 - c);
+                        ac000 = 1 - ac100;
+                        ac011 = ac001;
+                        ac111 = ac101;
+                        ac110 = ac100;
+                        ac010 = ac000;
+                        double[] val = new[] { ac111, ac011, ac101, ac001, ac110, ac010, ac100, ac000 };
+                        SetAabhCValues(3, val);
+                        labelInputError2.Text = String.Empty;
+                    }
+                }
+            }
+            else if (sender == InputAabhC110)
+            {
+                ac110 = -1;
+                if (InputAabhC110.Text == "")
+                {
+                    labelInputError2.Text = String.Empty;
+                    ResetAabhCInput();
+                }
+                else if (!double.TryParse(InputAabhC110.Text.Replace(".", ","), out ac110) || !IsValidInput(ac110))
+                {
+                    labelInputError2.Text = "Die angegebenen Werte müssen mindestens 0 und maximal 1 sein.";
+                }
+                else
+                {
+                    if (a / (1 - c) < ac110)
+                    {
+                        labelInputError2.Text = "Der Wert für P(A|¬C) muss kleiner als der Quotient P(A)/P(¬C) (" + a / (1 - c) + ") sein.";
+                        ResetAabhCInput(4);
+                    }
+                    else if ((a - c) / (1 - c) > ac110)
+                    {
+                        labelInputError2.Text = "Der Wert für P(A|¬C) muss größer als der Quotient (P(A)-P(C))/P(¬C) (" + (a - c) / (1 - c) + ") sein.";
+                        ResetAabhCInput(4);
+                    }
+                    else
+                    {
+                        ac010 = 1 - ac110;
+                        ac111 = (a - ac110 * (1 - c)) / c;
+                        ac011 = 1 - ac111;
+                        ac100 = ac110;
+                        ac000 = ac010;
+                        ac101 = ac111;
+                        ac001 = ac011;
+                        double[] val = new[] { ac111, ac011, ac101, ac001, ac110, ac010, ac100, ac000 };
+                        SetAabhCValues(4, val);
+                        labelInputError2.Text = String.Empty;
+                    }
+                }
+            }
+            else if (sender == InputAabhC010)
+            {
+                ac010 = -1;
+                if (InputAabhC010.Text == "")
+                {
+                    labelInputError2.Text = String.Empty;
+                    ResetAabhCInput();
+                }
+                else if (!double.TryParse(InputAabhC010.Text.Replace(".", ","), out ac010) || !IsValidInput(ac010))
+                {
+                    labelInputError2.Text = "Die angegebenen Werte müssen mindestens 0 und maximal 1 sein.";
+                }
+                else
+                {
+                    if ((1 - a) / (1 - c) < ac010)
+                    {
+                        labelInputError2.Text = "Der Wert für P(¬A|¬C) muss kleiner als der Quotient P(¬A)/P(¬C) (" + (1 - a) / (1 - c) + ") sein.";
+                        ResetAabhCInput(5);
+                    }
+                    else if (((1 - a) - c) / (1 - c) > ac010)
+                    {
+                        labelInputError2.Text = "Der Wert für P(¬A|¬C) muss größer als der Quotient (P(¬A)-P(C))/P(¬C) (" + ((1 - a) - c) / (1 - c) + ") sein.";
+                        ResetAabhCInput(5);
+                    }
+                    else
+                    {
+                        ac110 = 1 - ac010;
+                        ac111 = (a - ac110 * (1 - c)) / c;
+                        ac011 = 1 - ac111;
+                        ac000 = ac010;
+                        ac100 = ac110;
+                        ac101 = ac111;
+                        ac001 = ac011;
+                        double[] val = new[] { ac111, ac011, ac101, ac001, ac110, ac010, ac100, ac000 };
+                        SetAabhCValues(5, val);
+                        labelInputError2.Text = String.Empty;
+                    }
+                }
+            }
+            else if (sender == InputAabhC100)
+            {
+                ac100 = -1;
+                if (InputAabhC100.Text == "")
+                {
+                    labelInputError2.Text = String.Empty;
+                    ResetAabhCInput();
+                }
+                else if (!double.TryParse(InputAabhC100.Text.Replace(".", ","), out ac100) || !IsValidInput(ac100))
+                {
+                    labelInputError2.Text = "Die angegebenen Werte müssen mindestens 0 und maximal 1 sein.";
+                }
+                else
+                {
+                    if (a / (1 - c) < ac100)
+                    {
+                        labelInputError2.Text = "Der Wert für P(A|¬C) muss kleiner als der Quotient P(A)/P(¬C) (" + a / (1 - c) + ") sein.";
+                        ResetAabhCInput(6);
+                    }
+                    else if ((a - c) / (1 - c) > ac100)
+                    {
+                        labelInputError2.Text = "Der Wert für P(A|¬C) muss größer als der Quotient (P(A)-P(C))/P(¬C) (" + (a - c) / (1 - c) + ") sein.";
+                        ResetAabhCInput(6);
+                    }
+                    else
+                    {
+                        ac000 = 1 - ac100;
+                        ac101 = (a - ac100 * (1 - c)) / c;
+                        ac001 = 1 - ac101;
+                        ac110 = ac100;
+                        ac010 = ac000;
+                        ac111 = ac101;
+                        ac011 = ac001;
+                        double[] val = new[] { ac111, ac011, ac101, ac001, ac110, ac010, ac100, ac000 };
+                        SetAabhCValues(6, val);
+                        labelInputError2.Text = String.Empty;
+                    }
+                }
+            }
+            else if (sender == InputAabhC000)
+            {
+                ac000 = -1;
+                if (InputAabhC000.Text == "")
+                {
+                    labelInputError2.Text = String.Empty;
+                    ResetAabhCInput();
+                }
+                else if (!double.TryParse(InputAabhC000.Text.Replace(".", ","), out ac000) || !IsValidInput(ac000))
+                {
+                    labelInputError2.Text = "Die angegebenen Werte müssen mindestens 0 und maximal 1 sein.";
+                }
+                else
+                {
+                    if ((1 - a) / (1 - c) < ac000)
+                    {
+                        labelInputError2.Text = "Der Wert für P(¬A|¬C) muss kleiner als der Quotient P(¬A)/P(¬C) (" + (1 - a) / (1 - c) + ") sein.";
+                        ResetAabhCInput(7);
+                    }
+                    else if (((1 - a) - c) / (1 - c) > ac000)
+                    {
+                        labelInputError2.Text = "Der Wert für P(¬A|¬C) muss größer als der Quotient (P(¬A)-P(C))/P(¬C) (" + ((1 - a) - c) / (1 - c) + ") sein.";
+                        ResetAabhCInput(7);
+                    }
+                    else
+                    {
+                        ac100 = 1 - ac000;
+                        ac101 = (a - ac100 * (1 - c)) / c;
+                        ac001 = 1 - ac101;
+                        ac010 = ac000;
+                        ac110 = ac100;
+                        ac111 = ac101;
+                        ac011 = ac001;
+                        double[] val = new[] { ac111, ac011, ac101, ac001, ac110, ac010, ac100, ac000 };
+                        SetAabhCValues(7, val);
+                        labelInputError2.Text = String.Empty;
+                    }
+                }
+            }
+        }
+
+        private void GetValues_BabhC(object sender)
+        {
+            if (sender == InputBabhC111)
+            {
+                bc111 = -1;
+                if (InputBabhC111.Text == "")
+                {
+                    labelInputError2.Text = String.Empty;
+                    ResetBabhCInput();
+                }
+                else if (!double.TryParse(InputBabhC111.Text.Replace(".", ","), out bc111) || !IsValidInput(bc111))
+                {
+                    labelInputError2.Text = "Die angegebenen Werte müssen mindestens 0 und maximal 1 sein.";
+                }
+                else
+                {
+                    if (b / c < bc111)
+                    {
+                        labelInputError2.Text = "Der Wert für P(B|C) muss kleiner als der Quotient P(B)/P(C) (" + b / c + ") sein.";
+                        ResetBabhCInput(0);
+                    }
+                    else if ((b - (1 - c)) / c > bc111)
+                    {
+                        labelInputError2.Text = "Der Wert für P(B|C) muss größer als der Quotient (P(B)-P(¬C))/P(C) (" + (b - (1 - c)) / c + ") sein.";
+                        ResetBabhCInput(0);
+                    }
+                    else
+                    {
+                        bc101 = 1 - bc111;
+                        bc110 = (b - bc111 * c) / (1 - c);
+                        bc100 = 1 - bc110;
+                        bc011 = bc111;
+                        bc001 = bc101;
+                        bc010 = bc110;
+                        bc000 = bc100;
+                        double[] val = new[] { bc111, bc011, bc101, bc001, bc110, bc010, bc100, bc000 };
+                        SetBabhCValues(0, val);
+                        labelInputError2.Text = String.Empty;
+                    }
+                }
+            }
+            else if (sender == InputBabhC011)
+            {
+                bc011 = -1;
+                if (InputBabhC011.Text == "")
+                {
+                    labelInputError2.Text = String.Empty;
+                    ResetBabhCInput();
+                }
+                else if (!double.TryParse(InputBabhC011.Text.Replace(".", ","), out bc011) || !IsValidInput(bc011))
+                {
+                    labelInputError2.Text = "Die angegebenen Werte müssen mindestens 0 und maximal 1 sein.";
+                }
+                else
+                {
+                    if (b / c < bc011)
+                    {
+                        labelInputError2.Text = "Der Wert für P(B|C) muss kleiner als der Quotient P(B)/P(C) (" + b / c + ") sein.";
+                        ResetBabhCInput(1);
+                    }
+                    else if ((b - (1 - c)) / c > bc011)
+                    {
+                        labelInputError2.Text = "Der Wert für P(B|C) muss größer als der Quotient (P(B)-P(¬C))/P(C) (" + (b - (1 - c)) / c + ") sein.";
+                        ResetBabhCInput(1);
+                    }
+                    else
+                    {
+                        bc001 = 1 - bc011;
+                        bc010 = (b - bc011 * c) / (1 - c);
+                        bc000 = 1 - bc010;
+                        bc111 = bc011;
+                        bc101 = bc001;
+                        bc110 = bc010;
+                        bc100 = bc000;
+                        double[] val = new[] { bc111, bc011, bc101, bc001, bc110, bc010, bc100, bc000 };
+                        SetBabhCValues(1, val);
+                        labelInputError2.Text = String.Empty;
+                    }
+                }
+            }
+            else if (sender == InputBabhC101)
+            {
+                bc101 = -1;
+                if (InputBabhC101.Text == "")
+                {
+                    labelInputError2.Text = String.Empty;
+                    ResetBabhCInput();
+                }
+                else if (!double.TryParse(InputBabhC101.Text.Replace(".", ","), out bc101) || !IsValidInput(bc101))
+                {
+                    labelInputError2.Text = "Die angegebenen Werte müssen mindestens 0 und maximal 1 sein.";
+                }
+                else
+                {
+                    if ((1 - b) / c < bc101)
+                    {
+                        labelInputError2.Text = "Der Wert für P(¬B|C) muss kleiner als der Quotient P(¬B)/P(C) (" + (1 - b) / c + ") sein.";
+                        ResetBabhCInput(2);
+                    }
+                    else if (((1 - b) - (1 - c)) / c > bc101)
+                    {
+                        labelInputError2.Text = "Der Wert für P(¬B|C) muss größer als der Quotient (P(¬B)-P(¬C))/P(C) (" + ((1 - b) - (1 - c)) / c + ") sein.";
+                        ResetBabhCInput(2);
+                    }
+                    else
+                    {
+                        bc111 = 1 - bc101;
+                        bc110 = (b - bc111 * c) / (1 - c);
+                        bc100 = 1 - bc110;
+                        bc001 = bc101;
+                        bc011 = bc111;
+                        bc010 = bc110;
+                        bc000 = bc100;
+                        double[] val = new[] { bc111, bc011, bc101, bc001, bc110, bc010, bc100, bc000 };
+                        SetBabhCValues(2, val);
+                        labelInputError2.Text = String.Empty;
+                    }
+                }
+            }
+            else if (sender == InputBabhC001)
+            {
+                bc001 = -1;
+                if (InputBabhC001.Text == "")
+                {
+                    labelInputError2.Text = String.Empty;
+                    ResetBabhCInput();
+                }
+                else if (!double.TryParse(InputBabhC001.Text.Replace(".", ","), out bc001) || !IsValidInput(bc001))
+                {
+                    labelInputError2.Text = "Die angegebenen Werte müssen mindestens 0 und maximal 1 sein.";
+                }
+                else
+                {
+                    if ((1 - b) / c < bc001)
+                    {
+                        labelInputError2.Text = "Der Wert für P(¬B|C) muss kleiner als der Quotient P(¬B)/P(C) (" + (1 - b) / c + ") sein.";
+                        ResetBabhCInput(3);
+                    }
+                    else if (((1 - b) - (1 - c)) / c > bc001)
+                    {
+                        labelInputError2.Text = "Der Wert für P(¬B|C) muss größer als der Quotient (P(¬B)-P(¬C))/P(C) (" + ((1 - b) - (1 - c)) / c + ") sein.";
+                        ResetBabhCInput(3);
+                    }
+                    else
+                    {
+                        bc011 = 1 - bc001;
+                        bc010 = (b - bc011 * c) / (1 - c);
+                        bc000 = 1 - bc010;
+                        bc101 = bc001;
+                        bc111 = bc011;
+                        bc110 = bc010;
+                        bc100 = bc000;
+                        double[] val = new[] { bc111, bc011, bc101, bc001, bc110, bc010, bc100, bc000 };
+                        SetBabhCValues(3, val);
+                        labelInputError2.Text = String.Empty;
+                    }
+                }
+            }
+            else if (sender == InputBabhC110)
+            {
+                bc110 = -1;
+                if (InputBabhC110.Text == "")
+                {
+                    labelInputError2.Text = String.Empty;
+                    ResetBabhCInput();
+                }
+                else if (!double.TryParse(InputBabhC110.Text.Replace(".", ","), out bc110) || !IsValidInput(bc110))
+                {
+                    labelInputError2.Text = "Die angegebenen Werte müssen mindestens 0 und maximal 1 sein.";
+                }
+                else
+                {
+                    if (b / (1 - c) < bc110)
+                    {
+                        labelInputError2.Text = "Der Wert für P(B|¬C) muss kleiner als der Quotient P(B)/P(¬C) (" + b / (1 - c) + ") sein.";
+                        ResetBabhCInput(4);
+                    }
+                    else if ((b - c) / (1 - c) > bc110)
+                    {
+                        labelInputError2.Text = "Der Wert für P(B|¬C) muss größer als der Quotient (P(B)-P(C))/P(¬C) (" + (b - c) / (1 - c) + ") sein.";
+                        ResetBabhCInput(4);
+                    }
+                    else
+                    {
+                        bc100 = 1 - bc110;
+                        bc111 = (b - bc110 * (1 - c)) / c;
+                        bc101 = 1 - bc111;
+                        bc010 = bc110;
+                        bc000 = bc100;
+                        bc011 = bc111;
+                        bc001 = bc101;
+                        double[] val = new[] { bc111, bc011, bc101, bc001, bc110, bc010, bc100, bc000 };
+                        SetBabhCValues(4, val);
+                        labelInputError2.Text = String.Empty;
+                    }
+                }
+            }
+            else if (sender == InputBabhC010)
+            {
+                bc010 = -1;
+                if (InputBabhC010.Text == "")
+                {
+                    labelInputError2.Text = String.Empty;
+                    ResetBabhCInput();
+                }
+                else if (!double.TryParse(InputBabhC010.Text.Replace(".", ","), out bc010) || !IsValidInput(bc010))
+                {
+                    labelInputError2.Text = "Die angegebenen Werte müssen mindestens 0 und maximal 1 sein.";
+                }
+                else
+                {
+                    if (b / (1 - c) < bc010)
+                    {
+                        labelInputError2.Text = "Der Wert für P(B|¬C) muss kleiner als der Quotient P(B)/P(¬C) (" + b / (1 - c) + ") sein.";
+                        ResetBabhCInput(5);
+                    }
+                    else if ((b - c) / (1 - c) > bc010)
+                    {
+                        labelInputError2.Text = "Der Wert für P(B|¬C) muss größer als der Quotient (P(B)-P(C))/P(¬C) (" + (b - c) / (1 - c) + ") sein.";
+                        ResetBabhCInput(5);
+                    }
+                    else
+                    {
+                        bc000 = 1 - bc010;
+                        bc011 = (b - bc010 * (1 - c)) / c;
+                        bc001 = 1 - bc011;
+                        bc110 = bc010;
+                        bc100 = bc000;
+                        bc111 = bc011;
+                        bc101 = bc001;
+                        double[] val = new[] { bc111, bc011, bc101, bc001, bc110, bc010, bc100, bc000 };
+                        SetBabhCValues(5, val);
+                        labelInputError2.Text = String.Empty;
+                    }
+                }
+            }
+            else if (sender == InputBabhC100)
+            {
+                bc100 = -1;
+                if (InputBabhC100.Text == "")
+                {
+                    labelInputError2.Text = String.Empty;
+                    ResetBabhCInput();
+                }
+                else if (!double.TryParse(InputBabhC100.Text.Replace(".", ","), out bc100) || !IsValidInput(bc100))
+                {
+                    labelInputError2.Text = "Die angegebenen Werte müssen mindestens 0 und maximal 1 sein.";
+                }
+                else
+                {
+                    if ((1 - b) / (1 - c) < bc100)
+                    {
+                        labelInputError2.Text = "Der Wert für P(¬B|¬C) muss kleiner als der Quotient P(¬B)/P(¬C) (" + (1 - b) / (1 - c) + ") sein.";
+                        ResetBabhCInput(6);
+                    }
+                    else if (((1 - b) - c) / (1 - c) > bc100)
+                    {
+                        labelInputError2.Text = "Der Wert für P(¬B|¬C) muss größer als der Quotient (P(¬B)-P(C))/P(¬C) (" + ((1 - b) - c) / (1 - c) + ") sein.";
+                        ResetBabhCInput(6);
+                    }
+                    else
+                    {
+                        bc110 = 1 - bc100;
+                        bc111 = (b - bc110 * (1 - c)) / c;
+                        bc101 = 1 - bc111;
+                        bc000 = bc100;
+                        bc010 = bc110;
+                        bc011 = bc111;
+                        bc001 = bc101;
+                        double[] val = new[] { bc111, bc011, bc101, bc001, bc110, bc010, bc100, bc000 };
+                        SetBabhCValues(6, val);
+                        labelInputError2.Text = String.Empty;
+                    }
+                }
+            }
+            else if (sender == InputBabhC000)
+            {
+                bc000 = -1;
+                if (InputBabhC000.Text == "")
+                {
+                    labelInputError2.Text = String.Empty;
+                    ResetBabhCInput();
+                }
+                else if (!double.TryParse(InputBabhC000.Text.Replace(".", ","), out bc000) || !IsValidInput(bc000))
+                {
+                    labelInputError2.Text = "Die angegebenen Werte müssen mindestens 0 und maximal 1 sein.";
+                }
+                else
+                {
+                    if ((1 - b) / (1 - c) < bc000)
+                    {
+                        labelInputError2.Text = "Der Wert für P(¬B|¬C) muss kleiner als der Quotient P(¬B)/P(¬C) (" + (1 - b) / (1 - c) + ") sein.";
+                        ResetBabhCInput(7);
+                    }
+                    else if (((1 - b) - c) / (1 - c) > bc000)
+                    {
+                        labelInputError2.Text = "Der Wert für P(¬B|¬C) muss größer als der Quotient (P(¬B)-P(C))/P(¬C) (" + ((1 - b) - c) / (1 - c) + ") sein.";
+                        ResetBabhCInput(7);
+                    }
+                    else
+                    {
+                        bc010 = 1 - bc000;
+                        bc011 = (b - bc010 * (1 - c)) / c;
+                        bc001 = 1 - bc011;
+                        bc100 = bc000;
+                        bc110 = bc010;
+                        bc111 = bc011;
+                        bc101 = bc001;
+                        double[] val = new[] { bc111, bc011, bc101, bc001, bc110, bc010, bc100, bc000 };
+                        SetBabhCValues(7, val);
+                        labelInputError2.Text = String.Empty;
+                    }
+                }
+            }
+        }
+        private void CreateResults()
+        {
+            double resABunabh, resABabh, resABCunabh, resABCabh = 0;
+
+            if (relAB.SelectedIndex == 0)
+            {
+                resABunabh = a * b;
+                if (relABC.SelectedIndex == 0)
+                {
+                    resABCunabh = resABunabh * c;
+                    outputUnabh.Text = "P(R) = " + resABCunabh.ToString();
+                }
+                else if (relABC.SelectedIndex == 1)
+                {
+                    resABCunabh = resABunabh + c - (resABunabh * c);
+                    outputUnabh.Text = "P(R) = " + resABCunabh.ToString();
+                }
+            }
+            else if (relAB.SelectedIndex == 1)
+            {
+                resABunabh = a + b - (a * b);
+                if (relABC.SelectedIndex == 0)
+                {
+                    resABCunabh = resABunabh * c;
+                    outputUnabh.Text = "P(R) = " + resABCunabh.ToString();
+                }
+                else if (relABC.SelectedIndex == 1)
+                {
+                    resABCunabh = resABunabh + c - (resABunabh * c);
+                    outputUnabh.Text = "P(R) = " + resABCunabh.ToString();
+                }
+            }
+        }
+
         private void InputA_TextChanged(object sender, EventArgs e)
         {
             GetValues_ABC(sender);
@@ -668,5 +1435,98 @@ namespace sensitivity_analysis.Pages
             GetValues_AabhB(sender);
         }
 
+        private void InputAabhC111_TextChanged(object sender, EventArgs e)
+        {
+            GetValues_AabhC(sender);
+        }
+
+        private void InputAabhC011_TextChanged(object sender, EventArgs e)
+        {
+            GetValues_AabhC(sender);
+        }
+
+        private void InputAabhC101_TextChanged(object sender, EventArgs e)
+        {
+            GetValues_AabhC(sender);
+        }
+
+        private void InputAabhC001_TextChanged(object sender, EventArgs e)
+        {
+            GetValues_AabhC(sender);
+        }
+
+        private void InputAabhC110_TextChanged(object sender, EventArgs e)
+        {
+            GetValues_AabhC(sender);
+        }
+
+        private void InputAabhC010_TextChanged(object sender, EventArgs e)
+        {
+            GetValues_AabhC(sender);
+        }
+
+        private void InputAabhC100_TextChanged(object sender, EventArgs e)
+        {
+            GetValues_AabhC(sender);
+        }
+
+        private void InputAabhC000_TextChanged(object sender, EventArgs e)
+        {
+            GetValues_AabhC(sender);
+        }
+        private void InputBabhC111_TextChanged(object sender, EventArgs e)
+        {
+            GetValues_BabhC(sender);
+        }
+
+        private void InputBabhC011_TextChanged(object sender, EventArgs e)
+        {
+            GetValues_BabhC(sender);
+        }
+
+        private void InputBabhC101_TextChanged(object sender, EventArgs e)
+        {
+            GetValues_BabhC(sender);
+        }
+
+        private void InputBabhC001_TextChanged(object sender, EventArgs e)
+        {
+            GetValues_BabhC(sender);
+        }
+
+        private void InputBabhC110_TextChanged(object sender, EventArgs e)
+        {
+            GetValues_BabhC(sender);
+        }
+
+        private void InputBabhC010_TextChanged(object sender, EventArgs e)
+        {
+            GetValues_BabhC(sender);
+        }
+
+        private void InputBabhC100_TextChanged(object sender, EventArgs e)
+        {
+            GetValues_BabhC(sender);
+        }
+
+        private void InputBabhC000_TextChanged(object sender, EventArgs e)
+        {
+            GetValues_BabhC(sender);
+        }
+
+        private void btnCalculate_Click(object sender, EventArgs e)
+        {
+            if (IsValidInputABC(a, b, c))
+            {
+                if (InputAabhB111.Text == "") SetAunabhB();
+                if (InputAabhC111.Text == "") SetAunabhC();
+                if (InputBabhC111.Text == "") SetBunabhC();
+                CreateResults();
+            }
+            else
+            {
+                labelInputError1.Text = "Bitte geben Sie zulässige Werte an. (Werte zwischen 0 und 1)";
+            }
+        }
     }
 }

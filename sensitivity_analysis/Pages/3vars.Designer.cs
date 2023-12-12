@@ -118,6 +118,8 @@
             this.panel_rel = new System.Windows.Forms.Panel();
             this.headline3 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
+            this.outputUnabh = new System.Windows.Forms.Label();
+            this.outputAbh = new System.Windows.Forms.Label();
             this.tableProb.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -174,6 +176,7 @@
             this.btnCalculate.TabIndex = 30;
             this.btnCalculate.Text = "Berechnen";
             this.btnCalculate.UseVisualStyleBackColor = true;
+            this.btnCalculate.Click += new System.EventHandler(this.btnCalculate_Click);
             // 
             // labelInputError2
             // 
@@ -292,6 +295,7 @@
             this.InputBabhC000.Name = "InputBabhC000";
             this.InputBabhC000.Size = new System.Drawing.Size(102, 21);
             this.InputBabhC000.TabIndex = 27;
+            this.InputBabhC000.TextChanged += new System.EventHandler(this.InputBabhC000_TextChanged);
             // 
             // InputBabhC100
             // 
@@ -301,6 +305,7 @@
             this.InputBabhC100.Name = "InputBabhC100";
             this.InputBabhC100.Size = new System.Drawing.Size(102, 21);
             this.InputBabhC100.TabIndex = 26;
+            this.InputBabhC100.TextChanged += new System.EventHandler(this.InputBabhC100_TextChanged);
             // 
             // InputBabhC010
             // 
@@ -310,6 +315,7 @@
             this.InputBabhC010.Name = "InputBabhC010";
             this.InputBabhC010.Size = new System.Drawing.Size(102, 21);
             this.InputBabhC010.TabIndex = 25;
+            this.InputBabhC010.TextChanged += new System.EventHandler(this.InputBabhC010_TextChanged);
             // 
             // InputBabhC110
             // 
@@ -319,6 +325,7 @@
             this.InputBabhC110.Name = "InputBabhC110";
             this.InputBabhC110.Size = new System.Drawing.Size(102, 21);
             this.InputBabhC110.TabIndex = 24;
+            this.InputBabhC110.TextChanged += new System.EventHandler(this.InputBabhC110_TextChanged);
             // 
             // InputBabhC001
             // 
@@ -328,6 +335,7 @@
             this.InputBabhC001.Name = "InputBabhC001";
             this.InputBabhC001.Size = new System.Drawing.Size(102, 21);
             this.InputBabhC001.TabIndex = 23;
+            this.InputBabhC001.TextChanged += new System.EventHandler(this.InputBabhC001_TextChanged);
             // 
             // InputBabhC101
             // 
@@ -337,6 +345,7 @@
             this.InputBabhC101.Name = "InputBabhC101";
             this.InputBabhC101.Size = new System.Drawing.Size(102, 21);
             this.InputBabhC101.TabIndex = 22;
+            this.InputBabhC101.TextChanged += new System.EventHandler(this.InputBabhC101_TextChanged);
             // 
             // InputBabhC011
             // 
@@ -346,6 +355,7 @@
             this.InputBabhC011.Name = "InputBabhC011";
             this.InputBabhC011.Size = new System.Drawing.Size(102, 21);
             this.InputBabhC011.TabIndex = 21;
+            this.InputBabhC011.TextChanged += new System.EventHandler(this.InputBabhC011_TextChanged);
             // 
             // InputBabhC111
             // 
@@ -355,6 +365,7 @@
             this.InputBabhC111.Name = "InputBabhC111";
             this.InputBabhC111.Size = new System.Drawing.Size(102, 21);
             this.InputBabhC111.TabIndex = 20;
+            this.InputBabhC111.TextChanged += new System.EventHandler(this.InputBabhC111_TextChanged);
             // 
             // label_PBuC
             // 
@@ -974,6 +985,7 @@
             this.InputAabhC011.Name = "InputAabhC011";
             this.InputAabhC011.Size = new System.Drawing.Size(102, 21);
             this.InputAabhC011.TabIndex = 13;
+            this.InputAabhC011.TextChanged += new System.EventHandler(this.InputAabhC011_TextChanged);
             // 
             // InputAabhC101
             // 
@@ -983,6 +995,7 @@
             this.InputAabhC101.Name = "InputAabhC101";
             this.InputAabhC101.Size = new System.Drawing.Size(102, 21);
             this.InputAabhC101.TabIndex = 14;
+            this.InputAabhC101.TextChanged += new System.EventHandler(this.InputAabhC101_TextChanged);
             // 
             // InputAabhC001
             // 
@@ -992,6 +1005,7 @@
             this.InputAabhC001.Name = "InputAabhC001";
             this.InputAabhC001.Size = new System.Drawing.Size(102, 21);
             this.InputAabhC001.TabIndex = 15;
+            this.InputAabhC001.TextChanged += new System.EventHandler(this.InputAabhC001_TextChanged);
             // 
             // InputAabhC110
             // 
@@ -1001,6 +1015,7 @@
             this.InputAabhC110.Name = "InputAabhC110";
             this.InputAabhC110.Size = new System.Drawing.Size(102, 21);
             this.InputAabhC110.TabIndex = 16;
+            this.InputAabhC110.TextChanged += new System.EventHandler(this.InputAabhC110_TextChanged);
             // 
             // InputAabhC010
             // 
@@ -1010,6 +1025,7 @@
             this.InputAabhC010.Name = "InputAabhC010";
             this.InputAabhC010.Size = new System.Drawing.Size(102, 21);
             this.InputAabhC010.TabIndex = 17;
+            this.InputAabhC010.TextChanged += new System.EventHandler(this.InputAabhC010_TextChanged);
             // 
             // InputAabhC100
             // 
@@ -1019,6 +1035,7 @@
             this.InputAabhC100.Name = "InputAabhC100";
             this.InputAabhC100.Size = new System.Drawing.Size(102, 21);
             this.InputAabhC100.TabIndex = 18;
+            this.InputAabhC100.TextChanged += new System.EventHandler(this.InputAabhC100_TextChanged);
             // 
             // InputAabhC000
             // 
@@ -1028,6 +1045,7 @@
             this.InputAabhC000.Name = "InputAabhC000";
             this.InputAabhC000.Size = new System.Drawing.Size(102, 21);
             this.InputAabhC000.TabIndex = 19;
+            this.InputAabhC000.TextChanged += new System.EventHandler(this.InputAabhC000_TextChanged);
             // 
             // label_A
             // 
@@ -1052,6 +1070,7 @@
             this.InputAabhC111.Name = "InputAabhC111";
             this.InputAabhC111.Size = new System.Drawing.Size(102, 21);
             this.InputAabhC111.TabIndex = 12;
+            this.InputAabhC111.TextChanged += new System.EventHandler(this.InputAabhC111_TextChanged);
             // 
             // headline2
             // 
@@ -1186,7 +1205,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(181, 524);
+            this.label11.Location = new System.Drawing.Point(179, 522);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(16, 16);
             this.label11.TabIndex = 54;
@@ -1259,11 +1278,33 @@
             this.label30.TabIndex = 60;
             this.label30.Text = "P(R) falls A, B und C voneinander abhängig:";
             // 
+            // outputUnabh
+            // 
+            this.outputUnabh.AutoSize = true;
+            this.outputUnabh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.outputUnabh.ForeColor = System.Drawing.Color.Black;
+            this.outputUnabh.Location = new System.Drawing.Point(274, 513);
+            this.outputUnabh.Name = "outputUnabh";
+            this.outputUnabh.Size = new System.Drawing.Size(0, 16);
+            this.outputUnabh.TabIndex = 61;
+            // 
+            // outputAbh
+            // 
+            this.outputAbh.AutoSize = true;
+            this.outputAbh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.outputAbh.ForeColor = System.Drawing.Color.Black;
+            this.outputAbh.Location = new System.Drawing.Point(274, 598);
+            this.outputAbh.Name = "outputAbh";
+            this.outputAbh.Size = new System.Drawing.Size(0, 16);
+            this.outputAbh.TabIndex = 62;
+            // 
             // _3vars
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(811, 701);
+            this.Controls.Add(this.outputAbh);
+            this.Controls.Add(this.outputUnabh);
             this.Controls.Add(this.label30);
             this.Controls.Add(this.headline3);
             this.Controls.Add(this.label12);
@@ -1392,5 +1433,7 @@
         private System.Windows.Forms.TextBox InputBabhC101;
         private System.Windows.Forms.TextBox InputBabhC011;
         private System.Windows.Forms.TextBox InputBabhC111;
+        private System.Windows.Forms.Label outputUnabh;
+        private System.Windows.Forms.Label outputAbh;
     }
 }
