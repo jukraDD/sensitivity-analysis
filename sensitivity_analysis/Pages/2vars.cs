@@ -455,7 +455,49 @@ namespace sensitivity_analysis.Pages
             //resVarAuBunabh = vara * varb;
             //Ausgabe für Print
             //outputvar1.Text = newA.ToString();
+            
+            
+            int[] chartyvalues = new int[21];
+            //Loop
+            for (int i = 0; i < 1000; i++)
+            {
+                //Var Wert Berechnen
+                //Zufallszahl Generieren
+                Random random = new Random();
+                double zufallszahl = random.NextDouble();
+                //runden
+                double gerundeteZahl = RoundToNearest(zufallszahl, 0.05);
+                //zuordnen
+                chartyvalues[(int)(gerundeteZahl / 0.05)]++;
+            }
+
+            /*int[] chartyvalues = { 50, 110, 105, 95, 91,
+                              87, 77, 70, 50, 48,
+                              35, 99, 300, 15, 10,
+                              2, 1, 0, 79, 0, 0};
+            */
+            PrintChart(chartyvalues[])
+
         }
+
+        static double RoundToNearest(double value, double step)
+        {
+            // Runden auf das nächstgelegene Vielfache von "step"
+            double gerundeteZahl = Math.Round(value / step) * step;
+            return gerundeteZahl;
+        }
+
+        private void PrintChart(chartyvalues[])
+        {
+            //chart1.Visible = !chart1.Visible; //Sichtbarkeit ändern
+            chart1.Visible = true;
+            for (int i = 0; i<21 ; i++)
+            {
+                //Console.WriteLine(i*0.05 + "=" + chartyvalues[i]);
+                chart1.Series["Simulation"].Points.AddXY(i * 0.05, chartyvalues[i]);
+            }
+        }
+
 
         private void InputVarA_TextChanged(object sender, EventArgs e)
         {
@@ -469,19 +511,7 @@ namespace sensitivity_analysis.Pages
 
         private void btn_simulate_Click(object sender, EventArgs e)
         {
-            //chart1.Visible = !chart1.Visible; //Sichtbarkeit ändern
-            chart1.Visible = true;
-            int[] yvalues = { 50, 110, 105, 95, 91,
-                              87, 77, 70, 50, 48,
-                              35, 99, 300, 15, 10,
-                              2, 1, 0, 79, 0, 0};
-
-            for (int i = 0; i<21 ; i++)
-            {
-                chart1.Series["Simulation"].Points.AddXY(i * 0.05, yvalues[i]);
-            }
-            
-
+            CreateResultsVar();
         }
 
         private void InputA_TextChanged(object sender, EventArgs e)
