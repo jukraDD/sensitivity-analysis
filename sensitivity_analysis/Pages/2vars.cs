@@ -476,7 +476,7 @@ namespace sensitivity_analysis.Pages
                               35, 99, 300, 15, 10,
                               2, 1, 0, 79, 0, 0};
             */
-            PrintChart(chartyvalues[])
+            PrintChart(chartyvalues[]);
 
         }
 
