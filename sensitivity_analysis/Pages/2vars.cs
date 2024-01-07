@@ -142,18 +142,12 @@ namespace sensitivity_analysis.Pages
         // reset input fields for P(A|B)
         private void ResetAbhInput(string exclude = null)
         {
-            InputAabhB11.TextChanged -= InputAabhB11_TextChanged;
-            InputAabhB01.TextChanged -= InputAabhB01_TextChanged;
-            InputAabhB10.TextChanged -= InputAabhB10_TextChanged;
-            InputAabhB00.TextChanged -= InputAabhB00_TextChanged;
+            DisableEventhandler();
             if (exclude != "11") InputAabhB11.Text = "";
             if (exclude != "01") InputAabhB01.Text = "";
             if (exclude != "10") InputAabhB10.Text = "";
             if (exclude != "00") InputAabhB00.Text = "";
-            InputAabhB11.TextChanged += InputAabhB11_TextChanged;
-            InputAabhB01.TextChanged += InputAabhB01_TextChanged;
-            InputAabhB10.TextChanged += InputAabhB10_TextChanged;
-            InputAabhB00.TextChanged += InputAabhB00_TextChanged;
+            EnableEventhandler();
             ab11 = -1;
             ab01 = -1;
             ab10 = -1;
