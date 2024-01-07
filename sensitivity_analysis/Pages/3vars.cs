@@ -30,6 +30,7 @@ namespace sensitivity_analysis.Pages
             relABC.SelectedIndex = 0;
         }
 
+        // draw table
         private void tableProb_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
         {
             if (e.Row == 1)
@@ -86,6 +87,7 @@ namespace sensitivity_analysis.Pages
             tableProb.BringToFront();
         }
 
+        // draw relations
         private void panel_rel_Paint(object sender, PaintEventArgs e)
         {
             using (Pen pen = new Pen(Color.Black, 2))
@@ -98,6 +100,7 @@ namespace sensitivity_analysis.Pages
             }
         }
 
+        // lock input fields for depending probabilities
         private void LockAbhInput()
         {
             foreach (TextBox t in abhInputs)
@@ -106,6 +109,7 @@ namespace sensitivity_analysis.Pages
             }
         }
 
+        // unlock input fields for depending probabilities
         private void UnlockAbhInput()
         {
             foreach (TextBox t in abhInputs)
@@ -114,6 +118,7 @@ namespace sensitivity_analysis.Pages
             }
         }
 
+        // reset label-values for P(A) in table
         private void ResetUnabhOutput()
         {
             foreach (Label l in unabhLabels)
@@ -122,6 +127,7 @@ namespace sensitivity_analysis.Pages
             }
         }
 
+        // reset input fields for P(A|B)
         private void ResetAabhBInput(int? exclude = null)
         {
             int c = 0;
@@ -135,6 +141,7 @@ namespace sensitivity_analysis.Pages
             }
         }
 
+        // reset input fields for P(B|C)
         private void ResetBabhCInput(int? exclude = null)
         {
             int c = 0;
@@ -200,6 +207,7 @@ namespace sensitivity_analysis.Pages
             }
         }
 
+        // set input fields for P(A|B) on values
         private void SetAabhBValues(int? exclude, double[] values)
         {
             for (int i = 0; i < 8; i++)
@@ -211,6 +219,7 @@ namespace sensitivity_analysis.Pages
             }
         }
 
+        // set input fields for P(B|C) on values
         private void SetBabhCValues(int? exclude, double[] values)
         {
             for (int i = 0; i < 8; i++)
@@ -222,6 +231,7 @@ namespace sensitivity_analysis.Pages
             }
         }
 
+        // set values for P(A|B)=P(A)
         private void SetAunabhB()
         {
             ab111 = a;
@@ -236,6 +246,7 @@ namespace sensitivity_analysis.Pages
             SetAabhBValues(null, val);
         }
 
+        // set values for P(B|C)=P(B)
         private void SetBunabhC()
         {
             bc111 = b;
@@ -250,35 +261,46 @@ namespace sensitivity_analysis.Pages
             SetBabhCValues(null, val);
         }
 
+        //check if a, b and c are between 0 and 1
         private bool IsValidInputABC(double a, double b, double c)
         {
             return !(a < 0 || a > 1 || b < 0 || b > 1 || c < 0 || c > 1);
         }
 
+        //check if d is between 0 and 1
         private bool IsValidInput(double d)
         {
             return !(d < 0 || d > 1);
         }
 
+        /* ----------------------------------------------
+              Functions to get values from input fields
+           ---------------------------------------------- */
+
+        // get values for P(A), P(B) and P(C)
         private void GetValues_ABC(object sender)
         {
+            // reset input for depending probabilities
             ResetAabhBInput(); ResetBabhCInput();
+            // input field for P(A) used
             if (sender == InputA)
             {
-                if (!double.TryParse(InputA.Text.Replace(".", ","), out a) || a > 1 || a < 0)
+                // try getting double value from input
+                if (!double.TryParse(InputA.Text.Replace(".", ","), out a) || !IsValidInput(a))
                 {
                     a = -1;
+                    // set error message if input field is not empty and does not contain a number
                     if(InputA.Text != "") labelInputError1.Text = "Die Werte für P(A), P(B) und P(C) müssen mindestens 0 und maximal 1 sein.";
                     else labelInputError1.Text = "";
                     output_PnotA.Text = "";
-                    ResetUnabhOutput();
-                    LockAbhInput();
+                    ResetUnabhOutput();     // reset labels for P(A) in table
+                    LockAbhInput();         // lock input fields for depending probabilities
                 }
                 else
                 {
-                    output_PnotA.Text = (1 - a).ToString();
+                    output_PnotA.Text = (1 - a).ToString();     // set label for P(¬A)
                     int index = 0;
-                    foreach (Label l in unabhLabels)
+                    foreach (Label l in unabhLabels)            // set labels for P(A) in table - if uneven row P(A), if even row P(¬A)
                     {
                         if (index % 2 == 0) l.Text = a.ToString();
                         else l.Text = (1 - a).ToString();
@@ -286,34 +308,40 @@ namespace sensitivity_analysis.Pages
                     }
                 }
             }
+            // input field for P(B) used
             else if (sender == InputB)
             {
-                if (!double.TryParse(InputB.Text.Replace(".", ","), out b) || b > 1 || b < 0)
+                // try getting double value from input
+                if (!double.TryParse(InputB.Text.Replace(".", ","), out b) || !IsValidInput(b))
                 {
                     b = -1;
+                    // set error message if input field is not empty and does not contain a number
                     if (InputB.Text != "") labelInputError1.Text = "Die Werte für P(A), P(B) und P(C) müssen mindestens 0 und maximal 1 sein.";
                     else labelInputError1.Text = "";
                     output_PnotB.Text = "";
-                    LockAbhInput();
+                    LockAbhInput();             // lock input fields for depending probabilities
                 }
                 else
                 {
-                    output_PnotB.Text = (1 - b).ToString();
+                    output_PnotB.Text = (1 - b).ToString();     // set label for P(¬B)
                 }
             }
+            // input field for P(C) used
             else if (sender == InputC)
             {
-                if (!double.TryParse(InputC.Text.Replace(".", ","), out c) || c > 1 || c < 0)
+                // try getting double value from input
+                if (!double.TryParse(InputC.Text.Replace(".", ","), out c) || !IsValidInput(c))
                 {
                     c = -1;
+                    // set error message if input field is not empty and does not contain a number
                     if (InputC.Text != "") labelInputError1.Text = "Die Werte für P(A), P(B) und P(C) müssen mindestens 0 und maximal 1 sein.";
                     else labelInputError1.Text = "";
                     output_PnotC.Text = "";
-                    LockAbhInput();
+                    LockAbhInput();             // lock input fields for depending probabilities
                 }
                 else
                 {
-                    output_PnotC.Text = (1 - c).ToString();
+                    output_PnotC.Text = (1 - c).ToString();     // set label for P(¬C)
                 }
             }
             else
@@ -322,38 +350,45 @@ namespace sensitivity_analysis.Pages
                 LockAbhInput();
             }
 
+            // reset error message if input fields are empty
             if (InputA.Text == "" && InputB.Text == "" && InputC.Text == "")
             {
                 labelInputError1.Text = String.Empty;
             }
 
+            // unlock input fields for depending probabilities if input fields for P(A), P(B) and P(C) are not empty and contain valid values
             if (InputA.Text != "" && InputB.Text != "" && InputC.Text != "" && IsValidInputABC(a,b,c))
             {
                 labelInputError1.Text = String.Empty;
                 UnlockAbhInput();
             }
-            else
+            else     // else lock input fields for depending probabilities
             {
                 LockAbhInput();
             }
         }
 
+        // get values for P(A|B)
         private void GetValues_AabhB(object sender)
         {
+            // first row input field in column for P(A|B) used
             if (sender == InputAabhB111)
             {
                 ab111 = -1;
+                // if input field is empty reset error message and reset depending input fields
                 if (InputAabhB111.Text == "")
                 {
                     labelInputError2.Text = String.Empty;
                     ResetAabhBInput();
                 }
+                // try getting double value from input
                 else if (!double.TryParse(InputAabhB111.Text.Replace(".", ","), out ab111) || !IsValidInput(ab111))
                 {
                     labelInputError2.Text = "Die angegebenen Werte müssen mindestens 0 und maximal 1 sein.";
                 }
                 else
                 {
+                    // check if input is valid
                     if (a / b < ab111)
                     {
                         labelInputError2.Text = "Der Wert für P(A|B) muss kleiner als der Quotient P(A)/P(B) (" + a / b + ") sein.";
@@ -366,6 +401,7 @@ namespace sensitivity_analysis.Pages
                     }
                     else
                     {
+                        // calculate depending values and set results in associated input fields
                         ab011 = 1 - ab111;
                         ab101 = (a - ab111 * b) / (1 - b);
                         ab001 = 1 - ab101;
@@ -379,20 +415,24 @@ namespace sensitivity_analysis.Pages
                     }
                 }
             }
+            // second row input field in column for P(A|B) used
             else if (sender == InputAabhB011)
             {
                 ab011 = -1;
+                // if input field is empty reset error message and reset depending input fields
                 if (InputAabhB011.Text == "")
                 {
                     labelInputError2.Text = String.Empty;
                     ResetAabhBInput();
                 }
+                // try getting double value from input
                 else if (!double.TryParse(InputAabhB011.Text.Replace(".", ","), out ab011) || !IsValidInput(ab011))
                 {
                     labelInputError2.Text = "Die angegebenen Werte müssen mindestens 0 und maximal 1 sein.";
                 }
                 else
                 {
+                    // check if input is valid
                     if ((1 - a) / b < ab011)
                     {
                         labelInputError2.Text = "Der Wert für P(¬A|B) muss kleiner als der Quotient P(¬A)/P(B) (" + (1 - a) / b + ") sein.";
@@ -405,6 +445,7 @@ namespace sensitivity_analysis.Pages
                     }
                     else
                     {
+                        // calculate depending values and set results in associated input fields
                         ab111 = 1 - ab011;
                         ab101 = (a - ab111 * b) / (1 - b);
                         ab001 = 1 - ab101;
@@ -418,20 +459,24 @@ namespace sensitivity_analysis.Pages
                     }
                 }
             }
+            // third row input field in column for P(A|B) used
             else if (sender == InputAabhB101)
             {
                 ab101 = -1;
+                // if input field is empty reset error message and reset depending input fields
                 if (InputAabhB101.Text == "")
                 {
                     labelInputError2.Text = String.Empty;
                     ResetAabhBInput();
                 }
+                // try getting double value from input
                 else if (!double.TryParse(InputAabhB101.Text.Replace(".", ","), out ab101) || !IsValidInput(ab101))
                 {
                     labelInputError2.Text = "Die angegebenen Werte müssen mindestens 0 und maximal 1 sein.";
                 }
                 else
                 {
+                    // check if input is valid
                     if (a / (1 - b) < ab101)
                     {
                         labelInputError2.Text = "Der Wert für P(A|¬B) muss kleiner als der Quotient P(A)/P(¬B) (" + a / (1 - b) + ") sein.";
@@ -444,6 +489,7 @@ namespace sensitivity_analysis.Pages
                     }
                     else
                     {
+                        // calculate depending values and set results in associated input fields
                         ab001 = 1 - ab101;
                         ab111 = (a - ab101 * (1 - b)) / b;
                         ab011 = 1 - ab111;
@@ -457,20 +503,24 @@ namespace sensitivity_analysis.Pages
                     }
                 }
             }
+            // fourth row input field in column for P(A|B) used
             else if (sender == InputAabhB001)
             {
                 ab001 = -1;
+                // if input field is empty reset error message and reset depending input fields
                 if (InputAabhB001.Text == "")
                 {
                     labelInputError2.Text = String.Empty;
                     ResetAabhBInput();
                 }
+                // try getting double value from input
                 else if (!double.TryParse(InputAabhB001.Text.Replace(".", ","), out ab001) || !IsValidInput(ab001))
                 {
                     labelInputError2.Text = "Die angegebenen Werte müssen mindestens 0 und maximal 1 sein.";
                 }
                 else
                 {
+                    // check if input is valid
                     if ((1 - a) / (1 - b) < ab001)
                     {
                         labelInputError2.Text = "Der Wert für P(¬A|¬B) muss kleiner als der Quotient P(¬A)/P(¬B) (" + (1 - a) / (1 - b) + ") sein.";
@@ -483,6 +533,7 @@ namespace sensitivity_analysis.Pages
                     }
                     else
                     {
+                        // calculate depending values and set results in associated input fields
                         ab101 = 1 - ab001;
                         ab111 = (a - ab101 * (1 - b)) / b;
                         ab011 = 1 - ab111;
@@ -496,20 +547,24 @@ namespace sensitivity_analysis.Pages
                     }
                 }
             }
+            // fifth row input field in column for P(A|B) used
             else if (sender == InputAabhB110)
             {
                 ab110 = -1;
+                // if input field is empty reset error message and reset depending input fields
                 if (InputAabhB110.Text == "")
                 {
                     labelInputError2.Text = String.Empty;
                     ResetAabhBInput();
                 }
+                // try getting double value from input
                 else if (!double.TryParse(InputAabhB110.Text.Replace(".", ","), out ab110) || !IsValidInput(ab110))
                 {
                     labelInputError2.Text = "Die angegebenen Werte müssen mindestens 0 und maximal 1 sein.";
                 }
                 else
                 {
+                    // check if input is valid
                     if (a / b < ab110)
                     {
                         labelInputError2.Text = "Der Wert für P(A|B) muss kleiner als der Quotient P(A)/P(B) (" + a / b + ") sein.";
@@ -522,6 +577,7 @@ namespace sensitivity_analysis.Pages
                     }
                     else
                     {
+                        // calculate depending values and set results in associated input fields
                         ab010 = 1 - ab110;
                         ab100 = (a - ab110 * b) / (1 - b);
                         ab000 = 1 - ab100;
@@ -535,20 +591,24 @@ namespace sensitivity_analysis.Pages
                     }
                 }
             }
+            // sixth row input field in column for P(A|B) used
             else if (sender == InputAabhB010)
             {
                 ab010 = -1;
+                // if input field is empty reset error message and reset depending input fields
                 if (InputAabhB010.Text == "")
                 {
                     labelInputError2.Text = String.Empty;
                     ResetAabhBInput();
                 }
+                // try getting double value from input
                 else if (!double.TryParse(InputAabhB010.Text.Replace(".", ","), out ab010) || !IsValidInput(ab010))
                 {
                     labelInputError2.Text = "Die angegebenen Werte müssen mindestens 0 und maximal 1 sein.";
                 }
                 else
                 {
+                    // check if input is valid
                     if ((1 - a) / b < ab010)
                     {
                         labelInputError2.Text = "Der Wert für P(¬A|B) muss kleiner als der Quotient P(¬A)/P(B) (" + (1 - a) / b + ") sein.";
@@ -561,6 +621,7 @@ namespace sensitivity_analysis.Pages
                     }
                     else
                     {
+                        // calculate depending values and set results in associated input fields
                         ab110 = 1 - ab010;
                         ab100 = (a - ab110 * b) / (1 - b);
                         ab000 = 1 - ab100;
@@ -574,20 +635,24 @@ namespace sensitivity_analysis.Pages
                     }
                 }
             }
+            // seventh row input field in column for P(A|B) used
             else if (sender == InputAabhB100)
             {
                 ab100 = -1;
+                // if input field is empty reset error message and reset depending input fields
                 if (InputAabhB100.Text == "")
                 {
                     labelInputError2.Text = String.Empty;
                     ResetAabhBInput();
                 }
+                // try getting double value from input
                 else if (!double.TryParse(InputAabhB100.Text.Replace(".", ","), out ab100) || !IsValidInput(ab100))
                 {
                     labelInputError2.Text = "Die angegebenen Werte müssen mindestens 0 und maximal 1 sein.";
                 }
                 else
                 {
+                    // check if input is valid
                     if (a / (1 - b) < ab100)
                     {
                         labelInputError2.Text = "Der Wert für P(A|¬B) muss kleiner als der Quotient P(A)/P(¬B) (" + a / (1 - b) + ") sein.";
@@ -600,6 +665,7 @@ namespace sensitivity_analysis.Pages
                     }
                     else
                     {
+                        // calculate depending values and set results in associated input fields
                         ab000 = 1 - ab100;
                         ab110 = (a - ab100 * (1 - b)) / b;
                         ab010 = 1 - ab110;
@@ -613,9 +679,11 @@ namespace sensitivity_analysis.Pages
                     }
                 }
             }
+            // eighth row input field in column for P(A|B) used
             else if (sender == InputAabhB000)
             {
                 ab000 = -1;
+                // if input field is empty reset error message and reset depending input fields
                 if (InputAabhB000.Text == "")
                 {
                     labelInputError2.Text = String.Empty;
@@ -627,6 +695,7 @@ namespace sensitivity_analysis.Pages
                 }
                 else
                 {
+                    // check if input is valid
                     if ((1 - a) / (1 - b) < ab000)
                     {
                         labelInputError2.Text = "Der Wert für P(¬A|¬B) muss kleiner als der Quotient P(¬A)/P(¬B) (" + (1 - a) / (1 - b) + ") sein.";
@@ -639,6 +708,7 @@ namespace sensitivity_analysis.Pages
                     }
                     else
                     {
+                        // calculate depending values and set results in associated input fields
                         ab100 = 1 - ab000;
                         ab110 = (a - ab100 * (1 - b)) / b;
                         ab010 = 1 - ab110;
@@ -653,22 +723,28 @@ namespace sensitivity_analysis.Pages
                 }
             }
         }
+
+        // get values for P(B|C)
         private void GetValues_BabhC(object sender)
         {
+            // first row input field in column for P(B|C) used
             if (sender == InputBabhC111)
             {
                 bc111 = -1;
+                // if input field is empty reset error message and reset depending input fields
                 if (InputBabhC111.Text == "")
                 {
                     labelInputError2.Text = String.Empty;
                     ResetBabhCInput();
                 }
+                // try getting double value from input
                 else if (!double.TryParse(InputBabhC111.Text.Replace(".", ","), out bc111) || !IsValidInput(bc111))
                 {
                     labelInputError2.Text = "Die angegebenen Werte müssen mindestens 0 und maximal 1 sein.";
                 }
                 else
                 {
+                    // check if input is valid
                     if (b / c < bc111)
                     {
                         labelInputError2.Text = "Der Wert für P(B|C) muss kleiner als der Quotient P(B)/P(C) (" + b / c + ") sein.";
@@ -681,6 +757,7 @@ namespace sensitivity_analysis.Pages
                     }
                     else
                     {
+                        // calculate depending values and set results in associated input fields
                         bc101 = 1 - bc111;
                         bc110 = (b - bc111 * c) / (1 - c);
                         bc100 = 1 - bc110;
@@ -694,20 +771,24 @@ namespace sensitivity_analysis.Pages
                     }
                 }
             }
+            // second row input field in column for P(B|C) used
             else if (sender == InputBabhC011)
             {
                 bc011 = -1;
+                // if input field is empty reset error message and reset depending input fields
                 if (InputBabhC011.Text == "")
                 {
                     labelInputError2.Text = String.Empty;
                     ResetBabhCInput();
                 }
+                // try getting double value from input
                 else if (!double.TryParse(InputBabhC011.Text.Replace(".", ","), out bc011) || !IsValidInput(bc011))
                 {
                     labelInputError2.Text = "Die angegebenen Werte müssen mindestens 0 und maximal 1 sein.";
                 }
                 else
                 {
+                    // check if input is valid
                     if (b / c < bc011)
                     {
                         labelInputError2.Text = "Der Wert für P(B|C) muss kleiner als der Quotient P(B)/P(C) (" + b / c + ") sein.";
@@ -720,6 +801,7 @@ namespace sensitivity_analysis.Pages
                     }
                     else
                     {
+                        // calculate depending values and set results in associated input fields
                         bc001 = 1 - bc011;
                         bc010 = (b - bc011 * c) / (1 - c);
                         bc000 = 1 - bc010;
@@ -733,20 +815,24 @@ namespace sensitivity_analysis.Pages
                     }
                 }
             }
+            // third row input field in column for P(B|C) used
             else if (sender == InputBabhC101)
             {
                 bc101 = -1;
+                // if input field is empty reset error message and reset depending input fields
                 if (InputBabhC101.Text == "")
                 {
                     labelInputError2.Text = String.Empty;
                     ResetBabhCInput();
                 }
+                // try getting double value from input
                 else if (!double.TryParse(InputBabhC101.Text.Replace(".", ","), out bc101) || !IsValidInput(bc101))
                 {
                     labelInputError2.Text = "Die angegebenen Werte müssen mindestens 0 und maximal 1 sein.";
                 }
                 else
                 {
+                    // check if input is valid
                     if ((1 - b) / c < bc101)
                     {
                         labelInputError2.Text = "Der Wert für P(¬B|C) muss kleiner als der Quotient P(¬B)/P(C) (" + (1 - b) / c + ") sein.";
@@ -759,6 +845,7 @@ namespace sensitivity_analysis.Pages
                     }
                     else
                     {
+                        // calculate depending values and set results in associated input fields
                         bc111 = 1 - bc101;
                         bc110 = (b - bc111 * c) / (1 - c);
                         bc100 = 1 - bc110;
@@ -772,20 +859,24 @@ namespace sensitivity_analysis.Pages
                     }
                 }
             }
+            // fourth row input field in column for P(B|C) used
             else if (sender == InputBabhC001)
             {
                 bc001 = -1;
+                // if input field is empty reset error message and reset depending input fields
                 if (InputBabhC001.Text == "")
                 {
                     labelInputError2.Text = String.Empty;
                     ResetBabhCInput();
                 }
+                // try getting double value from input
                 else if (!double.TryParse(InputBabhC001.Text.Replace(".", ","), out bc001) || !IsValidInput(bc001))
                 {
                     labelInputError2.Text = "Die angegebenen Werte müssen mindestens 0 und maximal 1 sein.";
                 }
                 else
                 {
+                    // check if input is valid
                     if ((1 - b) / c < bc001)
                     {
                         labelInputError2.Text = "Der Wert für P(¬B|C) muss kleiner als der Quotient P(¬B)/P(C) (" + (1 - b) / c + ") sein.";
@@ -798,6 +889,7 @@ namespace sensitivity_analysis.Pages
                     }
                     else
                     {
+                        // calculate depending values and set results in associated input fields
                         bc011 = 1 - bc001;
                         bc010 = (b - bc011 * c) / (1 - c);
                         bc000 = 1 - bc010;
@@ -811,20 +903,24 @@ namespace sensitivity_analysis.Pages
                     }
                 }
             }
+            // fifth row input field in column for P(B|C) used
             else if (sender == InputBabhC110)
             {
                 bc110 = -1;
+                // if input field is empty reset error message and reset depending input fields
                 if (InputBabhC110.Text == "")
                 {
                     labelInputError2.Text = String.Empty;
                     ResetBabhCInput();
                 }
+                // try getting double value from input
                 else if (!double.TryParse(InputBabhC110.Text.Replace(".", ","), out bc110) || !IsValidInput(bc110))
                 {
                     labelInputError2.Text = "Die angegebenen Werte müssen mindestens 0 und maximal 1 sein.";
                 }
                 else
                 {
+                    // check if input is valid
                     if (b / (1 - c) < bc110)
                     {
                         labelInputError2.Text = "Der Wert für P(B|¬C) muss kleiner als der Quotient P(B)/P(¬C) (" + b / (1 - c) + ") sein.";
@@ -837,6 +933,7 @@ namespace sensitivity_analysis.Pages
                     }
                     else
                     {
+                        // calculate depending values and set results in associated input fields
                         bc100 = 1 - bc110;
                         bc111 = (b - bc110 * (1 - c)) / c;
                         bc101 = 1 - bc111;
@@ -850,20 +947,24 @@ namespace sensitivity_analysis.Pages
                     }
                 }
             }
+            // sixth row input field in column for P(B|C) used
             else if (sender == InputBabhC010)
             {
                 bc010 = -1;
+                // if input field is empty reset error message and reset depending input fields
                 if (InputBabhC010.Text == "")
                 {
                     labelInputError2.Text = String.Empty;
                     ResetBabhCInput();
                 }
+                // try getting double value from input
                 else if (!double.TryParse(InputBabhC010.Text.Replace(".", ","), out bc010) || !IsValidInput(bc010))
                 {
                     labelInputError2.Text = "Die angegebenen Werte müssen mindestens 0 und maximal 1 sein.";
                 }
                 else
                 {
+                    // check if input is valid
                     if (b / (1 - c) < bc010)
                     {
                         labelInputError2.Text = "Der Wert für P(B|¬C) muss kleiner als der Quotient P(B)/P(¬C) (" + b / (1 - c) + ") sein.";
@@ -876,6 +977,7 @@ namespace sensitivity_analysis.Pages
                     }
                     else
                     {
+                        // calculate depending values and set results in associated input fields
                         bc000 = 1 - bc010;
                         bc011 = (b - bc010 * (1 - c)) / c;
                         bc001 = 1 - bc011;
@@ -889,20 +991,24 @@ namespace sensitivity_analysis.Pages
                     }
                 }
             }
+            // seventh row input field in column for P(B|C) used
             else if (sender == InputBabhC100)
             {
                 bc100 = -1;
+                // if input field is empty reset error message and reset depending input fields
                 if (InputBabhC100.Text == "")
                 {
                     labelInputError2.Text = String.Empty;
                     ResetBabhCInput();
                 }
+                // try getting double value from input
                 else if (!double.TryParse(InputBabhC100.Text.Replace(".", ","), out bc100) || !IsValidInput(bc100))
                 {
                     labelInputError2.Text = "Die angegebenen Werte müssen mindestens 0 und maximal 1 sein.";
                 }
                 else
                 {
+                    // check if input is valid
                     if ((1 - b) / (1 - c) < bc100)
                     {
                         labelInputError2.Text = "Der Wert für P(¬B|¬C) muss kleiner als der Quotient P(¬B)/P(¬C) (" + (1 - b) / (1 - c) + ") sein.";
@@ -915,6 +1021,7 @@ namespace sensitivity_analysis.Pages
                     }
                     else
                     {
+                        // calculate depending values and set results in associated input fields
                         bc110 = 1 - bc100;
                         bc111 = (b - bc110 * (1 - c)) / c;
                         bc101 = 1 - bc111;
@@ -928,20 +1035,24 @@ namespace sensitivity_analysis.Pages
                     }
                 }
             }
+            // eighth row input field in column for P(B|C) used
             else if (sender == InputBabhC000)
             {
                 bc000 = -1;
+                // if input field is empty reset error message and reset depending input fields
                 if (InputBabhC000.Text == "")
                 {
                     labelInputError2.Text = String.Empty;
                     ResetBabhCInput();
                 }
+                // try getting double value from input
                 else if (!double.TryParse(InputBabhC000.Text.Replace(".", ","), out bc000) || !IsValidInput(bc000))
                 {
                     labelInputError2.Text = "Die angegebenen Werte müssen mindestens 0 und maximal 1 sein.";
                 }
                 else
                 {
+                    // check if input is valid
                     if ((1 - b) / (1 - c) < bc000)
                     {
                         labelInputError2.Text = "Der Wert für P(¬B|¬C) muss kleiner als der Quotient P(¬B)/P(¬C) (" + (1 - b) / (1 - c) + ") sein.";
@@ -968,39 +1079,91 @@ namespace sensitivity_analysis.Pages
                 }
             }
         }
-        private void CreateResults()
-        {
-            double resABunabh, resABabh, resABCunabh, resABCabh = 0;
 
+        // create results for the case that the random variables A,B and C are independent
+        private void CreateUnabhResults()
+        {
+            double resABunabh, resABCunabh = 0;
+
+            // calcualte result depending on by user selected relations between the random variables
             if (relAB.SelectedIndex == 0)
             {
                 resABunabh = a * b;
                 if (relABC.SelectedIndex == 0)
                 {
                     resABCunabh = resABunabh * c;
-                    outputUnabh.Text = "P(R) = " + resABCunabh.ToString();
                 }
-                else if (relABC.SelectedIndex == 1)
+                else
                 {
                     resABCunabh = resABunabh + c - (resABunabh * c);
-                    outputUnabh.Text = "P(R) = " + resABCunabh.ToString();
                 }
             }
-            else if (relAB.SelectedIndex == 1)
+            else
             {
                 resABunabh = a + b - (a * b);
                 if (relABC.SelectedIndex == 0)
                 {
                     resABCunabh = resABunabh * c;
-                    outputUnabh.Text = "P(R) = " + resABCunabh.ToString();
                 }
-                else if (relABC.SelectedIndex == 1)
+                else
                 {
                     resABCunabh = resABunabh + c - (resABunabh * c);
-                    outputUnabh.Text = "P(R) = " + resABCunabh.ToString();
                 }
             }
+
+            // output result
+            outputUnabh.Text = "P(R) = " + resABCunabh.ToString();
         }
+
+        // create results for the case that the random variables A,B and C are not independent
+        private void CreateAbhResults()
+        {
+            double res = 0;
+            int[] rel_arr;
+
+            // organize values as array for better calculation
+            double[] AabhB_arr = new[] {ab111, ab011, ab101, ab001, ab110, ab010, ab100, ab000};
+            double[] BabhC_arr = new[] {bc111, bc011, bc101, bc001, bc110, bc010, bc100, bc000};
+            double[] c_arr = new[] {c, c, c, c, 1-c, 1-c, 1-c, 1-c};
+
+            // set array depending on by user selected relations between the random variables
+            // (1 = combination of states of the random variables is part of final result; 0 = otherwise)
+            if (relAB.SelectedIndex == 0)
+            {
+                if (relABC.SelectedIndex == 0)
+                {
+                    rel_arr = new[] { 1, 0, 0, 0, 0, 0, 0, 0 };
+                }
+                else
+                {
+                    rel_arr = new[] { 1, 1, 1, 1, 1, 0, 0, 0 };
+                }
+            }
+            else
+            {
+                if (relABC.SelectedIndex == 0)
+                {
+                    rel_arr = new[] { 1, 1, 1, 0, 0, 0, 0, 0 };
+                }
+                else
+                {
+                    rel_arr = new[] { 1, 1, 1, 1, 1, 1, 1, 0 };
+                }
+            }
+
+            // sum over all 8 possible combinations of states of the random variables
+            for (int c = 0; c < 8; c++)
+            {
+                res += c_arr[c] * rel_arr[c] * BabhC_arr[c] * AabhB_arr[c];
+            }
+
+            // output result
+            outputAbh.Text = "P(R) = " + res.ToString();
+        }
+
+        /* ----------------------------------------------
+                        EventListener
+           ---------------------------------------------- */
 
         private void InputA_TextChanged(object sender, EventArgs e)
         {
@@ -1021,6 +1184,7 @@ namespace sensitivity_analysis.Pages
         {
             GetValues_AabhB(sender);
         }
+
         private void InputAabhB011_TextChanged(object sender, EventArgs e)
         {
             GetValues_AabhB(sender);
@@ -1055,6 +1219,7 @@ namespace sensitivity_analysis.Pages
         {
             GetValues_AabhB(sender);
         }
+
         private void InputBabhC111_TextChanged(object sender, EventArgs e)
         {
             GetValues_BabhC(sender);
@@ -1101,7 +1266,8 @@ namespace sensitivity_analysis.Pages
             {
                 if (InputAabhB111.Text == "") SetAunabhB();
                 if (InputBabhC111.Text == "") SetBunabhC();
-                CreateResults();
+                CreateUnabhResults();
+                CreateAbhResults();
             }
             else
             {

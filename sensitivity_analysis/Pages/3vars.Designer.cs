@@ -273,9 +273,9 @@
             // 
             this.InputBabhC000.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.InputBabhC000.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.InputBabhC000.Location = new System.Drawing.Point(409, 262);
+            this.InputBabhC000.Location = new System.Drawing.Point(411, 262);
             this.InputBabhC000.Name = "InputBabhC000";
-            this.InputBabhC000.Size = new System.Drawing.Size(140, 21);
+            this.InputBabhC000.Size = new System.Drawing.Size(138, 21);
             this.InputBabhC000.TabIndex = 27;
             this.InputBabhC000.TextChanged += new System.EventHandler(this.InputBabhC000_TextChanged);
             // 
@@ -283,9 +283,9 @@
             // 
             this.InputBabhC100.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.InputBabhC100.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.InputBabhC100.Location = new System.Drawing.Point(409, 231);
+            this.InputBabhC100.Location = new System.Drawing.Point(411, 231);
             this.InputBabhC100.Name = "InputBabhC100";
-            this.InputBabhC100.Size = new System.Drawing.Size(140, 21);
+            this.InputBabhC100.Size = new System.Drawing.Size(138, 21);
             this.InputBabhC100.TabIndex = 26;
             this.InputBabhC100.TextChanged += new System.EventHandler(this.InputBabhC100_TextChanged);
             // 
@@ -293,9 +293,9 @@
             // 
             this.InputBabhC010.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.InputBabhC010.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.InputBabhC010.Location = new System.Drawing.Point(409, 200);
+            this.InputBabhC010.Location = new System.Drawing.Point(411, 200);
             this.InputBabhC010.Name = "InputBabhC010";
-            this.InputBabhC010.Size = new System.Drawing.Size(140, 21);
+            this.InputBabhC010.Size = new System.Drawing.Size(138, 21);
             this.InputBabhC010.TabIndex = 25;
             this.InputBabhC010.TextChanged += new System.EventHandler(this.InputBabhC010_TextChanged);
             // 
@@ -303,9 +303,9 @@
             // 
             this.InputBabhC110.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.InputBabhC110.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.InputBabhC110.Location = new System.Drawing.Point(409, 169);
+            this.InputBabhC110.Location = new System.Drawing.Point(411, 169);
             this.InputBabhC110.Name = "InputBabhC110";
-            this.InputBabhC110.Size = new System.Drawing.Size(140, 21);
+            this.InputBabhC110.Size = new System.Drawing.Size(138, 21);
             this.InputBabhC110.TabIndex = 24;
             this.InputBabhC110.TextChanged += new System.EventHandler(this.InputBabhC110_TextChanged);
             // 
@@ -313,9 +313,9 @@
             // 
             this.InputBabhC001.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.InputBabhC001.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.InputBabhC001.Location = new System.Drawing.Point(409, 138);
+            this.InputBabhC001.Location = new System.Drawing.Point(411, 138);
             this.InputBabhC001.Name = "InputBabhC001";
-            this.InputBabhC001.Size = new System.Drawing.Size(140, 21);
+            this.InputBabhC001.Size = new System.Drawing.Size(138, 21);
             this.InputBabhC001.TabIndex = 23;
             this.InputBabhC001.TextChanged += new System.EventHandler(this.InputBabhC001_TextChanged);
             // 
@@ -323,9 +323,9 @@
             // 
             this.InputBabhC101.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.InputBabhC101.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.InputBabhC101.Location = new System.Drawing.Point(409, 107);
+            this.InputBabhC101.Location = new System.Drawing.Point(411, 107);
             this.InputBabhC101.Name = "InputBabhC101";
-            this.InputBabhC101.Size = new System.Drawing.Size(140, 21);
+            this.InputBabhC101.Size = new System.Drawing.Size(138, 21);
             this.InputBabhC101.TabIndex = 22;
             this.InputBabhC101.TextChanged += new System.EventHandler(this.InputBabhC101_TextChanged);
             // 
@@ -333,9 +333,9 @@
             // 
             this.InputBabhC011.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.InputBabhC011.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.InputBabhC011.Location = new System.Drawing.Point(409, 76);
+            this.InputBabhC011.Location = new System.Drawing.Point(411, 76);
             this.InputBabhC011.Name = "InputBabhC011";
-            this.InputBabhC011.Size = new System.Drawing.Size(140, 21);
+            this.InputBabhC011.Size = new System.Drawing.Size(138, 21);
             this.InputBabhC011.TabIndex = 21;
             this.InputBabhC011.TextChanged += new System.EventHandler(this.InputBabhC011_TextChanged);
             // 
@@ -343,9 +343,9 @@
             // 
             this.InputBabhC111.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.InputBabhC111.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.InputBabhC111.Location = new System.Drawing.Point(409, 45);
+            this.InputBabhC111.Location = new System.Drawing.Point(411, 45);
             this.InputBabhC111.Name = "InputBabhC111";
-            this.InputBabhC111.Size = new System.Drawing.Size(140, 21);
+            this.InputBabhC111.Size = new System.Drawing.Size(138, 21);
             this.InputBabhC111.TabIndex = 20;
             this.InputBabhC111.TextChanged += new System.EventHandler(this.InputBabhC111_TextChanged);
             // 
@@ -356,10 +356,10 @@
             this.label_PBuC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label_PBuC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.label_PBuC.ForeColor = System.Drawing.Color.Black;
-            this.label_PBuC.Location = new System.Drawing.Point(409, 0);
+            this.label_PBuC.Location = new System.Drawing.Point(411, 0);
             this.label_PBuC.Name = "label_PBuC";
             this.tableProb.SetRowSpan(this.label_PBuC, 2);
-            this.label_PBuC.Size = new System.Drawing.Size(140, 40);
+            this.label_PBuC.Size = new System.Drawing.Size(138, 40);
             this.label_PBuC.TabIndex = 75;
             this.label_PBuC.Text = "P(B|C)";
             this.label_PBuC.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -373,7 +373,7 @@
             this.LabelAunabh000.ForeColor = System.Drawing.Color.Black;
             this.LabelAunabh000.Location = new System.Drawing.Point(123, 257);
             this.LabelAunabh000.Name = "LabelAunabh000";
-            this.LabelAunabh000.Size = new System.Drawing.Size(137, 31);
+            this.LabelAunabh000.Size = new System.Drawing.Size(138, 31);
             this.LabelAunabh000.TabIndex = 62;
             this.LabelAunabh000.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -386,7 +386,7 @@
             this.LabelAunabh100.ForeColor = System.Drawing.Color.Black;
             this.LabelAunabh100.Location = new System.Drawing.Point(123, 226);
             this.LabelAunabh100.Name = "LabelAunabh100";
-            this.LabelAunabh100.Size = new System.Drawing.Size(137, 31);
+            this.LabelAunabh100.Size = new System.Drawing.Size(138, 31);
             this.LabelAunabh100.TabIndex = 61;
             this.LabelAunabh100.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -399,7 +399,7 @@
             this.LabelAunabh010.ForeColor = System.Drawing.Color.Black;
             this.LabelAunabh010.Location = new System.Drawing.Point(123, 195);
             this.LabelAunabh010.Name = "LabelAunabh010";
-            this.LabelAunabh010.Size = new System.Drawing.Size(137, 31);
+            this.LabelAunabh010.Size = new System.Drawing.Size(138, 31);
             this.LabelAunabh010.TabIndex = 60;
             this.LabelAunabh010.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -412,7 +412,7 @@
             this.LabelAunabh110.ForeColor = System.Drawing.Color.Black;
             this.LabelAunabh110.Location = new System.Drawing.Point(123, 164);
             this.LabelAunabh110.Name = "LabelAunabh110";
-            this.LabelAunabh110.Size = new System.Drawing.Size(137, 31);
+            this.LabelAunabh110.Size = new System.Drawing.Size(138, 31);
             this.LabelAunabh110.TabIndex = 59;
             this.LabelAunabh110.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -591,10 +591,10 @@
             this.label_PAuB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label_PAuB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.label_PAuB.ForeColor = System.Drawing.Color.Black;
-            this.label_PAuB.Location = new System.Drawing.Point(266, 0);
+            this.label_PAuB.Location = new System.Drawing.Point(267, 0);
             this.label_PAuB.Name = "label_PAuB";
             this.tableProb.SetRowSpan(this.label_PAuB, 2);
-            this.label_PAuB.Size = new System.Drawing.Size(137, 40);
+            this.label_PAuB.Size = new System.Drawing.Size(138, 40);
             this.label_PAuB.TabIndex = 45;
             this.label_PAuB.Text = "P(A|B)";
             this.label_PAuB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -679,7 +679,7 @@
             this.LabelAunabh001.ForeColor = System.Drawing.Color.Black;
             this.LabelAunabh001.Location = new System.Drawing.Point(123, 133);
             this.LabelAunabh001.Name = "LabelAunabh001";
-            this.LabelAunabh001.Size = new System.Drawing.Size(137, 31);
+            this.LabelAunabh001.Size = new System.Drawing.Size(138, 31);
             this.LabelAunabh001.TabIndex = 38;
             this.LabelAunabh001.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -692,7 +692,7 @@
             this.LabelAunabh101.ForeColor = System.Drawing.Color.Black;
             this.LabelAunabh101.Location = new System.Drawing.Point(123, 102);
             this.LabelAunabh101.Name = "LabelAunabh101";
-            this.LabelAunabh101.Size = new System.Drawing.Size(137, 31);
+            this.LabelAunabh101.Size = new System.Drawing.Size(138, 31);
             this.LabelAunabh101.TabIndex = 37;
             this.LabelAunabh101.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -705,7 +705,7 @@
             this.LabelAunabh011.ForeColor = System.Drawing.Color.Black;
             this.LabelAunabh011.Location = new System.Drawing.Point(123, 71);
             this.LabelAunabh011.Name = "LabelAunabh011";
-            this.LabelAunabh011.Size = new System.Drawing.Size(137, 31);
+            this.LabelAunabh011.Size = new System.Drawing.Size(138, 31);
             this.LabelAunabh011.TabIndex = 36;
             this.LabelAunabh011.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -718,7 +718,7 @@
             this.LabelAunabh111.ForeColor = System.Drawing.Color.Black;
             this.LabelAunabh111.Location = new System.Drawing.Point(123, 40);
             this.LabelAunabh111.Name = "LabelAunabh111";
-            this.LabelAunabh111.Size = new System.Drawing.Size(137, 31);
+            this.LabelAunabh111.Size = new System.Drawing.Size(138, 31);
             this.LabelAunabh111.TabIndex = 35;
             this.LabelAunabh111.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -844,7 +844,7 @@
             this.AunabhBC.Location = new System.Drawing.Point(123, 0);
             this.AunabhBC.Name = "AunabhBC";
             this.tableProb.SetRowSpan(this.AunabhBC, 2);
-            this.AunabhBC.Size = new System.Drawing.Size(137, 40);
+            this.AunabhBC.Size = new System.Drawing.Size(138, 40);
             this.AunabhBC.TabIndex = 24;
             this.AunabhBC.Text = "A unabh. von B und C";
             this.AunabhBC.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -868,9 +868,9 @@
             // 
             this.InputAabhB001.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.InputAabhB001.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.InputAabhB001.Location = new System.Drawing.Point(266, 138);
+            this.InputAabhB001.Location = new System.Drawing.Point(267, 138);
             this.InputAabhB001.Name = "InputAabhB001";
-            this.InputAabhB001.Size = new System.Drawing.Size(137, 21);
+            this.InputAabhB001.Size = new System.Drawing.Size(138, 21);
             this.InputAabhB001.TabIndex = 7;
             this.InputAabhB001.TextChanged += new System.EventHandler(this.InputAabhB001_TextChanged);
             // 
@@ -878,9 +878,9 @@
             // 
             this.InputAabhB101.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.InputAabhB101.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.InputAabhB101.Location = new System.Drawing.Point(266, 107);
+            this.InputAabhB101.Location = new System.Drawing.Point(267, 107);
             this.InputAabhB101.Name = "InputAabhB101";
-            this.InputAabhB101.Size = new System.Drawing.Size(137, 21);
+            this.InputAabhB101.Size = new System.Drawing.Size(138, 21);
             this.InputAabhB101.TabIndex = 6;
             this.InputAabhB101.TextChanged += new System.EventHandler(this.InputAabhB101_TextChanged);
             // 
@@ -888,9 +888,9 @@
             // 
             this.InputAabhB011.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.InputAabhB011.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.InputAabhB011.Location = new System.Drawing.Point(266, 76);
+            this.InputAabhB011.Location = new System.Drawing.Point(267, 76);
             this.InputAabhB011.Name = "InputAabhB011";
-            this.InputAabhB011.Size = new System.Drawing.Size(137, 21);
+            this.InputAabhB011.Size = new System.Drawing.Size(138, 21);
             this.InputAabhB011.TabIndex = 5;
             this.InputAabhB011.TextChanged += new System.EventHandler(this.InputAabhB011_TextChanged);
             // 
@@ -898,9 +898,9 @@
             // 
             this.InputAabhB111.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.InputAabhB111.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.InputAabhB111.Location = new System.Drawing.Point(266, 45);
+            this.InputAabhB111.Location = new System.Drawing.Point(267, 45);
             this.InputAabhB111.Name = "InputAabhB111";
-            this.InputAabhB111.Size = new System.Drawing.Size(137, 21);
+            this.InputAabhB111.Size = new System.Drawing.Size(138, 21);
             this.InputAabhB111.TabIndex = 4;
             this.InputAabhB111.TextChanged += new System.EventHandler(this.InputAabhB111_TextChanged);
             // 
@@ -908,9 +908,9 @@
             // 
             this.InputAabhB110.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.InputAabhB110.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.InputAabhB110.Location = new System.Drawing.Point(266, 169);
+            this.InputAabhB110.Location = new System.Drawing.Point(267, 169);
             this.InputAabhB110.Name = "InputAabhB110";
-            this.InputAabhB110.Size = new System.Drawing.Size(137, 21);
+            this.InputAabhB110.Size = new System.Drawing.Size(138, 21);
             this.InputAabhB110.TabIndex = 8;
             this.InputAabhB110.TextChanged += new System.EventHandler(this.InputAabhB110_TextChanged);
             // 
@@ -918,9 +918,9 @@
             // 
             this.InputAabhB010.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.InputAabhB010.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.InputAabhB010.Location = new System.Drawing.Point(266, 200);
+            this.InputAabhB010.Location = new System.Drawing.Point(267, 200);
             this.InputAabhB010.Name = "InputAabhB010";
-            this.InputAabhB010.Size = new System.Drawing.Size(137, 21);
+            this.InputAabhB010.Size = new System.Drawing.Size(138, 21);
             this.InputAabhB010.TabIndex = 9;
             this.InputAabhB010.TextChanged += new System.EventHandler(this.InputAabhB010_TextChanged);
             // 
@@ -928,9 +928,9 @@
             // 
             this.InputAabhB100.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.InputAabhB100.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.InputAabhB100.Location = new System.Drawing.Point(266, 231);
+            this.InputAabhB100.Location = new System.Drawing.Point(267, 231);
             this.InputAabhB100.Name = "InputAabhB100";
-            this.InputAabhB100.Size = new System.Drawing.Size(137, 21);
+            this.InputAabhB100.Size = new System.Drawing.Size(138, 21);
             this.InputAabhB100.TabIndex = 10;
             this.InputAabhB100.TextChanged += new System.EventHandler(this.InputAabhB100_TextChanged);
             // 
@@ -938,9 +938,9 @@
             // 
             this.InputAabhB000.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.InputAabhB000.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.InputAabhB000.Location = new System.Drawing.Point(266, 262);
+            this.InputAabhB000.Location = new System.Drawing.Point(267, 262);
             this.InputAabhB000.Name = "InputAabhB000";
-            this.InputAabhB000.Size = new System.Drawing.Size(137, 21);
+            this.InputAabhB000.Size = new System.Drawing.Size(138, 21);
             this.InputAabhB000.TabIndex = 11;
             this.InputAabhB000.TextChanged += new System.EventHandler(this.InputAabhB000_TextChanged);
             // 
