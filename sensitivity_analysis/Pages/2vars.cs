@@ -101,6 +101,26 @@ namespace sensitivity_analysis.Pages
             }
         }
 
+        private void EnableEventhandler()
+        {
+            InputAabhB01.TextChanged += InputAabhB01_TextChanged;
+            InputAabhB10.TextChanged += InputAabhB10_TextChanged;
+            InputAabhB00.TextChanged += InputAabhB00_TextChanged;
+        }
+
+        private void DisableEventhandler()
+        {
+            InputAabhB01.TextChanged -= InputAabhB01_TextChanged;
+            InputAabhB10.TextChanged -= InputAabhB10_TextChanged;
+            InputAabhB00.TextChanged -= InputAabhB00_TextChanged;
+        }
+
+        // returns  for input d the value of 1-d
+        private double not(double d)
+        {
+            return 1 - d;
+        }
+
         // lock input fields for depending probabilities
         private void LockInputAabhB()
         {
@@ -175,12 +195,12 @@ namespace sensitivity_analysis.Pages
                 }
                 else
                 {
-                    output_PnotA.Text = (1 - a).ToString();     // set label for P(¬A)
+                    output_PnotA.Text = not(a).ToString();     // set label for P(¬A)
                     // set labels for P(A) in table
                     LabelAunabhB11.Text = a.ToString();
                     LabelAunabhB10.Text = a.ToString();
-                    LabelAunabhB01.Text = (1 - a).ToString();
-                    LabelAunabhB00.Text = (1 - a).ToString();
+                    LabelAunabhB01.Text = not(a).ToString();
+                    LabelAunabhB00.Text = not(a).ToString();
                 }
             }
             // input field for P(B) used
@@ -198,7 +218,7 @@ namespace sensitivity_analysis.Pages
                 }
                 else
                 {
-                    output_PnotB.Text = (1 - b).ToString();     // set label for P(¬B)
+                    output_PnotB.Text = not(b).ToString();     // set label for P(¬B)
                 }
             }
             else
@@ -251,26 +271,22 @@ namespace sensitivity_analysis.Pages
                         labelInputError2.Text = "Der Wert für P(A|B) muss kleiner als der Quotient P(A)/P(B) (" + a / b + ") sein.";
                         ResetAbhInput("11");
                     }
-                    else if ((a-(1-b))/b > ab11)
+                    else if ((a-not(b))/b > ab11)
                     {
-                        labelInputError2.Text = "Der Wert für P(A|B) muss größer als der Quotient (P(A)-P(¬B))/P(B) (" + (a-(1-b))/b + ") sein.";
+                        labelInputError2.Text = "Der Wert für P(A|B) muss größer als der Quotient (P(A)-P(¬B))/P(B) (" + (a-not(b))/b + ") sein.";
                         ResetAbhInput("11");
                     }
                     else
                     {
                         // calculate depending values and set results in associated input fields
-                        ab01 = 1 - ab11;
-                        ab10 = (a - ab11 * b) / (1 - b);
-                        ab00 = 1 - ab10;
-                        InputAabhB01.TextChanged -= InputAabhB01_TextChanged;
-                        InputAabhB10.TextChanged -= InputAabhB10_TextChanged;
-                        InputAabhB00.TextChanged -= InputAabhB00_TextChanged;
+                        ab01 = not(ab11);
+                        ab10 = (a - ab11 * b) / not(b);
+                        ab00 = not(ab10);
+                        DisableEventhandler();
                         InputAabhB01.Text = ab01.ToString();
                         InputAabhB10.Text = ab10.ToString();
                         InputAabhB00.Text = ab00.ToString();
-                        InputAabhB01.TextChanged += InputAabhB01_TextChanged;
-                        InputAabhB10.TextChanged += InputAabhB10_TextChanged;
-                        InputAabhB00.TextChanged += InputAabhB00_TextChanged;
+                        EnableEventhandler();
                         labelInputError2.Text = String.Empty;
                     }
                 }
@@ -293,31 +309,27 @@ namespace sensitivity_analysis.Pages
                 else
                 {
                     // check if input is valid
-                    if ((1-a) / b < ab01)
+                    if (not(a) / b < ab01)
                     {
-                        labelInputError2.Text = "Der Wert für P(¬A|B) muss kleiner als der Quotient P(¬A)/P(B) (" + (1-a)/b + ") sein.";
+                        labelInputError2.Text = "Der Wert für P(¬A|B) muss kleiner als der Quotient P(¬A)/P(B) (" + not(a)/b + ") sein.";
                         ResetAbhInput("01");
                     }
-                    else if (((1-a)-(1-b))/b > ab01)
+                    else if ((not(a) - not(b)) /b > ab01)
                     {
-                        labelInputError2.Text = "Der Wert für P(¬A|B) muss größer als der Quotient (P(¬A)-P(¬B))/P(B) (" + ((1-a)-(1-b))/b + ") sein.";
+                        labelInputError2.Text = "Der Wert für P(¬A|B) muss größer als der Quotient (P(¬A)-P(¬B))/P(B) (" + (not(a) - not(b)) /b + ") sein.";
                         ResetAbhInput("01");
                     }
                     else
                     {
                         // calculate depending values and set results in associated input fields
-                        ab11 = 1 - ab01;
-                        ab10 = (a - ab11 * b) / (1 - b);
-                        ab00 = 1 - ab10;
-                        InputAabhB11.TextChanged -= InputAabhB11_TextChanged;
-                        InputAabhB10.TextChanged -= InputAabhB10_TextChanged;
-                        InputAabhB00.TextChanged -= InputAabhB00_TextChanged;
+                        ab11 = not(ab01);
+                        ab10 = (a - ab11 * b) / not(b);
+                        ab00 = not(ab10);
+                        DisableEventhandler();
                         InputAabhB11.Text = ab11.ToString();
                         InputAabhB10.Text = ab10.ToString();
                         InputAabhB00.Text = ab00.ToString();
-                        InputAabhB11.TextChanged += InputAabhB11_TextChanged;
-                        InputAabhB10.TextChanged += InputAabhB10_TextChanged;
-                        InputAabhB00.TextChanged += InputAabhB00_TextChanged;
+                        EnableEventhandler();
                         labelInputError2.Text = String.Empty;
                     }
                 }
@@ -340,31 +352,27 @@ namespace sensitivity_analysis.Pages
                 else
                 {
                     // check if input is valid
-                    if (a / (1-b) < ab10)
+                    if (a/not(b) < ab10)
                     {
-                        labelInputError2.Text = "Der Wert für P(A|¬B) muss kleiner als der Quotient P(A)/P(¬B) (" + a/(1-b) + ") sein.";
+                        labelInputError2.Text = "Der Wert für P(A|¬B) muss kleiner als der Quotient P(A)/P(¬B) (" + a/not(b) + ") sein.";
                         ResetAbhInput("10");
                     }
-                    else if ((a-b)/(1-b) > ab10)
+                    else if ((a-b)/not(b) > ab10)
                     {
-                        labelInputError2.Text = "Der Wert für P(A|¬B) muss größer als der Quotient (P(A)-P(B))/P(¬B) (" + (a-b)/(1-b) + ") sein.";
+                        labelInputError2.Text = "Der Wert für P(A|¬B) muss größer als der Quotient (P(A)-P(B))/P(¬B) (" + (a-b)/not(b) + ") sein.";
                         ResetAbhInput("10");
                     }
                     else
                     {
                         // calculate depending values and set results in associated input fields
-                        ab00 = 1 - ab10;
-                        ab11 = (a - ab10 * (1 - b)) / b;
-                        ab01 = 1 - ab11;
-                        InputAabhB00.TextChanged -= InputAabhB00_TextChanged;
-                        InputAabhB11.TextChanged -= InputAabhB11_TextChanged;
-                        InputAabhB01.TextChanged -= InputAabhB01_TextChanged;
+                        ab00 = not(ab10);
+                        ab11 = (a - ab10 * not(b)) / b;
+                        ab01 = not(ab11);
+                        DisableEventhandler();
                         InputAabhB00.Text = ab00.ToString();
                         InputAabhB11.Text = ab11.ToString();
                         InputAabhB01.Text = ab01.ToString();
-                        InputAabhB00.TextChanged += InputAabhB00_TextChanged;
-                        InputAabhB11.TextChanged += InputAabhB11_TextChanged;
-                        InputAabhB01.TextChanged += InputAabhB01_TextChanged;
+                        EnableEventhandler();
                         labelInputError2.Text = String.Empty;
                     }
                 }
@@ -387,31 +395,27 @@ namespace sensitivity_analysis.Pages
                 else
                 {
                     // check if input is valid
-                    if ((1-a)/(1-b) < ab00)
+                    if (not(a)/not(b) < ab00)
                     {
-                        labelInputError2.Text = "Der Wert für P(¬A|¬B) muss kleiner als der Quotient P(¬A)/P(¬B) (" + (1-a)/(1-b) + ") sein.";
+                        labelInputError2.Text = "Der Wert für P(¬A|¬B) muss kleiner als der Quotient P(¬A)/P(¬B) (" + not(a)/not(b) + ") sein.";
                         ResetAbhInput("00");
                     }
-                    else if (((1-a)-b)/(1-b) > ab00)
+                    else if ((not(a)-b)/not(b) > ab00)
                     {
-                        labelInputError2.Text = "Der Wert für P(¬A|¬B) muss größer als der Quotient (P(¬A)-P(B))/P(¬B) (" + ((1-a)-b)/(1-b) + ") sein.";
+                        labelInputError2.Text = "Der Wert für P(¬A|¬B) muss größer als der Quotient (P(¬A)-P(B))/P(¬B) (" + (not(a)-b)/not(b) + ") sein.";
                         ResetAbhInput("00");
                     }
                     else
                     {
                         // calculate depending values and set results in associated input fields
-                        ab10 = 1 - ab00;
-                        ab11 = (a - ab10 * (1 - b)) / b;
-                        ab01 = 1 - ab11;
-                        InputAabhB10.TextChanged -= InputAabhB10_TextChanged;
-                        InputAabhB11.TextChanged -= InputAabhB11_TextChanged;
-                        InputAabhB01.TextChanged -= InputAabhB01_TextChanged;
+                        ab10 = not(ab00);
+                        ab11 = (a - ab10 * not(b)) / b;
+                        ab01 = not(ab11);
+                        DisableEventhandler();
                         InputAabhB10.Text = ab10.ToString();
                         InputAabhB11.Text = ab11.ToString();
                         InputAabhB01.Text = ab01.ToString();
-                        InputAabhB10.TextChanged += InputAabhB10_TextChanged;
-                        InputAabhB11.TextChanged += InputAabhB11_TextChanged;
-                        InputAabhB01.TextChanged += InputAabhB01_TextChanged;
+                        EnableEventhandler();
                         labelInputError2.Text = String.Empty;
                     }
                 }
@@ -429,7 +433,7 @@ namespace sensitivity_analysis.Pages
 
             resAuBabh = ab11 * b;
 
-            resAoBabh = ab11 * b + ab10 * (1 - b) + ab01 * b;
+            resAoBabh = ab11 * b + ab10 * not(b) + ab01 * b;
 
             // output results
             outputAuBunabh.Text = "P(R) = " + resAuBunabh.ToString();
