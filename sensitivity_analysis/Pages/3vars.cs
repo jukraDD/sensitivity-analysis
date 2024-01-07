@@ -261,13 +261,13 @@ namespace sensitivity_analysis.Pages
             SetBabhCValues(null, val);
         }
 
-        //check if a, b and c are between 0 and 1
+        // check if a, b and c are between 0 and 1
         private bool IsValidInputABC(double a, double b, double c)
         {
             return !(a < 0 || a > 1 || b < 0 || b > 1 || c < 0 || c > 1);
         }
 
-        //check if d is between 0 and 1
+        // check if d is between 0 and 1
         private bool IsValidInput(double d)
         {
             return !(d < 0 || d > 1);
