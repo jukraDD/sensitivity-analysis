@@ -100,6 +100,64 @@ namespace sensitivity_analysis.Pages
             }
         }
 
+        private void EnableEventhandler(int column, int row)
+        {
+            if (column == 0)
+            {
+                if (row == 0) abhInputsAB[0].TextChanged += InputAabhB111_TextChanged;
+                else if (row == 1) abhInputsAB[1].TextChanged += InputAabhB011_TextChanged;
+                else if (row == 2) abhInputsAB[2].TextChanged += InputAabhB101_TextChanged;
+                else if (row == 3) abhInputsAB[3].TextChanged += InputAabhB001_TextChanged;
+                else if (row == 4) abhInputsAB[4].TextChanged += InputAabhB110_TextChanged;
+                else if (row == 5) abhInputsAB[5].TextChanged += InputAabhB010_TextChanged;
+                else if (row == 6) abhInputsAB[6].TextChanged += InputAabhB100_TextChanged;
+                else if (row == 7) abhInputsAB[7].TextChanged += InputAabhB000_TextChanged;
+            }
+            else if (column == 1)
+            {
+                if (row == 0) abhInputsBC[0].TextChanged += InputBabhC111_TextChanged;
+                else if (row == 1) abhInputsBC[1].TextChanged += InputBabhC011_TextChanged;
+                else if (row == 2) abhInputsBC[2].TextChanged += InputBabhC101_TextChanged;
+                else if (row == 3) abhInputsBC[3].TextChanged += InputBabhC001_TextChanged;
+                else if (row == 4) abhInputsBC[4].TextChanged += InputBabhC110_TextChanged;
+                else if (row == 5) abhInputsBC[5].TextChanged += InputBabhC010_TextChanged;
+                else if (row == 6) abhInputsBC[6].TextChanged += InputBabhC100_TextChanged;
+                else if (row == 7) abhInputsBC[7].TextChanged += InputBabhC000_TextChanged;
+            }
+        }
+
+        private void DisableEventhandler(int column, int row)
+        {
+            if (column == 0)
+            {
+                if (row == 0) abhInputsAB[0].TextChanged -= InputAabhB111_TextChanged;
+                else if (row == 1) abhInputsAB[1].TextChanged -= InputAabhB011_TextChanged;
+                else if (row == 2) abhInputsAB[2].TextChanged -= InputAabhB101_TextChanged;
+                else if (row == 3) abhInputsAB[3].TextChanged -= InputAabhB001_TextChanged;
+                else if (row == 4) abhInputsAB[4].TextChanged -= InputAabhB110_TextChanged;
+                else if (row == 5) abhInputsAB[5].TextChanged -= InputAabhB010_TextChanged;
+                else if (row == 6) abhInputsAB[6].TextChanged -= InputAabhB100_TextChanged;
+                else if (row == 7) abhInputsAB[7].TextChanged -= InputAabhB000_TextChanged;
+            }
+            else if (column == 1)
+            {
+                if (row == 0) abhInputsBC[0].TextChanged -= InputBabhC111_TextChanged;
+                else if (row == 1) abhInputsBC[1].TextChanged -= InputBabhC011_TextChanged;
+                else if (row == 2) abhInputsBC[2].TextChanged -= InputBabhC101_TextChanged;
+                else if (row == 3) abhInputsBC[3].TextChanged -= InputBabhC001_TextChanged;
+                else if (row == 4) abhInputsBC[4].TextChanged -= InputBabhC110_TextChanged;
+                else if (row == 5) abhInputsBC[5].TextChanged -= InputBabhC010_TextChanged;
+                else if (row == 6) abhInputsBC[6].TextChanged -= InputBabhC100_TextChanged;
+                else if (row == 7) abhInputsBC[7].TextChanged -= InputBabhC000_TextChanged;
+            }
+        }
+
+        // returns  for input d the value of 1-d
+        private double not(double d)
+        {
+            return 1 - d;
+        }
+
         // lock input fields for depending probabilities
         private void LockAbhInput()
         {
@@ -155,58 +213,6 @@ namespace sensitivity_analysis.Pages
             }
         }
 
-        private void EnableEventhandler(int column, int row)
-        {
-            if (column == 0)
-            {
-                if (row == 0)      abhInputsAB[0].TextChanged += InputAabhB111_TextChanged;
-                else if (row == 1) abhInputsAB[1].TextChanged += InputAabhB011_TextChanged;
-                else if (row == 2) abhInputsAB[2].TextChanged += InputAabhB101_TextChanged;
-                else if (row == 3) abhInputsAB[3].TextChanged += InputAabhB001_TextChanged;
-                else if (row == 4) abhInputsAB[4].TextChanged += InputAabhB110_TextChanged;
-                else if (row == 5) abhInputsAB[5].TextChanged += InputAabhB010_TextChanged;
-                else if (row == 6) abhInputsAB[6].TextChanged += InputAabhB100_TextChanged;
-                else if (row == 7) abhInputsAB[7].TextChanged += InputAabhB000_TextChanged;
-            }
-            else if (column == 1)
-            {
-                if (row == 0)      abhInputsBC[0].TextChanged += InputBabhC111_TextChanged;
-                else if (row == 1) abhInputsBC[1].TextChanged += InputBabhC011_TextChanged;
-                else if (row == 2) abhInputsBC[2].TextChanged += InputBabhC101_TextChanged;
-                else if (row == 3) abhInputsBC[3].TextChanged += InputBabhC001_TextChanged;
-                else if (row == 4) abhInputsBC[4].TextChanged += InputBabhC110_TextChanged;
-                else if (row == 5) abhInputsBC[5].TextChanged += InputBabhC010_TextChanged;
-                else if (row == 6) abhInputsBC[6].TextChanged += InputBabhC100_TextChanged;
-                else if (row == 7) abhInputsBC[7].TextChanged += InputBabhC000_TextChanged;
-            }
-        }
-
-        private void DisableEventhandler(int column, int row)
-        {
-            if (column == 0)
-            {
-                if (row == 0)      abhInputsAB[0].TextChanged -= InputAabhB111_TextChanged;
-                else if (row == 1) abhInputsAB[1].TextChanged -= InputAabhB011_TextChanged;
-                else if (row == 2) abhInputsAB[2].TextChanged -= InputAabhB101_TextChanged;
-                else if (row == 3) abhInputsAB[3].TextChanged -= InputAabhB001_TextChanged;
-                else if (row == 4) abhInputsAB[4].TextChanged -= InputAabhB110_TextChanged;
-                else if (row == 5) abhInputsAB[5].TextChanged -= InputAabhB010_TextChanged;
-                else if (row == 6) abhInputsAB[6].TextChanged -= InputAabhB100_TextChanged;
-                else if (row == 7) abhInputsAB[7].TextChanged -= InputAabhB000_TextChanged;
-            }
-            else if (column == 1)
-            {
-                if (row == 0)      abhInputsBC[0].TextChanged -= InputBabhC111_TextChanged;
-                else if (row == 1) abhInputsBC[1].TextChanged -= InputBabhC011_TextChanged;
-                else if (row == 2) abhInputsBC[2].TextChanged -= InputBabhC101_TextChanged;
-                else if (row == 3) abhInputsBC[3].TextChanged -= InputBabhC001_TextChanged;
-                else if (row == 4) abhInputsBC[4].TextChanged -= InputBabhC110_TextChanged;
-                else if (row == 5) abhInputsBC[5].TextChanged -= InputBabhC010_TextChanged;
-                else if (row == 6) abhInputsBC[6].TextChanged -= InputBabhC100_TextChanged;
-                else if (row == 7) abhInputsBC[7].TextChanged -= InputBabhC000_TextChanged;
-            }
-        }
-
         // set input fields for P(A|B) on values
         private void SetAabhBValues(int? exclude, double[] values)
         {
@@ -235,13 +241,13 @@ namespace sensitivity_analysis.Pages
         private void SetAunabhB()
         {
             ab111 = a;
-            ab011 = 1 - a;
+            ab011 = not(a);
             ab101 = a;
-            ab001 = 1 - a;
+            ab001 = not(a);
             ab110 = a;
-            ab010 = 1 - a;
+            ab010 = not(a);
             ab100 = a;
-            ab000 = 1 - a;
+            ab000 = not(a);
             double[] val = new[] { ab111, ab011, ab101, ab001, ab110, ab010, ab100, ab000 };
             SetAabhBValues(null, val);
         }
@@ -251,12 +257,12 @@ namespace sensitivity_analysis.Pages
         {
             bc111 = b;
             bc011 = b;
-            bc101 = 1 - b;
-            bc001 = 1 - b;
+            bc101 = not(b);
+            bc001 = not(b);
             bc110 = b;
             bc010 = b;
-            bc100 = 1 - b;
-            bc000 = 1 - b;
+            bc100 = not(b);
+            bc000 = not(b);
             double[] val = new[] { bc111, bc011, bc101, bc001, bc110, bc010, bc100, bc000 };
             SetBabhCValues(null, val);
         }
@@ -298,12 +304,12 @@ namespace sensitivity_analysis.Pages
                 }
                 else
                 {
-                    output_PnotA.Text = (1 - a).ToString();     // set label for P(¬A)
+                    output_PnotA.Text = not(a).ToString();     // set label for P(¬A)
                     int index = 0;
                     foreach (Label l in unabhLabels)            // set labels for P(A) in table - if uneven row P(A), if even row P(¬A)
                     {
                         if (index % 2 == 0) l.Text = a.ToString();
-                        else l.Text = (1 - a).ToString();
+                        else l.Text = not(a).ToString();
                         index++;
                     }
                 }
@@ -323,7 +329,7 @@ namespace sensitivity_analysis.Pages
                 }
                 else
                 {
-                    output_PnotB.Text = (1 - b).ToString();     // set label for P(¬B)
+                    output_PnotB.Text = not(b).ToString();     // set label for P(¬B)
                 }
             }
             // input field for P(C) used
@@ -341,7 +347,7 @@ namespace sensitivity_analysis.Pages
                 }
                 else
                 {
-                    output_PnotC.Text = (1 - c).ToString();     // set label for P(¬C)
+                    output_PnotC.Text = not(c).ToString();     // set label for P(¬C)
                 }
             }
             else
@@ -394,17 +400,17 @@ namespace sensitivity_analysis.Pages
                         labelInputError2.Text = "Der Wert für P(A|B) muss kleiner als der Quotient P(A)/P(B) (" + a / b + ") sein.";
                         ResetAabhBInput(0);
                     }
-                    else if ((a - (1 - b)) / b > ab111)
+                    else if ((a - not(b)) / b > ab111)
                     {
-                        labelInputError2.Text = "Der Wert für P(A|B) muss größer als der Quotient (P(A)-P(¬B))/P(B) (" + (a - (1 - b)) / b + ") sein.";
+                        labelInputError2.Text = "Der Wert für P(A|B) muss größer als der Quotient (P(A)-P(¬B))/P(B) (" + (a - not(b)) / b + ") sein.";
                         ResetAabhBInput(0);
                     }
                     else
                     {
                         // calculate depending values and set results in associated input fields
-                        ab011 = 1 - ab111;
-                        ab101 = (a - ab111 * b) / (1 - b);
-                        ab001 = 1 - ab101;
+                        ab011 = not(ab111);
+                        ab101 = (a - ab111 * b) / not(b);
+                        ab001 = not(ab101);
                         ab110 = ab111;
                         ab010 = ab011;
                         ab100 = ab101;
@@ -433,22 +439,22 @@ namespace sensitivity_analysis.Pages
                 else
                 {
                     // check if input is valid
-                    if ((1 - a) / b < ab011)
+                    if (not(a) / b < ab011)
                     {
-                        labelInputError2.Text = "Der Wert für P(¬A|B) muss kleiner als der Quotient P(¬A)/P(B) (" + (1 - a) / b + ") sein.";
+                        labelInputError2.Text = "Der Wert für P(¬A|B) muss kleiner als der Quotient P(¬A)/P(B) (" + not(a) / b + ") sein.";
                         ResetAabhBInput(1);
                     }
-                    else if (((1 - a) - (1 - b)) / b > ab011)
+                    else if ((not(a) - not(b)) / b > ab011)
                     {
-                        labelInputError2.Text = "Der Wert für P(¬A|B) muss größer als der Quotient (P(¬A)-P(¬B))/P(B) (" + ((1 - a) - (1 - b)) / b + ") sein.";
+                        labelInputError2.Text = "Der Wert für P(¬A|B) muss größer als der Quotient (P(¬A)-P(¬B))/P(B) (" + (not(a) - not(b)) / b + ") sein.";
                         ResetAabhBInput(1);
                     }
                     else
                     {
                         // calculate depending values and set results in associated input fields
-                        ab111 = 1 - ab011;
-                        ab101 = (a - ab111 * b) / (1 - b);
-                        ab001 = 1 - ab101;
+                        ab111 = not(ab011);
+                        ab101 = (a - ab111 * b) / not(b);
+                        ab001 = not(ab101);
                         ab010 = ab011;
                         ab110 = ab111;
                         ab100 = ab101;
@@ -477,22 +483,22 @@ namespace sensitivity_analysis.Pages
                 else
                 {
                     // check if input is valid
-                    if (a / (1 - b) < ab101)
+                    if (a / not(b) < ab101)
                     {
-                        labelInputError2.Text = "Der Wert für P(A|¬B) muss kleiner als der Quotient P(A)/P(¬B) (" + a / (1 - b) + ") sein.";
+                        labelInputError2.Text = "Der Wert für P(A|¬B) muss kleiner als der Quotient P(A)/P(¬B) (" + a / not(b) + ") sein.";
                         ResetAabhBInput(2);
                     }
-                    else if ((a - b) / (1 - b) > ab101)
+                    else if ((a - b) / not(b) > ab101)
                     {
-                        labelInputError2.Text = "Der Wert für P(A|¬B) muss größer als der Quotient (P(A)-P(B))/P(¬B) (" + (a - b) / (1 - b) + ") sein.";
+                        labelInputError2.Text = "Der Wert für P(A|¬B) muss größer als der Quotient (P(A)-P(B))/P(¬B) (" + (a - b) / not(b) + ") sein.";
                         ResetAabhBInput(2);
                     }
                     else
                     {
                         // calculate depending values and set results in associated input fields
-                        ab001 = 1 - ab101;
-                        ab111 = (a - ab101 * (1 - b)) / b;
-                        ab011 = 1 - ab111;
+                        ab001 = not(ab101);
+                        ab111 = (a - ab101 * not(b)) / b;
+                        ab011 = not(ab111);
                         ab100 = ab101;
                         ab000 = ab001;
                         ab110 = ab111;
@@ -521,22 +527,22 @@ namespace sensitivity_analysis.Pages
                 else
                 {
                     // check if input is valid
-                    if ((1 - a) / (1 - b) < ab001)
+                    if (not(a) / not(b) < ab001)
                     {
-                        labelInputError2.Text = "Der Wert für P(¬A|¬B) muss kleiner als der Quotient P(¬A)/P(¬B) (" + (1 - a) / (1 - b) + ") sein.";
+                        labelInputError2.Text = "Der Wert für P(¬A|¬B) muss kleiner als der Quotient P(¬A)/P(¬B) (" + not(a) / not(b) + ") sein.";
                         ResetAabhBInput(3);
                     }
-                    else if (((1 - a) - b) / (1 - b) > ab001)
+                    else if ((not(a) - b) / not(b) > ab001)
                     {
-                        labelInputError2.Text = "Der Wert für P(¬A|¬B) muss größer als der Quotient (P(¬A)-P(B))/P(¬B) (" + ((1 - a) - b) / (1 - b) + ") sein.";
+                        labelInputError2.Text = "Der Wert für P(¬A|¬B) muss größer als der Quotient (P(¬A)-P(B))/P(¬B) (" + (not(a) - b) / not(b) + ") sein.";
                         ResetAabhBInput(3);
                     }
                     else
                     {
                         // calculate depending values and set results in associated input fields
-                        ab101 = 1 - ab001;
-                        ab111 = (a - ab101 * (1 - b)) / b;
-                        ab011 = 1 - ab111;
+                        ab101 = not(ab001);
+                        ab111 = (a - ab101 * not(b)) / b;
+                        ab011 = not(ab111);
                         ab000 = ab001;
                         ab100 = ab101;
                         ab110 = ab111;
@@ -570,17 +576,17 @@ namespace sensitivity_analysis.Pages
                         labelInputError2.Text = "Der Wert für P(A|B) muss kleiner als der Quotient P(A)/P(B) (" + a / b + ") sein.";
                         ResetAabhBInput(4);
                     }
-                    else if ((a - (1 - b)) / b > ab110)
+                    else if ((a - not(b)) / b > ab110)
                     {
-                        labelInputError2.Text = "Der Wert für P(A|B) muss größer als der Quotient (P(A)-P(¬B))/P(B) (" + (a - (1 - b)) / b + ") sein.";
+                        labelInputError2.Text = "Der Wert für P(A|B) muss größer als der Quotient (P(A)-P(¬B))/P(B) (" + (a - not(b)) / b + ") sein.";
                         ResetAabhBInput(4);
                     }
                     else
                     {
                         // calculate depending values and set results in associated input fields
-                        ab010 = 1 - ab110;
-                        ab100 = (a - ab110 * b) / (1 - b);
-                        ab000 = 1 - ab100;
+                        ab010 = not(ab110);
+                        ab100 = (a - ab110 * b) / not(b);
+                        ab000 = not(ab100);
                         ab111 = ab110;
                         ab011 = ab010;
                         ab101 = ab100;
@@ -609,22 +615,22 @@ namespace sensitivity_analysis.Pages
                 else
                 {
                     // check if input is valid
-                    if ((1 - a) / b < ab010)
+                    if (not(a) / b < ab010)
                     {
-                        labelInputError2.Text = "Der Wert für P(¬A|B) muss kleiner als der Quotient P(¬A)/P(B) (" + (1 - a) / b + ") sein.";
+                        labelInputError2.Text = "Der Wert für P(¬A|B) muss kleiner als der Quotient P(¬A)/P(B) (" + not(a) / b + ") sein.";
                         ResetAabhBInput(5);
                     }
-                    else if (((1 - a) - (1 - b)) / b > ab010)
+                    else if ((not(a) - not(b)) / b > ab010)
                     {
-                        labelInputError2.Text = "Der Wert für P(¬A|B) muss größer als der Quotient (P(¬A)-P(¬B))/P(B) (" + ((1 - a) - (1 - b)) / b + ") sein.";
+                        labelInputError2.Text = "Der Wert für P(¬A|B) muss größer als der Quotient (P(¬A)-P(¬B))/P(B) (" + (not(a) - not(b)) / b + ") sein.";
                         ResetAabhBInput(5);
                     }
                     else
                     {
                         // calculate depending values and set results in associated input fields
-                        ab110 = 1 - ab010;
-                        ab100 = (a - ab110 * b) / (1 - b);
-                        ab000 = 1 - ab100;
+                        ab110 = not(ab010);
+                        ab100 = (a - ab110 * b) / not(b);
+                        ab000 = not(ab100);
                         ab011 = ab010;
                         ab111 = ab110;
                         ab101 = ab100;
@@ -653,22 +659,22 @@ namespace sensitivity_analysis.Pages
                 else
                 {
                     // check if input is valid
-                    if (a / (1 - b) < ab100)
+                    if (a / not(b) < ab100)
                     {
-                        labelInputError2.Text = "Der Wert für P(A|¬B) muss kleiner als der Quotient P(A)/P(¬B) (" + a / (1 - b) + ") sein.";
+                        labelInputError2.Text = "Der Wert für P(A|¬B) muss kleiner als der Quotient P(A)/P(¬B) (" + a / not(b) + ") sein.";
                         ResetAabhBInput(6);
                     }
-                    else if ((a - b) / (1 - b) > ab100)
+                    else if ((a - b) / not(b) > ab100)
                     {
-                        labelInputError2.Text = "Der Wert für P(A|¬B) muss größer als der Quotient (P(A)-P(B))/P(¬B) (" + (a - b) / (1 - b) + ") sein.";
+                        labelInputError2.Text = "Der Wert für P(A|¬B) muss größer als der Quotient (P(A)-P(B))/P(¬B) (" + (a - b) / not(b) + ") sein.";
                         ResetAabhBInput(6);
                     }
                     else
                     {
                         // calculate depending values and set results in associated input fields
-                        ab000 = 1 - ab100;
-                        ab110 = (a - ab100 * (1 - b)) / b;
-                        ab010 = 1 - ab110;
+                        ab000 = not(ab100);
+                        ab110 = (a - ab100 * not(b)) / b;
+                        ab010 = not(ab110);
                         ab101 = ab100;
                         ab001 = ab000;
                         ab111 = ab110;
@@ -696,22 +702,22 @@ namespace sensitivity_analysis.Pages
                 else
                 {
                     // check if input is valid
-                    if ((1 - a) / (1 - b) < ab000)
+                    if (not(a) / not(b) < ab000)
                     {
-                        labelInputError2.Text = "Der Wert für P(¬A|¬B) muss kleiner als der Quotient P(¬A)/P(¬B) (" + (1 - a) / (1 - b) + ") sein.";
+                        labelInputError2.Text = "Der Wert für P(¬A|¬B) muss kleiner als der Quotient P(¬A)/P(¬B) (" + not(a) / not(b) + ") sein.";
                         ResetAabhBInput(7);
                     }
-                    else if (((1 - a) - b) / (1 - b) > ab000)
+                    else if ((not(a) - b) / not(b) > ab000)
                     {
-                        labelInputError2.Text = "Der Wert für P(¬A|¬B) muss größer als der Quotient (P(¬A)-P(B))/P(¬B) (" + ((1 - a) - b) / (1 - b) + ") sein.";
+                        labelInputError2.Text = "Der Wert für P(¬A|¬B) muss größer als der Quotient (P(¬A)-P(B))/P(¬B) (" + (not(a) - b) / not(b) + ") sein.";
                         ResetAabhBInput(7);
                     }
                     else
                     {
                         // calculate depending values and set results in associated input fields
-                        ab100 = 1 - ab000;
-                        ab110 = (a - ab100 * (1 - b)) / b;
-                        ab010 = 1 - ab110;
+                        ab100 = not(ab000);
+                        ab110 = (a - ab100 * not(b)) / b;
+                        ab010 = not(ab110);
                         ab001 = ab000;
                         ab101 = ab100;
                         ab111 = ab110;
@@ -750,17 +756,17 @@ namespace sensitivity_analysis.Pages
                         labelInputError2.Text = "Der Wert für P(B|C) muss kleiner als der Quotient P(B)/P(C) (" + b / c + ") sein.";
                         ResetBabhCInput(0);
                     }
-                    else if ((b - (1 - c)) / c > bc111)
+                    else if ((b - not(c)) / c > bc111)
                     {
-                        labelInputError2.Text = "Der Wert für P(B|C) muss größer als der Quotient (P(B)-P(¬C))/P(C) (" + (b - (1 - c)) / c + ") sein.";
+                        labelInputError2.Text = "Der Wert für P(B|C) muss größer als der Quotient (P(B)-P(¬C))/P(C) (" + (b - not(c)) / c + ") sein.";
                         ResetBabhCInput(0);
                     }
                     else
                     {
                         // calculate depending values and set results in associated input fields
-                        bc101 = 1 - bc111;
-                        bc110 = (b - bc111 * c) / (1 - c);
-                        bc100 = 1 - bc110;
+                        bc101 = not(bc111);
+                        bc110 = (b - bc111 * c) / not(c);
+                        bc100 = not(bc110);
                         bc011 = bc111;
                         bc001 = bc101;
                         bc010 = bc110;
@@ -794,17 +800,17 @@ namespace sensitivity_analysis.Pages
                         labelInputError2.Text = "Der Wert für P(B|C) muss kleiner als der Quotient P(B)/P(C) (" + b / c + ") sein.";
                         ResetBabhCInput(1);
                     }
-                    else if ((b - (1 - c)) / c > bc011)
+                    else if ((b - not(c)) / c > bc011)
                     {
-                        labelInputError2.Text = "Der Wert für P(B|C) muss größer als der Quotient (P(B)-P(¬C))/P(C) (" + (b - (1 - c)) / c + ") sein.";
+                        labelInputError2.Text = "Der Wert für P(B|C) muss größer als der Quotient (P(B)-P(¬C))/P(C) (" + (b - not(c)) / c + ") sein.";
                         ResetBabhCInput(1);
                     }
                     else
                     {
                         // calculate depending values and set results in associated input fields
-                        bc001 = 1 - bc011;
-                        bc010 = (b - bc011 * c) / (1 - c);
-                        bc000 = 1 - bc010;
+                        bc001 = not(bc011);
+                        bc010 = (b - bc011 * c) / not(c);
+                        bc000 = not(bc010);
                         bc111 = bc011;
                         bc101 = bc001;
                         bc110 = bc010;
@@ -833,22 +839,22 @@ namespace sensitivity_analysis.Pages
                 else
                 {
                     // check if input is valid
-                    if ((1 - b) / c < bc101)
+                    if (not(b) / c < bc101)
                     {
-                        labelInputError2.Text = "Der Wert für P(¬B|C) muss kleiner als der Quotient P(¬B)/P(C) (" + (1 - b) / c + ") sein.";
+                        labelInputError2.Text = "Der Wert für P(¬B|C) muss kleiner als der Quotient P(¬B)/P(C) (" + not(b) / c + ") sein.";
                         ResetBabhCInput(2);
                     }
-                    else if (((1 - b) - (1 - c)) / c > bc101)
+                    else if ((not(b) - not(c)) / c > bc101)
                     {
-                        labelInputError2.Text = "Der Wert für P(¬B|C) muss größer als der Quotient (P(¬B)-P(¬C))/P(C) (" + ((1 - b) - (1 - c)) / c + ") sein.";
+                        labelInputError2.Text = "Der Wert für P(¬B|C) muss größer als der Quotient (P(¬B)-P(¬C))/P(C) (" + (not(b) - not(c)) / c + ") sein.";
                         ResetBabhCInput(2);
                     }
                     else
                     {
                         // calculate depending values and set results in associated input fields
-                        bc111 = 1 - bc101;
-                        bc110 = (b - bc111 * c) / (1 - c);
-                        bc100 = 1 - bc110;
+                        bc111 = not(bc101);
+                        bc110 = (b - bc111 * c) / not(c);
+                        bc100 = not(bc110);
                         bc001 = bc101;
                         bc011 = bc111;
                         bc010 = bc110;
@@ -877,22 +883,22 @@ namespace sensitivity_analysis.Pages
                 else
                 {
                     // check if input is valid
-                    if ((1 - b) / c < bc001)
+                    if (not(b) / c < bc001)
                     {
-                        labelInputError2.Text = "Der Wert für P(¬B|C) muss kleiner als der Quotient P(¬B)/P(C) (" + (1 - b) / c + ") sein.";
+                        labelInputError2.Text = "Der Wert für P(¬B|C) muss kleiner als der Quotient P(¬B)/P(C) (" + not(b) / c + ") sein.";
                         ResetBabhCInput(3);
                     }
-                    else if (((1 - b) - (1 - c)) / c > bc001)
+                    else if ((not(b) - not(c)) / c > bc001)
                     {
-                        labelInputError2.Text = "Der Wert für P(¬B|C) muss größer als der Quotient (P(¬B)-P(¬C))/P(C) (" + ((1 - b) - (1 - c)) / c + ") sein.";
+                        labelInputError2.Text = "Der Wert für P(¬B|C) muss größer als der Quotient (P(¬B)-P(¬C))/P(C) (" + (not(b) - not(c)) / c + ") sein.";
                         ResetBabhCInput(3);
                     }
                     else
                     {
                         // calculate depending values and set results in associated input fields
-                        bc011 = 1 - bc001;
-                        bc010 = (b - bc011 * c) / (1 - c);
-                        bc000 = 1 - bc010;
+                        bc011 = not(bc001);
+                        bc010 = (b - bc011 * c) / not(c);
+                        bc000 = not(bc010);
                         bc101 = bc001;
                         bc111 = bc011;
                         bc110 = bc010;
@@ -921,22 +927,22 @@ namespace sensitivity_analysis.Pages
                 else
                 {
                     // check if input is valid
-                    if (b / (1 - c) < bc110)
+                    if (b / not(c) < bc110)
                     {
-                        labelInputError2.Text = "Der Wert für P(B|¬C) muss kleiner als der Quotient P(B)/P(¬C) (" + b / (1 - c) + ") sein.";
+                        labelInputError2.Text = "Der Wert für P(B|¬C) muss kleiner als der Quotient P(B)/P(¬C) (" + b / not(c) + ") sein.";
                         ResetBabhCInput(4);
                     }
-                    else if ((b - c) / (1 - c) > bc110)
+                    else if ((b - c) / not(c) > bc110)
                     {
-                        labelInputError2.Text = "Der Wert für P(B|¬C) muss größer als der Quotient (P(B)-P(C))/P(¬C) (" + (b - c) / (1 - c) + ") sein.";
+                        labelInputError2.Text = "Der Wert für P(B|¬C) muss größer als der Quotient (P(B)-P(C))/P(¬C) (" + (b - c) / not(c) + ") sein.";
                         ResetBabhCInput(4);
                     }
                     else
                     {
                         // calculate depending values and set results in associated input fields
-                        bc100 = 1 - bc110;
-                        bc111 = (b - bc110 * (1 - c)) / c;
-                        bc101 = 1 - bc111;
+                        bc100 = not(bc110);
+                        bc111 = (b - bc110 * not(c)) / c;
+                        bc101 = not(bc111);
                         bc010 = bc110;
                         bc000 = bc100;
                         bc011 = bc111;
@@ -965,22 +971,22 @@ namespace sensitivity_analysis.Pages
                 else
                 {
                     // check if input is valid
-                    if (b / (1 - c) < bc010)
+                    if (b / not(c) < bc010)
                     {
-                        labelInputError2.Text = "Der Wert für P(B|¬C) muss kleiner als der Quotient P(B)/P(¬C) (" + b / (1 - c) + ") sein.";
+                        labelInputError2.Text = "Der Wert für P(B|¬C) muss kleiner als der Quotient P(B)/P(¬C) (" + b / not(c) + ") sein.";
                         ResetBabhCInput(5);
                     }
-                    else if ((b - c) / (1 - c) > bc010)
+                    else if ((b - c) / not(c) > bc010)
                     {
-                        labelInputError2.Text = "Der Wert für P(B|¬C) muss größer als der Quotient (P(B)-P(C))/P(¬C) (" + (b - c) / (1 - c) + ") sein.";
+                        labelInputError2.Text = "Der Wert für P(B|¬C) muss größer als der Quotient (P(B)-P(C))/P(¬C) (" + (b - c) / not(c) + ") sein.";
                         ResetBabhCInput(5);
                     }
                     else
                     {
                         // calculate depending values and set results in associated input fields
-                        bc000 = 1 - bc010;
-                        bc011 = (b - bc010 * (1 - c)) / c;
-                        bc001 = 1 - bc011;
+                        bc000 = not(bc010);
+                        bc011 = (b - bc010 * not(c)) / c;
+                        bc001 = not(bc011);
                         bc110 = bc010;
                         bc100 = bc000;
                         bc111 = bc011;
@@ -1009,22 +1015,22 @@ namespace sensitivity_analysis.Pages
                 else
                 {
                     // check if input is valid
-                    if ((1 - b) / (1 - c) < bc100)
+                    if (not(b) / not(c) < bc100)
                     {
-                        labelInputError2.Text = "Der Wert für P(¬B|¬C) muss kleiner als der Quotient P(¬B)/P(¬C) (" + (1 - b) / (1 - c) + ") sein.";
+                        labelInputError2.Text = "Der Wert für P(¬B|¬C) muss kleiner als der Quotient P(¬B)/P(¬C) (" + not(b) / not(c) + ") sein.";
                         ResetBabhCInput(6);
                     }
-                    else if (((1 - b) - c) / (1 - c) > bc100)
+                    else if ((not(b) - c) / not(c) > bc100)
                     {
-                        labelInputError2.Text = "Der Wert für P(¬B|¬C) muss größer als der Quotient (P(¬B)-P(C))/P(¬C) (" + ((1 - b) - c) / (1 - c) + ") sein.";
+                        labelInputError2.Text = "Der Wert für P(¬B|¬C) muss größer als der Quotient (P(¬B)-P(C))/P(¬C) (" + (not(b) - c) / not(c) + ") sein.";
                         ResetBabhCInput(6);
                     }
                     else
                     {
                         // calculate depending values and set results in associated input fields
-                        bc110 = 1 - bc100;
-                        bc111 = (b - bc110 * (1 - c)) / c;
-                        bc101 = 1 - bc111;
+                        bc110 = not(bc100);
+                        bc111 = (b - bc110 * not(c)) / c;
+                        bc101 = not(bc111);
                         bc000 = bc100;
                         bc010 = bc110;
                         bc011 = bc111;
@@ -1053,21 +1059,21 @@ namespace sensitivity_analysis.Pages
                 else
                 {
                     // check if input is valid
-                    if ((1 - b) / (1 - c) < bc000)
+                    if (not(b) / not(c) < bc000)
                     {
-                        labelInputError2.Text = "Der Wert für P(¬B|¬C) muss kleiner als der Quotient P(¬B)/P(¬C) (" + (1 - b) / (1 - c) + ") sein.";
+                        labelInputError2.Text = "Der Wert für P(¬B|¬C) muss kleiner als der Quotient P(¬B)/P(¬C) (" + not(b) / not(c) + ") sein.";
                         ResetBabhCInput(7);
                     }
-                    else if (((1 - b) - c) / (1 - c) > bc000)
+                    else if ((not(b) - c) / not(c) > bc000)
                     {
-                        labelInputError2.Text = "Der Wert für P(¬B|¬C) muss größer als der Quotient (P(¬B)-P(C))/P(¬C) (" + ((1 - b) - c) / (1 - c) + ") sein.";
+                        labelInputError2.Text = "Der Wert für P(¬B|¬C) muss größer als der Quotient (P(¬B)-P(C))/P(¬C) (" + (not(b) - c) / not(c) + ") sein.";
                         ResetBabhCInput(7);
                     }
                     else
                     {
-                        bc010 = 1 - bc000;
-                        bc011 = (b - bc010 * (1 - c)) / c;
-                        bc001 = 1 - bc011;
+                        bc010 = not(bc000);
+                        bc011 = (b - bc010 * not(c)) / c;
+                        bc001 = not(bc011);
                         bc100 = bc000;
                         bc110 = bc010;
                         bc111 = bc011;
@@ -1124,7 +1130,7 @@ namespace sensitivity_analysis.Pages
             // organize values as array for better calculation
             double[] AabhB_arr = new[] {ab111, ab011, ab101, ab001, ab110, ab010, ab100, ab000};
             double[] BabhC_arr = new[] {bc111, bc011, bc101, bc001, bc110, bc010, bc100, bc000};
-            double[] c_arr = new[] {c, c, c, c, 1-c, 1-c, 1-c, 1-c};
+            double[] c_arr = new[] {c, c, c, c, not(c), not(c), not(c), not(c)};
 
             // set array depending on by user selected relations between the random variables
             // (1 = combination of states of the random variables is part of final result; 0 = otherwise)
