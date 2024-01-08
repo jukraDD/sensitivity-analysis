@@ -455,15 +455,16 @@ namespace sensitivity_analysis.Pages
             //resVarAuBunabh = vara * varb;
             //Ausgabe für Print
             //outputvar1.Text = newA.ToString();
-            
-            
+
+            //Zufallszahl Generieren
+            Random random = new Random();
+
             int[] chartyvalues = new int[21];
             //Loop
             for (int i = 0; i < 1000; i++)
             {
                 //Var Wert Berechnen
-                //Zufallszahl Generieren
-                Random random = new Random();
+                
                 double zufallszahl = random.NextDouble();
                 //runden
                 double gerundeteZahl = RoundToNearest(zufallszahl, 0.05);
@@ -476,7 +477,7 @@ namespace sensitivity_analysis.Pages
                               35, 99, 300, 15, 10,
                               2, 1, 0, 79, 0, 0};
             */
-            PrintChart(chartyvalues[]);
+            PrintChart(chartyvalues);
 
         }
 
@@ -487,10 +488,14 @@ namespace sensitivity_analysis.Pages
             return gerundeteZahl;
         }
 
-        private void PrintChart(chartyvalues[])
+        private void PrintChart(int[] chartyvalues)
         {
             //chart1.Visible = !chart1.Visible; //Sichtbarkeit ändern
             chart1.Visible = true;
+
+            // Vor dem Hinzufügen neuer Daten die vorhandenen Daten löschen
+            chart1.Series["Simulation"].Points.Clear();
+
             for (int i = 0; i<21 ; i++)
             {
                 //Console.WriteLine(i*0.05 + "=" + chartyvalues[i]);
