@@ -12,7 +12,7 @@ namespace sensitivity_analysis.Pages
 {
     public partial class _2vars : Form
     {
-        double a, b, ab11, ab01, ab10, ab00 = -1;
+        double a, b, vara, varb, ab11, ab01, ab10, ab00 = -1;
         public _2vars()
         {
             InitializeComponent();
@@ -239,6 +239,68 @@ namespace sensitivity_analysis.Pages
             }
         }
 
+        private void GetValues_VarAandVarB(object sender)
+        {
+            ResetAbhInput();
+            if (sender == InputVarA)
+            {
+                if (!double.TryParse(InputVarA.Text.Replace(".", ","), out vara) || vara < 0)
+                {
+                    vara = 0;
+                    labelInputError1.Text = "Die Werte für Var(A) und Var(B) müssen mindenstens 0 sein.";
+                    label_PA.Text = "P(A):";
+                }
+                else {
+                    if (vara > 0) {
+                        label_PA.Text = "Mittelwert(A):";
+                    }
+                }
+            }
+            else if (sender == InputVarB)
+            {
+                if (!double.TryParse(InputVarB.Text.Replace(".", ","), out varb) || varb < 0)
+                {
+                    varb = 0;
+                    labelInputError1.Text = "Die Werte für Var(A) und Var(B) müssen mindenstens 0 sein.";
+                    label_PB.Text = "P(B):";
+                }
+                else {
+                    if (varb > 0) {
+                        label_PB.Text = "Mittelwert(B):";
+                    }
+                }
+            }
+            else
+            {
+                labelInputError1.Text = "Ungültige Eingabe";
+            }
+        }
+
+        private bool IsValidInput(double d)
+        {
+            return !(d < 0 || d > 1);
+        }
+
+        private void ResetAbhInput(string exclude = null)
+        {
+            InputAabhB11.TextChanged -= InputAabhB11_TextChanged;
+            InputAabhB01.TextChanged -= InputAabhB01_TextChanged;            
+            InputAabhB10.TextChanged -= InputAabhB10_TextChanged;
+            InputAabhB00.TextChanged -= InputAabhB00_TextChanged;
+            if (exclude != "11") InputAabhB11.Text = "";
+            if (exclude != "01") InputAabhB01.Text = "";
+            if (exclude != "10") InputAabhB10.Text = "";
+            if (exclude != "00") InputAabhB00.Text = "";
+            InputAabhB11.TextChanged += InputAabhB11_TextChanged;
+            InputAabhB01.TextChanged += InputAabhB01_TextChanged;
+            InputAabhB10.TextChanged += InputAabhB10_TextChanged;
+            InputAabhB00.TextChanged += InputAabhB00_TextChanged;
+            ab11 = -1;
+            ab01 = -1;
+            ab10 = -1;
+            ab00 = -1;
+        }
+
         // get values for P(A|B)
         private void GetValues_AabhB(object sender)
         {
@@ -436,9 +498,92 @@ namespace sensitivity_analysis.Pages
             outputAoBabh.Text = "P(R) = " + resAoBabh.ToString();
         }
 
+        private void CreateResultsVar()
+        {
+            double resVarAuBunabh, resVarAuBabh, resVarAoBunabh, resVarAoBabh;
+            double newB = 0.1;
+            for (int i = 0; i < 1000; i++) {
+                if (vara > 0) {
+                    Random rand = new Random();
+                    double u1 = 1.0 - rand.NextDouble();
+                    double u2 = 1.0 - rand.NextDouble();
+                    double randA = Math.Sqrt(vara) * Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Sin(2.0 * Math.PI * u2); ;
+                    double newA = 0.02 + randA;
+                }
+                if (varb > 0) {
+                    //PB
+                }
+                //Calc
+                //resVarAuBunabh = PA * PB;
+            }
+            //resVarAuBunabh = vara * varb;
+            //Ausgabe für Print
+            //outputvar1.Text = newA.ToString();
+
+            //Zufallszahl Generieren
+            Random random = new Random();
+
+            int[] chartyvalues = new int[21];
+            //Loop
+            for (int i = 0; i < 1000; i++)
+            {
+                //Var Wert Berechnen
+                
+                double zufallszahl = random.NextDouble();
+                //runden
+                double gerundeteZahl = RoundToNearest(zufallszahl, 0.05);
+                //zuordnen
+                chartyvalues[(int)(gerundeteZahl / 0.05)]++;
+            }
+
+            /*int[] chartyvalues = { 50, 110, 105, 95, 91,
+                              87, 77, 70, 50, 48,
+                              35, 99, 300, 15, 10,
+                              2, 1, 0, 79, 0, 0};
+            */
+            PrintChart(chartyvalues);
+
+        }
+
+        static double RoundToNearest(double value, double step)
+        {
+            // Runden auf das nächstgelegene Vielfache von "step"
+            double gerundeteZahl = Math.Round(value / step) * step;
+            return gerundeteZahl;
+        }
+
+        private void PrintChart(int[] chartyvalues)
+        {
+            //chart1.Visible = !chart1.Visible; //Sichtbarkeit ändern
+            chart1.Visible = true;
+
+            // Vor dem Hinzufügen neuer Daten die vorhandenen Daten löschen
+            chart1.Series["Simulation"].Points.Clear();
+
+            for (int i = 0; i<21 ; i++)
+            {
+                //Console.WriteLine(i*0.05 + "=" + chartyvalues[i]);
+                chart1.Series["Simulation"].Points.AddXY(i * 0.05, chartyvalues[i]);
+            }
+        }
+
         /* ----------------------------------------------
                         EventListener
            ---------------------------------------------- */
+        private void InputVarA_TextChanged(object sender, EventArgs e)
+        {
+            GetValues_VarAandVarB(sender);
+        }
+
+        private void InputVarB_TextChanged(object sender, EventArgs e)
+        {
+            GetValues_VarAandVarB(sender);
+        }
+
+        private void btn_simulate_Click(object sender, EventArgs e)
+        {
+            CreateResultsVar();
+        }
 
         private void InputA_TextChanged(object sender, EventArgs e)
         {
@@ -472,9 +617,13 @@ namespace sensitivity_analysis.Pages
 
         private void btnCalculate_Click(object sender, EventArgs e)
         {
+            if (vara > 0 || varb > 0) {
+                    CreateResultsVar();
+                }
             if (IsValidInputAB(a, b) && IsValidInput(ab11) && IsValidInput(ab01) && IsValidInput(ab10) && IsValidInput(ab00))
             {
                 CreateResults();
+                //check vara varb > 0  hier
             }
             else
             {
