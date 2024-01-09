@@ -220,7 +220,7 @@ namespace sensitivity_analysis.Pages
             {
                 if (i == exclude) continue;
                 DisableEventhandler(0, i);
-                abhInputsAB[i].Text = values[i].ToString();
+                abhInputsAB[i].Text = Math.Round(values[i], 10).ToString();
                 EnableEventhandler(0, i);
             }
         }
@@ -232,7 +232,7 @@ namespace sensitivity_analysis.Pages
             {
                 if (i == exclude) continue;
                 DisableEventhandler(1, i);
-                abhInputsBC[i].Text = values[i].ToString();
+                abhInputsBC[i].Text = Math.Round(values[i], 10).ToString();
                 EnableEventhandler(1, i);
             }
         }
@@ -1118,7 +1118,7 @@ namespace sensitivity_analysis.Pages
             }
 
             // output result
-            outputUnabh.Text = "P(R) = " + resABCunabh.ToString();
+            outputUnabh.Text = "P(R) = " + Math.Round(resABCunabh, 10).ToString();
 
             return resABCunabh;
         }
@@ -1166,7 +1166,7 @@ namespace sensitivity_analysis.Pages
             }
 
             // output result
-            outputAbh.Text = "P(R) = " + resABCabh.ToString();
+            outputAbh.Text = "P(R) = " + Math.Round(resABCabh, 10).ToString();
 
             return resABCabh;
         }
@@ -1174,9 +1174,9 @@ namespace sensitivity_analysis.Pages
         // calculates and outputs the ratio between the 2 values
         private void CreateAbw(double unabh, double abh)
         {
-            double resAbw = Math.Round((abh * 100 / unabh) - 100, 2);
-            if (resAbw > 0) outputAbh.Text = outputAbh.Text + " (Abweichung: +" + resAbw.ToString() + "%)";
-            else outputAbh.Text = outputAbh.Text + " (Abweichung: " + resAbw.ToString() + "%)";
+            double resAbw = (abh * 100 / unabh) - 100;
+            if (resAbw > 0) outputAbh.Text = outputAbh.Text + " (Abweichung: +" + Math.Round(resAbw, 2).ToString() + "%)";
+            else outputAbh.Text = outputAbh.Text + " (Abweichung: " + Math.Round(resAbw, 2).ToString() + "%)";
         }
 
         /* ----------------------------------------------
