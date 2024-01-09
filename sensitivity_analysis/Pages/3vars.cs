@@ -1087,7 +1087,7 @@ namespace sensitivity_analysis.Pages
         }
 
         // create results for the case that the random variables A,B and C are independent
-        private void CreateUnabhResults()
+        private double CreateUnabhResults()
         {
             double resABunabh, resABCunabh = 0;
 
@@ -1119,12 +1119,14 @@ namespace sensitivity_analysis.Pages
 
             // output result
             outputUnabh.Text = "P(R) = " + resABCunabh.ToString();
+
+            return resABCunabh;
         }
 
         // create results for the case that the random variables A,B and C are not independent
-        private void CreateAbhResults()
+        private double CreateAbhResults()
         {
-            double res = 0;
+            double resABCabh = 0;
             int[] rel_arr;
 
             // organize values as array for better calculation
@@ -1160,11 +1162,21 @@ namespace sensitivity_analysis.Pages
             // sum over all 8 possible combinations of states of the random variables
             for (int c = 0; c < 8; c++)
             {
-                res += c_arr[c] * rel_arr[c] * BabhC_arr[c] * AabhB_arr[c];
+                resABCabh += c_arr[c] * rel_arr[c] * BabhC_arr[c] * AabhB_arr[c];
             }
 
             // output result
-            outputAbh.Text = "P(R) = " + res.ToString();
+            outputAbh.Text = "P(R) = " + resABCabh.ToString();
+
+            return resABCabh;
+        }
+
+        // calculates and outputs the ratio between the 2 values
+        private void CreateAbw(double unabh, double abh)
+        {
+            double resAbw = Math.Round((abh * 100 / unabh) - 100, 2);
+            if (resAbw > 0) outputAbh.Text = outputAbh.Text + " (Abweichung: +" + resAbw.ToString() + "%)";
+            else outputAbh.Text = outputAbh.Text + " (Abweichung: " + resAbw.ToString() + "%)";
         }
 
         /* ----------------------------------------------
@@ -1272,8 +1284,7 @@ namespace sensitivity_analysis.Pages
             {
                 if (InputAabhB111.Text == "") SetAunabhB();
                 if (InputBabhC111.Text == "") SetBunabhC();
-                CreateUnabhResults();
-                CreateAbhResults();
+                CreateAbw(CreateUnabhResults(), CreateAbhResults());
             }
             else
             {
