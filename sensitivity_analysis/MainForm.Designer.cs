@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.pageDisplay = new System.Windows.Forms.Panel();
             this.btn3vars = new System.Windows.Forms.Button();
             this.btn2vars = new System.Windows.Forms.Button();
-            this.pageDisplay = new System.Windows.Forms.Panel();
             this.panelMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,6 +46,14 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(220, 561);
             this.panelMenu.TabIndex = 0;
+            // 
+            // pageDisplay
+            // 
+            this.pageDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pageDisplay.Location = new System.Drawing.Point(220, 0);
+            this.pageDisplay.Name = "pageDisplay";
+            this.pageDisplay.Size = new System.Drawing.Size(634, 561);
+            this.pageDisplay.TabIndex = 1;
             // 
             // btn3vars
             // 
@@ -74,7 +82,7 @@
             this.btn2vars.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn2vars.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn2vars.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btn2vars.Image = global::sensitivity_analysis.Properties.Resources.abc1;
+            this.btn2vars.Image = ((System.Drawing.Image)(resources.GetObject("btn2vars.Image")));
             this.btn2vars.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn2vars.Location = new System.Drawing.Point(0, 0);
             this.btn2vars.Name = "btn2vars";
@@ -86,14 +94,6 @@
             this.btn2vars.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn2vars.UseVisualStyleBackColor = true;
             this.btn2vars.Click += new System.EventHandler(this.btn2vars_Click);
-            // 
-            // pageDisplay
-            // 
-            this.pageDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pageDisplay.Location = new System.Drawing.Point(220, 0);
-            this.pageDisplay.Name = "pageDisplay";
-            this.pageDisplay.Size = new System.Drawing.Size(634, 561);
-            this.pageDisplay.TabIndex = 1;
             // 
             // MainForm
             // 
