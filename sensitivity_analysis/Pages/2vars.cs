@@ -498,6 +498,30 @@ namespace sensitivity_analysis.Pages
             outputAoBabh.Text = "P(R) = " + resAoBabh.ToString();
         }
 
+        // Funktion zur Berechnung der Wahrscheinlichkeit basierend auf Z-Normverteilung
+        static double CalculateProbability(double a, double vara, double zufallszahl)
+        {
+            double z = (zufallszahl - a) / vara;
+            return StandardNormalDistributionCumulative(z);
+        }
+
+        // Näherungsweise Berechnung der Standardnormalverteilungsfunktion (Z-Normverteilungsfunktion)
+        static double StandardNormalDistributionCumulative(double x)
+        {
+            // Implementierung der Näherung der Fehlerfunktion (Erf)
+            return 0.5 * (1 + ErfApproximation(x / Math.Sqrt(2)));
+        }
+
+        // Näherungsweise Berechnung der Fehlerfunktion (Erf)
+        static double ErfApproximation(double x)
+        {
+            // Implementierung der Näherung der Fehlerfunktion (Erf)
+            // Hier könntest du eine geeignete Näherungsfunktion verwenden
+            // Eine einfache Approximation könnte beispielsweise die Taylor-Reihe sein
+            return x - Math.Pow(x, 3) / 3 + Math.Pow(x, 5) / 10 - Math.Pow(x, 7) / 42 + Math.Pow(x, 9) / 216;
+        }
+
+
         private void CreateResultsVar()
         {
             double resVarAuBunabh, resVarAuBabh, resVarAoBunabh, resVarAoBabh;
@@ -530,8 +554,19 @@ namespace sensitivity_analysis.Pages
                 //Var Wert Berechnen
                 
                 double zufallszahl = random.NextDouble();
+
+                
+                double resvara = CalculateProbability(a, vara, zufallszahl);
+                outputvar1.Text = resvara.ToString();
+
+                //double resvara= a;
+                //outputvar1.Text =
+                
+                double calc = zufallszahl;
                 //runden
-                double gerundeteZahl = RoundToNearest(zufallszahl, 0.05);
+                //int index = (int)(calc * 1000);
+
+                double gerundeteZahl = RoundToNearest(calc, 0.05);
                 //zuordnen
                 chartyvalues[(int)(gerundeteZahl / 0.05)]++;
             }
