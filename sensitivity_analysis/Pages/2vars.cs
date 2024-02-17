@@ -339,9 +339,9 @@ namespace sensitivity_analysis.Pages
                         ab10 = (a - ab11 * b) / not(b);
                         ab00 = not(ab10);
                         DisableEventhandler();
-                        InputAabhB01.Text = ab01.ToString();
-                        InputAabhB10.Text = ab10.ToString();
-                        InputAabhB00.Text = ab00.ToString();
+                        InputAabhB01.Text = Math.Round(ab01, 10).ToString();
+                        InputAabhB10.Text = Math.Round(ab10, 10).ToString();
+                        InputAabhB00.Text = Math.Round(ab00, 10).ToString();
                         EnableEventhandler();
                         labelInputError2.Text = String.Empty;
                     }
@@ -382,9 +382,9 @@ namespace sensitivity_analysis.Pages
                         ab10 = (a - ab11 * b) / not(b);
                         ab00 = not(ab10);
                         DisableEventhandler();
-                        InputAabhB11.Text = ab11.ToString();
-                        InputAabhB10.Text = ab10.ToString();
-                        InputAabhB00.Text = ab00.ToString();
+                        InputAabhB11.Text = Math.Round(ab11,10).ToString();
+                        InputAabhB10.Text = Math.Round(ab10,10).ToString();
+                        InputAabhB00.Text = Math.Round(ab00,10).ToString();
                         EnableEventhandler();
                         labelInputError2.Text = String.Empty;
                     }
@@ -425,9 +425,9 @@ namespace sensitivity_analysis.Pages
                         ab11 = (a - ab10 * not(b)) / b;
                         ab01 = not(ab11);
                         DisableEventhandler();
-                        InputAabhB00.Text = ab00.ToString();
-                        InputAabhB11.Text = ab11.ToString();
-                        InputAabhB01.Text = ab01.ToString();
+                        InputAabhB00.Text = Math.Round(ab00,10).ToString();
+                        InputAabhB11.Text = Math.Round(ab11,10).ToString();
+                        InputAabhB01.Text = Math.Round(ab01,10).ToString();
                         EnableEventhandler();
                         labelInputError2.Text = String.Empty;
                     }
@@ -468,9 +468,9 @@ namespace sensitivity_analysis.Pages
                         ab11 = (a - ab10 * not(b)) / b;
                         ab01 = not(ab11);
                         DisableEventhandler();
-                        InputAabhB10.Text = ab10.ToString();
-                        InputAabhB11.Text = ab11.ToString();
-                        InputAabhB01.Text = ab01.ToString();
+                        InputAabhB10.Text = Math.Round(ab10,10).ToString();
+                        InputAabhB11.Text = Math.Round(ab11,10).ToString();
+                        InputAabhB01.Text = Math.Round(ab01,10).ToString();
                         EnableEventhandler();
                         labelInputError2.Text = String.Empty;
                     }
@@ -481,7 +481,7 @@ namespace sensitivity_analysis.Pages
         // create results for dependent and independent variables
         private void CreateResults()
         {
-            double resAuBunabh, resAuBabh, resAoBunabh, resAoBabh;
+            double resAuBunabh, resAuBabh, resAoBunabh, resAoBabh, resAbwAuB, resAbwAoB;
 
             resAuBunabh = a * b;
 
@@ -491,11 +491,19 @@ namespace sensitivity_analysis.Pages
 
             resAoBabh = ab11 * b + ab10 * not(b) + ab01 * b;
 
+            resAbwAuB = (resAuBabh * 100 / resAuBunabh) - 100;
+
+            resAbwAoB = (resAoBabh * 100 / resAoBunabh) - 100;
+
             // output results
-            outputAuBunabh.Text = "P(R) = " + resAuBunabh.ToString();
-            outputAoBunabh.Text = "P(R) = " + resAoBunabh.ToString();
-            outputAuBabh.Text = "P(R) = " + resAuBabh.ToString();
-            outputAoBabh.Text = "P(R) = " + resAoBabh.ToString();
+            outputAuBunabh.Text = "P(R) = " + Math.Round(resAuBunabh, 10).ToString();
+            outputAoBunabh.Text = "P(R) = " + Math.Round(resAoBunabh, 10).ToString();
+            outputAuBabh.Text = "P(R) = " + Math.Round(resAuBabh, 10).ToString();
+            outputAoBabh.Text = "P(R) = " + Math.Round(resAoBabh, 10).ToString();
+            if (resAbwAuB > 0) outputAuBabh.Text = outputAuBabh.Text + " (Abweichung: +" + Math.Round(resAbwAuB, 2).ToString() + "%)";
+            else outputAuBabh.Text = outputAuBabh.Text + " (Abweichung: " + Math.Round(resAbwAuB, 2).ToString() + "%)";
+            if (resAbwAoB > 0) outputAoBabh.Text = outputAoBabh.Text + " (Abweichung: +" + Math.Round(resAbwAoB, 2).ToString() + "%)";
+            else outputAoBabh.Text = outputAoBabh.Text + " (Abweichung: " + Math.Round(resAbwAoB, 2).ToString() + "%)";
         }
 
         private void CreateResultsVar()

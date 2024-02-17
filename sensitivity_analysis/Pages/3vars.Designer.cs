@@ -164,7 +164,7 @@
             this.btnCalculate.Location = new System.Drawing.Point(13, 664);
             this.btnCalculate.Name = "btnCalculate";
             this.btnCalculate.Size = new System.Drawing.Size(75, 23);
-            this.btnCalculate.TabIndex = 30;
+            this.btnCalculate.TabIndex = 22;
             this.btnCalculate.Text = "Berechnen";
             this.btnCalculate.UseVisualStyleBackColor = true;
             this.btnCalculate.Click += new System.EventHandler(this.btnCalculate_Click);
@@ -267,7 +267,7 @@
             this.tableProb.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableProb.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableProb.Size = new System.Drawing.Size(552, 288);
-            this.tableProb.TabIndex = 30;
+            this.tableProb.TabIndex = 4;
             // 
             // InputBabhC000
             // 
@@ -276,7 +276,7 @@
             this.InputBabhC000.Location = new System.Drawing.Point(411, 262);
             this.InputBabhC000.Name = "InputBabhC000";
             this.InputBabhC000.Size = new System.Drawing.Size(138, 21);
-            this.InputBabhC000.TabIndex = 27;
+            this.InputBabhC000.TabIndex = 19;
             this.InputBabhC000.TextChanged += new System.EventHandler(this.InputBabhC000_TextChanged);
             // 
             // InputBabhC100
@@ -286,7 +286,7 @@
             this.InputBabhC100.Location = new System.Drawing.Point(411, 231);
             this.InputBabhC100.Name = "InputBabhC100";
             this.InputBabhC100.Size = new System.Drawing.Size(138, 21);
-            this.InputBabhC100.TabIndex = 26;
+            this.InputBabhC100.TabIndex = 17;
             this.InputBabhC100.TextChanged += new System.EventHandler(this.InputBabhC100_TextChanged);
             // 
             // InputBabhC010
@@ -296,7 +296,7 @@
             this.InputBabhC010.Location = new System.Drawing.Point(411, 200);
             this.InputBabhC010.Name = "InputBabhC010";
             this.InputBabhC010.Size = new System.Drawing.Size(138, 21);
-            this.InputBabhC010.TabIndex = 25;
+            this.InputBabhC010.TabIndex = 15;
             this.InputBabhC010.TextChanged += new System.EventHandler(this.InputBabhC010_TextChanged);
             // 
             // InputBabhC110
@@ -306,7 +306,7 @@
             this.InputBabhC110.Location = new System.Drawing.Point(411, 169);
             this.InputBabhC110.Name = "InputBabhC110";
             this.InputBabhC110.Size = new System.Drawing.Size(138, 21);
-            this.InputBabhC110.TabIndex = 24;
+            this.InputBabhC110.TabIndex = 13;
             this.InputBabhC110.TextChanged += new System.EventHandler(this.InputBabhC110_TextChanged);
             // 
             // InputBabhC001
@@ -316,7 +316,7 @@
             this.InputBabhC001.Location = new System.Drawing.Point(411, 138);
             this.InputBabhC001.Name = "InputBabhC001";
             this.InputBabhC001.Size = new System.Drawing.Size(138, 21);
-            this.InputBabhC001.TabIndex = 23;
+            this.InputBabhC001.TabIndex = 11;
             this.InputBabhC001.TextChanged += new System.EventHandler(this.InputBabhC001_TextChanged);
             // 
             // InputBabhC101
@@ -326,7 +326,7 @@
             this.InputBabhC101.Location = new System.Drawing.Point(411, 107);
             this.InputBabhC101.Name = "InputBabhC101";
             this.InputBabhC101.Size = new System.Drawing.Size(138, 21);
-            this.InputBabhC101.TabIndex = 22;
+            this.InputBabhC101.TabIndex = 9;
             this.InputBabhC101.TextChanged += new System.EventHandler(this.InputBabhC101_TextChanged);
             // 
             // InputBabhC011
@@ -336,7 +336,7 @@
             this.InputBabhC011.Location = new System.Drawing.Point(411, 76);
             this.InputBabhC011.Name = "InputBabhC011";
             this.InputBabhC011.Size = new System.Drawing.Size(138, 21);
-            this.InputBabhC011.TabIndex = 21;
+            this.InputBabhC011.TabIndex = 7;
             this.InputBabhC011.TextChanged += new System.EventHandler(this.InputBabhC011_TextChanged);
             // 
             // InputBabhC111
@@ -346,7 +346,7 @@
             this.InputBabhC111.Location = new System.Drawing.Point(411, 45);
             this.InputBabhC111.Name = "InputBabhC111";
             this.InputBabhC111.Size = new System.Drawing.Size(138, 21);
-            this.InputBabhC111.TabIndex = 20;
+            this.InputBabhC111.TabIndex = 5;
             this.InputBabhC111.TextChanged += new System.EventHandler(this.InputBabhC111_TextChanged);
             // 
             // label_PBuC
@@ -871,7 +871,7 @@
             this.InputAabhB001.Location = new System.Drawing.Point(267, 138);
             this.InputAabhB001.Name = "InputAabhB001";
             this.InputAabhB001.Size = new System.Drawing.Size(138, 21);
-            this.InputAabhB001.TabIndex = 7;
+            this.InputAabhB001.TabIndex = 10;
             this.InputAabhB001.TextChanged += new System.EventHandler(this.InputAabhB001_TextChanged);
             // 
             // InputAabhB101
@@ -881,7 +881,7 @@
             this.InputAabhB101.Location = new System.Drawing.Point(267, 107);
             this.InputAabhB101.Name = "InputAabhB101";
             this.InputAabhB101.Size = new System.Drawing.Size(138, 21);
-            this.InputAabhB101.TabIndex = 6;
+            this.InputAabhB101.TabIndex = 8;
             this.InputAabhB101.TextChanged += new System.EventHandler(this.InputAabhB101_TextChanged);
             // 
             // InputAabhB011
@@ -891,7 +891,7 @@
             this.InputAabhB011.Location = new System.Drawing.Point(267, 76);
             this.InputAabhB011.Name = "InputAabhB011";
             this.InputAabhB011.Size = new System.Drawing.Size(138, 21);
-            this.InputAabhB011.TabIndex = 5;
+            this.InputAabhB011.TabIndex = 6;
             this.InputAabhB011.TextChanged += new System.EventHandler(this.InputAabhB011_TextChanged);
             // 
             // InputAabhB111
@@ -911,7 +911,7 @@
             this.InputAabhB110.Location = new System.Drawing.Point(267, 169);
             this.InputAabhB110.Name = "InputAabhB110";
             this.InputAabhB110.Size = new System.Drawing.Size(138, 21);
-            this.InputAabhB110.TabIndex = 8;
+            this.InputAabhB110.TabIndex = 12;
             this.InputAabhB110.TextChanged += new System.EventHandler(this.InputAabhB110_TextChanged);
             // 
             // InputAabhB010
@@ -921,7 +921,7 @@
             this.InputAabhB010.Location = new System.Drawing.Point(267, 200);
             this.InputAabhB010.Name = "InputAabhB010";
             this.InputAabhB010.Size = new System.Drawing.Size(138, 21);
-            this.InputAabhB010.TabIndex = 9;
+            this.InputAabhB010.TabIndex = 14;
             this.InputAabhB010.TextChanged += new System.EventHandler(this.InputAabhB010_TextChanged);
             // 
             // InputAabhB100
@@ -931,7 +931,7 @@
             this.InputAabhB100.Location = new System.Drawing.Point(267, 231);
             this.InputAabhB100.Name = "InputAabhB100";
             this.InputAabhB100.Size = new System.Drawing.Size(138, 21);
-            this.InputAabhB100.TabIndex = 10;
+            this.InputAabhB100.TabIndex = 16;
             this.InputAabhB100.TextChanged += new System.EventHandler(this.InputAabhB100_TextChanged);
             // 
             // InputAabhB000
@@ -941,7 +941,7 @@
             this.InputAabhB000.Location = new System.Drawing.Point(267, 262);
             this.InputAabhB000.Name = "InputAabhB000";
             this.InputAabhB000.Size = new System.Drawing.Size(138, 21);
-            this.InputAabhB000.TabIndex = 11;
+            this.InputAabhB000.TabIndex = 18;
             this.InputAabhB000.TextChanged += new System.EventHandler(this.InputAabhB000_TextChanged);
             // 
             // label_A
@@ -1108,7 +1108,7 @@
             this.relAB.Location = new System.Drawing.Point(67, 520);
             this.relAB.Name = "relAB";
             this.relAB.Size = new System.Drawing.Size(57, 21);
-            this.relAB.TabIndex = 28;
+            this.relAB.TabIndex = 20;
             // 
             // relABC
             // 
@@ -1120,7 +1120,7 @@
             this.relABC.Location = new System.Drawing.Point(107, 574);
             this.relABC.Name = "relABC";
             this.relABC.Size = new System.Drawing.Size(57, 21);
-            this.relABC.TabIndex = 29;
+            this.relABC.TabIndex = 21;
             // 
             // label12
             // 
