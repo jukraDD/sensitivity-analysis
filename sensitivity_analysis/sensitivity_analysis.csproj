@@ -145,6 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="2vars_blue.ico" />
+    <None Include="Resources\2vars.png" />
     <None Include="Resources\3vars.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
